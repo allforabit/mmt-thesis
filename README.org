@@ -4,4 +4,5 @@
 MMT thesis repo.
 
 * Links
+- https://allforabit.github.io/mmt-thesis/charts.html
 - 
