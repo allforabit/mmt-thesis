@@ -1,0 +1,55 @@
+#+TITLE:    MMT Thesis 2017
+#+AUTHOR:    Kevin Nolan
+#+EMAIL:     kevinn@tcd.ie
+* Proposal
+
+** Beyond multitrack - improving user experience in mobile music composition by incorporating ideas from graphic editors
+
+:rough-notes:
+Since the introduction of the multitouch smartphone some years ago a proliferation of music creation apps has occurred. The form of many of these has been as an emulation of existing systems such as a multi track tape recorder or a drum machine. This more or less mirrors similar trends on the desktop where mainstream applications such as cubase and pro tools have modelled the multitrack recording environments dating back to the beginnings of studio recording. Alongside these however, a good deal of more experimental systems have been released such the music n series (csound, pd max msp), the open music platform by ircam, common music.  
+
+Specifically this research will focus on the potential benefits of incorporating user interface concepts from both 2d and 3d graphics programs and code development. 
+
+The exploration would be augmented with the creation of an android application called "Melodysketch" which would be used to prototype findings and ideas.
+
+- Usability tests
+- Spacemacs and learnability
+- Studies into multitouch systems (weaknesses, strengths)
+- Simple versus easy (M.s. Word vs Vim)
+- Created using functional programming (Clojurescript & react for the frontend) & faust for the dsp.
+- Spatial aspect to the app?? Spatial mixing, tracked headphones
+
+* Ideas
+- Screenshots of awkward multitrack interfaces
+- Outline some natural scenarios
+  - Person playing with objects that have real physics (springs, bouncy ball)
+- Target audience??
+
+:END:
+
+*** Analysis 
+**** Background research
+ - Survey of existing systems that use interfaces inspired by graphic interfaces
+ - Existing musical creation/composition systems
+ - Multitouch user experience research
+
+*** Hypothesis
+
+*** Implementation
+**** Some example ideas 
+***** Break away from track 
+***** Arbitrary grouping and layering
+***** Metadata
+
+*** Test
+
+
+
+* References
+- https://www.ableton.com/en/live/feature-comparison/#export-enabled-ios-apps
+- http://researcharchive.vuw.ac.nz/handle/10063/590 - problems with daws
+- http://www.factmag.com/2016/10/26/ableton-live-set-export-feature-ios-apps/
+- http://eds.a.ebscohost.com/eds/pdfviewer/pdfviewer?sid=a698aa9b-a007-4c0a-95f0-5edd6297d923%40sessionmgr4007&vid=0&hid=4111 - smule guy, ios apps
+- https://www.ableton.com/en/blog/visionary-designers-and-their-instruments/
+- https://ccrma.stanford.edu/~rmichon/publications/doc/SMC16-nuance.pdf
+- http://www.moforte.com/wp-content/uploads/2013/12/JASA_Presentation_12.5.2013.pdf

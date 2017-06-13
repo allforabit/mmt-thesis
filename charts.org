@@ -1,0 +1,67 @@
+#+TITLE: Charts
+#+DESCRIPTION: Some charts describing flows in SonicSketch
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/readtheorg/css/htmlize.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/readtheorg/css/readtheorg.css"/>
+
+#+HTML_HEAD: <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+#+HTML_HEAD: <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+#+HTML_HEAD: <script type="text/javascript" src="http://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+#+HTML_HEAD: <script type="text/javascript" src="http://www.pirilampo.org/styles/readtheorg/js/readtheorg.js"></script>
+
+* Overall app
+
+#+BEGIN_SRC plantuml :file tryout.png
+  scale 900 width
+  [*] --> Default
+
+  state Default {
+    [*] --> Idle
+    Idle --> AddingNote : EvPointerDown
+    AddingNote --> Idle : EvPointerUp
+  }
+
+  state AddingNote {
+    [*] --> StartNote
+    StartNote --> DefineFrequencyEnvelope : EvDragRight
+    StartNote --> DefineAmplitudeEnvelope : EvDragUp
+
+    state DefineFrequencyEnvelope {
+      [*] --> EditFreqEnvelope
+      EditFreqEnvelope -left-> UndoFreqEnv : EvDragLeft
+      UndoFreqEnv -> EditFreqEnvelope : EvDragRight
+      UndoFreqEnv -down-> PullFreqEnvelope : EvDragLeftVertAwayFromOrigPath
+      note left of PullFreqEnvelope : Users veers away from originally drawn path
+    }
+  }
+
+  state EditNote {
+    [*] --> StartEditingNote
+  }
+
+#+END_SRC
+
+#+RESULTS:
+# [[file:tryout.png]]
+
+* Sketch walkthrough
+
+#+CAPTION: Attractor 01
+#+NAME:   fig:attract
+
+#+BEGIN_center
+#+ATTR_LaTeX: :height 0.2\textwidth :center
+[[./assets/attractor/attractor-01 (Small).png]]
+#+ATTR_LaTeX: :height 0.2\textwidth :center
+[[./assets/attractor/attractor-02 (Small).png]]
+#+ATTR_LaTeX: :height 0.2\textwidth :center
+[[./assets/attractor/attractor-03 (Small).png]]
+#+ATTR_LaTeX: :height 0.2\textwidth :center
+[[./assets/attractor/attractor-04 (Small).png]]
+#+END_center
+
+
+
+
+# Local Variables:
+# eval: (save-excursion (org-babel-goto-named-src-block "startup") (org-babel-execute-src-block))
+# End:

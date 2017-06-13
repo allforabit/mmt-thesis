@@ -1,0 +1,193 @@
+#+TITLE: Thesis notes
+#+options: toc:nil
+#+latex-header: \usepackage{version=3}{mchem}
+#+latex-header: \usepackage{float}
+#+LATEX_HEADER: \usepackage{natbib}
+#+BIBLIOGRAPHY: research-thesis-proposal.bib
+
+
+* Framing
+How the project could be framed
+** As a creative tool
+*** For composers
+*** For novices
+*** For music producers (edm, etc)
+** As an interactive composition
+Reference appraisal of Golan Levin
+** As a composition
+
+* Software programs
+** OpenMusic                                     :notation:algorithmic:ircam:
+** Midishare                             :notation:algorithmic:orlarey:grame:
+** Faust                                                              :grame:
+
+* Refs
+** Developing a flexible and expressive realtime polyphonic wave terrain synthesis instrument based on a visual and multidimensional methodology
+ :PROPERTIES:
+  :Custom_ID: james_developing_2005
+  :AUTHOR: James
+  :JOURNAL: 
+  :YEAR: 
+  :VOLUME: 
+  :PAGES: 
+  :DOI: 
+  :URL: http://ro.ecu.edu.au/theses/107/
+ :END:
+
+This is a thing about things and stuff! citeyear:james_developing_2005
+
+** Imagining the Tenth Dimension - 2012 Version
+ :PROPERTIES:
+  :Custom_ID: 10thdim_imagining
+  :AUTHOR: 10thdim
+  :JOURNAL: 
+  :YEAR: 
+  :VOLUME: 
+  :PAGES: 
+  :DOI: 
+  :URL: https://www.youtube.com/watch?v=zqeqW3g8N2Q
+ :END:
+
+cite:10thdim_imagining_2012
+
+This is a thing
+
+** Music navigation with symbols and layers: toward content browsing with {IEEE} 1599 {XML} encoding
+ :PROPERTIES:
+  :Custom_ID: baggi_music_2013
+  :AUTHOR: Baggi \& Haus
+  :JOURNAL: 
+  :YEAR: 
+  :VOLUME: 
+  :PAGES: 
+  :DOI: 
+  :URL: 
+ :END:
+
+cite:baggi_music_2013
+
+
+** 2013 - Grammar-based automated music composition in Haskell
+ :PROPERTIES:
+  :Custom_ID: quick13_gramm_haskel
+  :AUTHOR: Donya Quick \& Paul Hudak
+  :JOURNAL: 
+  :YEAR: 2013
+  :VOLUME: 
+  :PAGES: nil
+  :DOI: 10.1145/2505341.2505345
+  :URL: https://doi.org/10.1145/2505341.2505345
+ :END:
+
+** 2014 - Real-time {Music} {Composition} through {P}-timed {Petri} {Nets}.
+ :PROPERTIES:
+  :Custom_ID: barate_real-time_2014
+  :AUTHOR: Barate, Haus \& Ludovico
+  :JOURNAL: 
+  :YEAR: 2014
+  :VOLUME: 
+  :PAGES: 
+  :DOI: 
+  :URL: http://smc.afim-asso.org/smc-icmc-2014/images/proceedings/OS25-B02-Real-timeMusicComposition.pdf
+ :END:
+
+cite:barate_real-time_2014
+
+#+BEGIN_QUOTE
+As regards future works, since Petri nets are a formalism
+usually far from the way of thinking of a traditional composer,
+software tools should be designed and developed to
+implement a musician-oriented interface. 
+#+END
+
+
+** 1971 - Norman {McLaren} : {Synchromy}
+ :PROPERTIES:
+  :Custom_ID: anathemecollection_norman_1971
+  :AUTHOR: AnaThemeCollection
+  :JOURNAL: 
+  :YEAR: 1971
+  :VOLUME: 
+  :PAGES: 
+  :DOI: 
+  :URL: https://www.youtube.com/watch?v=jiJR1ET715M
+ :END:
+
+cite:anathemecollection_norman_1971
+
+Nice video
+* Books
+** XV. Liszt's Faust Symphony: A Semantic Analysis
+ :PROPERTIES:
+  :Custom_ID: il_xv
+  :AUTHOR: 
+  :JOURNAL: 
+  :YEAR: nil
+  :VOLUME: 
+  :PAGES: nil
+  :DOI: 10.3726/978-3-653-05301-2/23
+  :URL: https://doi.org/10.3726/978-3-653-05301-2/23
+ :END:
+
+cite:il_xv
+*** Approach to things
+Yes it is
+
+
+bibliographystyle:unsrt 
+bibliography:references.bib
+
+
+cite:quick13_gramm_haskel
+
+
+
+** TODO 2011 - Brave {{NUI}} World: Designing Natural User Interfaces for Touch and Gesture
+ :PROPERTIES:
+  :Custom_ID: wigdor_brave_2011
+  :AUTHOR: Wigdor \& Wixon
+  :JOURNAL: 
+  :YEAR: 2011
+  :VOLUME: 
+  :PAGES: 
+  :DOI: 
+  :URL: 
+ :END:
+
+cite:wigdor_brave_2011
+
+This book has some excellent ideas contained within it!!!
+
+#+BEGIN_QUOTE
+Hello world how is that you are such a great world!
+#+END_QUOTE
+
+* People
+** Orlarey                                 :grame:faust:functional:midishare:
+** Schmidt, Karsten :clojure:th.ing:generative:
+
+* Institutions
+  :PROPERTIES:
+  :CUSTOM_ID: inst
+  :END:
+** Grame
+   :PROPERTIES:
+   :CUSTOM_ID: grame
+   :END:
+
+** TODO 2009 - The {{Musical Interface Technology Design Space}}
+ :PROPERTIES:
+  :Custom_ID: overholt_musical_2009
+  :AUTHOR: Overholt
+  :JOURNAL: Organised Sound
+  :YEAR: 2009
+  :VOLUME: 14
+  :PAGES: 217
+  :DOI: 10.1017/S1355771809000326
+  :URL: 
+ :END:
+
+cite:overholt_musical_2009
+
+This is a thing!!!
+
