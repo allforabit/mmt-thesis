@@ -1,0 +1,95 @@
+% Created 2017-02-10 Fri 16:17
+% Intended LaTeX compiler: pdflatex
+\documentclass[a4paper,twoside,twocolumn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[margin=0.75in]{geometry}
+\author{Kevin Nolan}
+\date{\today}
+\title{MMT thesis outline idea}
+\hypersetup{
+ pdfauthor={Kevin Nolan},
+ pdftitle={MMT thesis outline idea},
+ pdfkeywords={},
+ pdfsubject={Thesis overview},
+ pdfcreator={Emacs 25.1.1 (Org mode 9.0.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+
+\section{Project area}
+\label{sec:org6264e99}
+The project that I propose is to build a software tool called "MelodySketch" that explores alternative means of music creation using a sketching metaphor. Specifically, the software and thesis will attempt to outline some innovations and improvements to the time-pitch graphic display, most often manifesting itself as a piano roll. The motivation and background to the work is similar to a previous thesis completed by William Coleman, Audio Painter. 
+
+Of particular interest in this thesis is the discussion of the application, HighC (\url{http://highc.org}) which is a graphic musical input system inspired by the classic UPIC environment. HighC is based on a symbolic system of brush strokes, making it closer to a vector graphics system than a bitmap graphics system. This aligns closely to the concept in mind for MelodySketch, which will not only allow the capture of gestural input through the multitouch screen, but will also allow the manipulation of these strokes after they have been input. The focus of the work on the project will be to investigate the strengths and weaknesses of this system and to further refine and develop the concepts it uses when used in a multitouch environment.  
+
+
+\section{Subjects for research topic}
+\label{sec:orgcdbd972}
+\subsection{History of notation, visualization \& graphic systems to represent music}
+\label{sec:org3219f2b}
+A broad survey of the history of the domain of music's representation in the visual mode.
+\begin{description}
+\item[{Western notation}] particularly it's use in contemporary music where it has been expanded and adapted for music that may lack the tonality \& metric rhythm in earlier classical music
+\item[{Idiosyncratic notation systems}] used by composers such as Stockhausen \& Ligeti
+\item[{Sound patterns}] by Ernst Chladni
+\item[{Sound symbolism}] explored by Liam O'Sullivan \cite{boland_visualizing_2011}, \cite{sullivan_it_2013}  
+\begin{description}
+\item[{Wolfgang Kohler's 'maluma' and 'takete'}] where aural stimulus can be mapped to shape (although maybe only relevant to certain cultures)
+\item[{Rastograms}] an alternative way of visualizing audio content
+\item[{Golan Levin Aves}] visual systems developed as an alternative to knobs and sliders for music control
+\end{description}
+
+\item[{Animated music visualizations}] such as the following slightly cheesy but effective example: \url{https://www.youtube.com/watch?v=5IXMpUhuBMs}
+\end{description}
+
+\subsection{Music modelling}
+\label{sec:org2c4cc7b}
+To generate useful musical output based on input "painted" gestures, a solid underlying musical model will need to be in place. This will likely be built in \href{https://clojure.org}{clojure} but will make use of ideas in Paul Hudak's Euterpea system (\url{http://haskell.cs.yale.edu/euterpea/}), as well as his books, "The Haskell school of Expression" \cite{hudak_haskell_2000} and "The haskell School of music" \cite{hudak_haskell_2008}. In addition, the topics covered in the algorithmic composition section of "The computer music tutorial" by Curtis Roades gives a good survey of potential techniques that may be of use. 
+
+\subsection{Brush stroke modelling}
+\label{sec:org085c0f4}
+While it will not be a primary focus of the project, a reasonably realistic brush stroke algorithm will be put in place based on resources such as "
+A Brush Stroke Synthesis Toolbox". \cite{diverdi_brush_2013}.
+
+\subsection{User interface design}
+\label{sec:orgdc2a532}
+The philosophy of the interface design will attempt to follow as closely as possible to the guidelines offered by NUI (Natural User Interface) as detailed in "Brave NUI World" \cite{wigdor_brave_2011}. The aim of the interface will not necessarily be to beginner friendly but to allow a user to gain a certain level of mastery and allow for a state of flow similar to playing an instrument. 
+
+\section{Supervisors}
+\label{sec:org3fb01a9}
+A this point, the preferred supervisor would be Liam O'Sullivan with whom there have been some meetings. Mark Linnane and/or Garett Sholdice may be considered as advisors but haven't been contacted with regards to the project at this stage.
+
+\section{Concerns}
+\label{sec:orga0e586d}
+\subsection{Introduction and research question to be answered}
+\label{sec:org98719e6}
+The research question being answered is, can the music creation process be improved by the use of the novel 'painterly' UI approaches in HighC in a multitouch environment. Some issues around this may be establishing and clarifying the issues and problems that are exhibited in existing systems and to justify the creation of yet another musical composition interface. 
+
+\subsection{Background research areas to be considered}
+\label{sec:org1c73600}
+Background research will covered will be musical notation and representation, software implementations of composition systems and some background on user interface design. Due to the broadness of these areas, a good deal judiciousness will be required to cover the most relevant areas. 
+
+\subsection{Likely implementation details}
+\label{sec:org27a33ef}
+The project will be produced as a multitouch application that will allow users to carry out a limited amount of musical gestures. The interface will be implemented using thi.ng geom, a system similar to processing (which also runs on the jvm). To get a smooth user interface experience, some opengl programming will also be carried out which may add further complications. The actual sound generation will be carried out in existing software such as Ableton Live. Sourcing a good and affordable multitouch screen will also be a concern and will require some research. 
+
+\subsection{Intended conclusion}
+\label{sec:org5eba97f}
+The intended conclusion will be to demonstrate some improvements that can be made to mainstream musical composition systems by exploring advantages offered by alternative input metaphors in a multitouch system. To achieve this, the intention is to carry out comparison tests with users to confirm this. Some difficulties encountered may be in devising a fair and unbiased test, in addition to recruiting willing participants.
+
+\bibliographystyle{unsrt}
+\bibliography{references}
+\end{document}

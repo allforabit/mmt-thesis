@@ -3,7 +3,7 @@
 #+latex-header: \usepackage{version=3}{mchem}
 #+latex-header: \usepackage{float}
 #+LATEX_HEADER: \usepackage{natbib}
-#+BIBLIOGRAPHY: mmt-thesis.bib
+#+BIBLIOGRAPHY: ../bibliography/mmt-thesis.bib
 
 * Framing
 How the project could be framed
@@ -133,8 +133,6 @@ cite:il_xv
 Yes it is
 
 
-bibliographystyle:unsrt 
-bibliography:references.bib
 
 
 cite:quick13_gramm_haskel
@@ -161,6 +159,25 @@ This book has some excellent ideas contained within it!!!
 Hello world how is that you are such a great world!
 #+END_QUOTE
 
+* Website articles
+** Interview by Aphex Twin with Korg engineer :musician:synth_design:tuning:
+cite:_aphex_2017
+
+#+BEGIN_QUOTE
+Yes, many. For instance, on the Chroma I like holding down one key, pressing
+another key and ththing:yo:en tuning the second key in relation to the first,
+sometimes making two extremely different frequency combinations, like something
+very low and extremely high at the same time and maybe a group of these dual
+combos only existing in the top octave of the keyboard map, the rest being
+another tuning or multiple tunings, all in one tuning table.
+
+It's something I never saw in anyone else's tunings, combining several
+tuning tables within one map, so that's one of my little inventions I guess, as
+I rarely used the full range of 127 notes in one tuning within one track.
+monologue can tune four notes at a time which we planned. It's a different
+approach again and something I look forward to experimenting with more.
+#+END_QUOTE
+
 * People
 ** Orlarey                                 :grame:faust:functional:midishare:
 ** Schmidt, Karsten :clojure:th.ing:generative:
@@ -173,7 +190,7 @@ Hello world how is that you are such a great world!
    :PROPERTIES:
    :CUSTOM_ID: grame
    :END:
-
+   
 ** TODO 2009 - The {{Musical Interface Technology Design Space}}
  :PROPERTIES:
   :Custom_ID: overholt_musical_2009
@@ -190,3 +207,21 @@ cite:overholt_musical_2009
 
 This is a thing!!!
 
+
+
+** TODO 2013 - Designing the {{Drum Loop}} - {{A}} Constructivist {{iOS}} Rhythm Tutorial System for Beginner ({{Thesis}})
+ :PROPERTIES:
+  :Custom_ID: hein_designing_2013
+  :AUTHOR: Hein
+  :JOURNAL: 
+  :YEAR: 2013
+  :VOLUME: 
+  :PAGES: 
+  :DOI: 
+  :URL: 
+ :END:
+
+cite:hein_designing_2013
+
+bibliographystyle:unsrt 
+bibliography:../bibliography/mmt-thesis.bib

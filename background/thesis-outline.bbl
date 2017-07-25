@@ -1,0 +1,37 @@
+\begin{thebibliography}{1}
+
+\bibitem{boland_visualizing_2011}
+Frank Boland and Liam~O. Sullivan.
+\newblock {VISUALIZING} {AND} {CONTROLLING} {SOUND} {WITH} {GRAPHICAL}
+  {INTERFACES}.
+\newblock {\em Audio Engineering Society 41st Conference: Audio for Games
+  (2011).}, 2011.
+
+\bibitem{sullivan_it_2013}
+Liam~O. Sullivan.
+\newblock It {Looks} as it {Sounds}: {On} the use of {Images} as {Controllers}
+  of {Audiovisual} {Material} in {Graphical} {User} {Interfaces}.
+\newblock 2013.
+
+\bibitem{hudak_haskell_2000}
+Paul Hudak.
+\newblock {\em The {Haskell} school of expression: learning functional
+  programming through multimedia}.
+\newblock Cambridge University Press, New York, 2000.
+
+\bibitem{hudak_haskell_2008}
+Paul Hudak and {others}.
+\newblock The {Haskell} {School} of {Music}.
+\newblock {\em Yale University}, 2008.
+
+\bibitem{diverdi_brush_2013}
+Stephen Diverdi.
+\newblock A {Brush} {Stroke} {Synthesis} {Toolbox}, 2013.
+
+\bibitem{wigdor_brave_2011}
+Daniel Wigdor and Dennis Wixon.
+\newblock {\em Brave {NUI} world: designing natural user interfaces for touch
+  and gesture}.
+\newblock Morgan Kaufmann, Burlington, Mass, 2011.
+
+\end{thebibliography}

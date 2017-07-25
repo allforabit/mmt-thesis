@@ -1,0 +1,19 @@
+* Introduction
+
+  [[./proposal-images/maquette.png]]
+
+#+REVEAL: split
+#+ATTR_REVEAL: :frag (grow shrink roll-in fade-out none) :frag_idx (4 3 2 1 -)
+- Hello
+- There
+- Now
+- Yo
+* Background
+- How
+- Are
+- We
+- Doing
+* About me
+- Yo
+- Ho
+- Ho
