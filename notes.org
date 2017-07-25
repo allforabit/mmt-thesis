@@ -3,8 +3,7 @@
 #+latex-header: \usepackage{version=3}{mchem}
 #+latex-header: \usepackage{float}
 #+LATEX_HEADER: \usepackage{natbib}
-#+BIBLIOGRAPHY: research-thesis-proposal.bib
-
+#+BIBLIOGRAPHY: mmt-thesis.bib
 
 * Framing
 How the project could be framed
