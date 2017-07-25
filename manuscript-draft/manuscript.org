@@ -51,7 +51,7 @@ alternative metaphor, that of drawing/sketching will now be discussed.
  * UPIC
 :END:
 
-** Golan Levin et al
+** Golan Levin etc
 
 
 * Similar work
@@ -91,8 +91,13 @@ that Microsoft's ink api is now being used for further prototyping.
 ** Actual build out
 *** Advantages of the react.js model of UI programming
 
-* Evaluation
+* Evaluation [0/1]
+:NOTES:
+ - [ ] Come up with a better title.
+:END:
 
-* Conclusion
+
+* Conclusions and further work
+
 
 * References
