@@ -6,6 +6,6 @@ MMT thesis repo.
 * Links
 ** Manuscript draft
 *** HTML
-https://allforabit.github.io/mmt-thesis/manuscript-draft/manuscript-draft.html
+https://allforabit.github.io/mmt-thesis/manuscript-draft/manuscript.html
 *** PDF
-https://allforabit.github.io/mmt-thesis/manuscript-draft/manuscript-draft.pdf
+https://allforabit.github.io/mmt-thesis/manuscript-draft/manuscript.pdf
