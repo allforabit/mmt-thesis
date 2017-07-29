@@ -1,0 +1,81 @@
+#+SETUPFILE: meta/setup.org
+
+* Overview
+Sonicsketch is an app that allows users to "sketch" musical data onto a canvas
+and is delivered as a progressive web app (PWA). Using paper.js as the graphics
+system, tone.js as the audio system and coded in clojurescript, users can draw
+pitches onto a time pitch space in a freehand fashion allowing for subtle pitch
+bends. The user may choose from a limited palette of timbres which are
+represented as different colours in the user interface (UI). Vibrato may be
+added by clicking a predefined keyboard shortcut (V) and dragging over the
+desired note to be altered and then sculpting the envelope in the mini pop up UI
+element. The resulting vibrato is visualized with a sine wave overlayed on the
+frequency curve. The drawn content can be played back in a looped fashion by the
+user.
+
+* Motivations
+Some primary motivations for the creation of the app are as follows (in no
+particular order):
+ - Draw attention to concept of more graphically oriented interfaces for
+   synthesis (UPIC) to a wider audience by presenting the app in a very
+   accessible format (PWA)
+ - Explore the advantages and limitations of prototyping an experimental
+   interface using web technologies
+ - Frustration with the creative flow of commercial DAW applications
+ - Over representation of analog type metaphors in both DAW applications and in
+   the web apps being developed (missed opportunity)
+ - Use functional programming techniques such as immutable data structures to
+   ease the complexity of managing fundamental concerns such as undo.
+
+* Assessment
+A reasonably functional application was built which allowed for some basic
+interactions. While very much a prototype the app does offer the following
+innovations:
+
+ - Using the web as a testing ground for new interaction paradigms
+ - Using react js and clojurescript to allow for realtime (or close to realtime)
+   development
+ - Delivering a graphical synthesis oriented system in a very accessible format,
+   a PWA
+ - Incorporation of alternative device inputs using the W3C pointer api to allow
+   for more suitable and accurate input
+ - Trial of next generation react framework that extends it's reach beyond html
+   markup which is the general limit of the original system
+ - The result of combining react, clojurescript and tone.js is a declaritive data
+   DSL to describe audio processing. Potentially very useful as a beginner tool
+   and as a prototyping tool.
+ - Makes the assertion that different tools can be used for different stages of
+   the creative process and by providing integration into other platforms can be
+   easily incorporated into the flow.
+ - Works as an idea generator. The resulting audio could be sampled and used in
+   another app
+ 
+Some of the shortcomings of the work:
+ - It's very easy to create a mess of frequencies and pitch bends and difficult
+  or impossible to create standard musical material
+ - Suffers from performance issues and can get choked up when too much elements
+   are added to the screen
+ - While some basic and standard useability features have been added such as
+   undo and redo
+ - The sound quality isn't always perfect and some aliasing and other digital
+   artifacts are in evidence
+ 
+* Future work
+While SonicSketch in it's current format is useable for further ease of use it
+would need work done on performance related issues, including but not limited
+to: 
+ - Move more processing into web workers
+ - Look at compile to wasm based systems instead of Tone.js, including Csound
+ - Move graphics to use the GPU more heavily which would mean re-implementing a
+   good deal of the functionality provided by paper.js
+
+Incorporate more dimensions into the visualisation, such as distortion, delay
+effects, harmonic structure. Investigate how the visualisations could scale up
+to incorporate more information.
+
+Allow for larger structures, perhaps by scrolling.
+
+Allow for meta-strokes where a stroke would draw the contents of another scene.
+
+
+

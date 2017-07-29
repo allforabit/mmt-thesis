@@ -1,0 +1,17 @@
+# Compare different existing systems
+
+* Criteria
+ - Web based :: Does the system work on a modern browser
+ - Symbolic rep :: Does the system use symbolic representation or is it more or
+                   less a spectrum that you can draw on.
+ - Accessibility :: From none to high, is the system accessible. An example of a
+                    no accessibility is a system like UPIC which is not
+                    accessible to something that is very accessible like web
+                    app. Paid software that needs to be installed is in the
+                    middle of this spectrum. 
+
+| System       | Web based                          | Symbolic rep | Accessibility |
+|--------------+------------------------------------+--------------+---------------|
+| SonicPainter | No (although ported by the author) | Yes          | Low           |
+| UPIC         | No                                 | Yes          | None          |
+| Oramics      | No                                 | Yes          | None          |

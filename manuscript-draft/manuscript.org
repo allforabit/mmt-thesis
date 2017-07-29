@@ -1,7 +1,20 @@
 #+SETUPFILE: ../meta/setup.org
 
 * Introduction
-** Motivation
+** Motivations
+Some primary motivations for the creation of the app are as follows (in no
+particular order):
+ - Draw attention to concept of more graphically oriented interfaces for
+   synthesis (UPIC) to a wider audience by presenting the app in a very
+   accessible format (PWA)
+ - Explore the advantages and limitations of prototyping an experimental
+   interface using web technologies
+ - Frustration with the creative flow of commercial DAW applications
+ - Over representation of analog type metaphors in both DAW applications and in
+   the web apps being developed (missed opportunity)
+ - Use functional programming techniques such as immutable data structures to
+   ease the complexity of managing fundamental concerns such as undo.
+ 
 ** Project goals
 ** Structure of thesis
 
@@ -55,6 +68,7 @@ alternative metaphor, that of drawing/sketching will now be discussed.
 
 
 * Similar work
+#+INCLUDE: "./comparisons.org"
 
 * TODO My approach [0/2]
 :NOTES:
@@ -63,9 +77,16 @@ alternative metaphor, that of drawing/sketching will now be discussed.
 :END:
 
 ** Adding allowances for stylus
+** Relationship between control data and synths
+Discuss Roger Dannenberg conceptualization of the two main paradigms of music
+software systems. Resource based vs instance cite:dannenberg_resource-instance_1991 
 ** Key specifications
 ** Paper.js
+** NUI
+Introduce the NUI
 ** Tone.js
+cite:mann_interactive_2015
+
 * Execution
 ** Early prototypes
 *** Melodypainter
@@ -88,16 +109,71 @@ system cite:caramiaux_adaptive_2015, which while promising in principle, didn't
 have a high rate of accuracy in recognizing the shapes. It is for this reason
 that Microsoft's ink api is now being used for further prototyping.
 
-** Actual build out
-*** Advantages of the react.js model of UI programming
+** The build out
+*** Building the framework
+**** Advantages of the react.js model of UI programming
+*** Stroke functionality
+Describe how the stroke functionality works and was implemented.
+#+INCLUDE: "./charts.org"
+*** Enabling undo and redo
+*** Catering for additional input types
+Describe issues encountered including a lack of support in paper.js and the
+small patch required to enable it.
 
 * Evaluation [0/1]
 :NOTES:
  - [ ] Come up with a better title.
 :END:
 
+A reasonably functional application was built which allowed for some basic
+interactions. While very much a prototype the app does offer the following
+innovations:
+
+ - Using the web as a testing ground for new interaction paradigms
+ - Using react js and clojurescript to allow for realtime (or close to realtime)
+   development
+ - Delivering a graphical synthesis oriented system in a very accessible format,
+   a PWA
+ - Incorporation of alternative device inputs using the W3C pointer api to allow
+   for more suitable and accurate input
+ - Trial of next generation react framework that extends it's reach beyond html
+   markup which is the general limit of the original system
+ - The result of combining react, clojurescript and tone.js is a declaritive data
+   DSL to describe audio processing. Potentially very useful as a beginner tool
+   and as a prototyping tool.
+ - Makes the assertion that different tools can be used for different stages of
+   the creative process and by providing integration into other platforms can be
+   easily incorporated into the flow.
+ - Works as an idea generator. The resulting audio could be sampled and used in
+   another app
+ 
+Some of the shortcomings of the work:
+ - It's very easy to create a mess of frequencies and pitch bends and difficult
+  or impossible to create standard musical material
+ - Suffers from performance issues and can get choked up when too much elements
+   are added to the screen
+ - While some basic and standard useability features have been added such as
+   undo and redo
+ - The sound quality isn't always perfect and some aliasing and other digital
+   artifacts are in evidence
+
 
 * Conclusions and further work
+** Future work
+ While SonicSketch in it's current format is useable for further ease of use it
+ would need work done on performance related issues, including but not limited
+ to: 
+  - Move more processing into web workers
+  - Look at compile to wasm based systems instead of Tone.js, including Csound
+  - Move graphics to use the GPU more heavily which would mean re-implementing a
+    good deal of the functionality provided by paper.js
 
+ Incorporate more dimensions into the visualisation, such as distortion, delay
+ effects, harmonic structure. Investigate how the visualisations could scale up
+ to incorporate more information.
+
+ Allow for larger structures, perhaps by scrolling.
+
+ Allow for meta-strokes where a stroke would draw the contents of another scene.
 
 * References

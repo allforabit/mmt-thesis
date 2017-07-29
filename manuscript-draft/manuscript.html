@@ -3,14 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-07-25 Tue 18:16 -->
+<!-- 2017-07-28 Fri 16:10 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Kevin Nolan MMT thesis 2017</title>
+<title></title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="Kevin Nolan" />
-<meta name="description" content="Sketching sounds in the modern web browser"
- />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -181,12 +178,6 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" type="text/css" href="https://www.pirilampo.org/styles/readtheorg/css/htmlize.css"/>
-<link rel="stylesheet" type="text/css" href="https://www.pirilampo.org/styles/readtheorg/css/readtheorg.css"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="https://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.js"></script>
-<script type="text/javascript" src="https://www.pirilampo.org/styles/readtheorg/js/readtheorg.js"></script>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -236,75 +227,77 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Kevin Nolan MMT thesis 2017</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orga195849">1. Introduction</a>
+<li><a href="#org3c713ae">1. Introduction</a>
 <ul>
-<li><a href="#org06f3e66">1.1. Motivation</a></li>
-<li><a href="#org339bd44">1.2. Project goals</a></li>
-<li><a href="#orgda92faf">1.3. Structure of thesis</a></li>
+<li><a href="#orgcacaf94">1.1. Motivation</a></li>
+<li><a href="#orgdae3a28">1.2. Project goals</a></li>
+<li><a href="#org5eebdde">1.3. Structure of thesis</a></li>
 </ul>
 </li>
-<li><a href="#orgb3bcc0d">2. Background</a>
+<li><a href="#org741b11c">2. Background</a>
 <ul>
-<li><a href="#org050e651">2.1. DAW analog metaphors</a></li>
-<li><a href="#org3f81509">2.2. Legacy systems</a></li>
-<li><a href="#orgb46758c">2.3. Golan Levin et al</a></li>
+<li><a href="#orgb008c0d">2.1. DAW analog metaphors</a></li>
+<li><a href="#org95521da">2.2. Legacy systems</a></li>
+<li><a href="#org8b4c178">2.3. Golan Levin etc</a></li>
 </ul>
 </li>
-<li><a href="#orge018ca2">3. Similar work</a></li>
-<li><a href="#orgcafe0bd">4. <span class="todo TODO">TODO</span> My approach <code>[0/2]</code></a>
+<li><a href="#org0bb1a2e">3. Similar work</a></li>
+<li><a href="#orgdf3a760">4. <span class="todo TODO">TODO</span> My approach <code>[0/2]</code></a>
 <ul>
-<li><a href="#orgfd2c9ad">4.1. Adding allowances for stylus</a></li>
-<li><a href="#orgd84c9c9">4.2. Key specifications</a></li>
-<li><a href="#orgc32c1d4">4.3. Paper.js</a></li>
-<li><a href="#org35dab91">4.4. Tone.js</a></li>
+<li><a href="#orgd0e9948">4.1. Adding allowances for stylus</a></li>
+<li><a href="#org27ddf03">4.2. Key specifications</a></li>
+<li><a href="#org5e448c4">4.3. Paper.js</a></li>
+<li><a href="#orgdeaab6f">4.4. NUI</a></li>
+<li><a href="#org74812f4">4.5. Tone.js</a></li>
 </ul>
 </li>
-<li><a href="#org429a3e0">5. Execution</a>
+<li><a href="#org224521c">5. Execution</a>
 <ul>
-<li><a href="#org96cdec4">5.1. Early prototypes</a>
+<li><a href="#orgca7c51c">5.1. Early prototypes</a>
 <ul>
-<li><a href="#org296bda7">5.1.1. Melodypainter</a></li>
-<li><a href="#org3631acd">5.1.2. Sonicsketch - shape recognition</a></li>
+<li><a href="#org58b6a05">5.1.1. Melodypainter</a></li>
+<li><a href="#org2a2dabe">5.1.2. Sonicsketch - shape recognition</a></li>
 </ul>
 </li>
-<li><a href="#org1885edf">5.2. Actual build out</a>
+<li><a href="#orga6e6829">5.2. The build out</a>
 <ul>
-<li><a href="#org7297d4e">5.2.1. Advantages of the react.js model of UI programming</a></li>
+<li><a href="#org5ede781">5.2.1. Building the framework</a></li>
+<li><a href="#org066b25d">5.2.2. Stroke functionality</a></li>
+<li><a href="#org713cdd6">5.2.3. Enabling undo and redo</a></li>
+<li><a href="#org4a963e3">5.2.4. Catering for additional input types</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org3ae20fd">6. Evaluation</a></li>
-<li><a href="#org528731b">7. Conclusion</a></li>
-<li><a href="#org2c480d5">8. References</a></li>
+<li><a href="#orgf99b523">6. Evaluation <code>[0/1]</code></a></li>
+<li><a href="#org7ba8c48">7. Conclusions and further work</a></li>
+<li><a href="#org290cf4a">8. References</a></li>
 </ul>
 </div>
 </div>
-
-<div id="outline-container-orga195849" class="outline-2">
-<h2 id="orga195849"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-org3c713ae" class="outline-2">
+<h2 id="org3c713ae"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
-</div><div id="outline-container-org06f3e66" class="outline-3">
-<h3 id="org06f3e66"><span class="section-number-3">1.1</span> Motivation</h3>
+</div><div id="outline-container-orgcacaf94" class="outline-3">
+<h3 id="orgcacaf94"><span class="section-number-3">1.1</span> Motivation</h3>
 </div>
-<div id="outline-container-org339bd44" class="outline-3">
-<h3 id="org339bd44"><span class="section-number-3">1.2</span> Project goals</h3>
+<div id="outline-container-orgdae3a28" class="outline-3">
+<h3 id="orgdae3a28"><span class="section-number-3">1.2</span> Project goals</h3>
 </div>
-<div id="outline-container-orgda92faf" class="outline-3">
-<h3 id="orgda92faf"><span class="section-number-3">1.3</span> Structure of thesis</h3>
+<div id="outline-container-org5eebdde" class="outline-3">
+<h3 id="org5eebdde"><span class="section-number-3">1.3</span> Structure of thesis</h3>
 </div>
 </div>
 
-<div id="outline-container-orgb3bcc0d" class="outline-2">
-<h2 id="orgb3bcc0d"><span class="section-number-2">2</span> Background</h2>
+<div id="outline-container-org741b11c" class="outline-2">
+<h2 id="org741b11c"><span class="section-number-2">2</span> Background</h2>
 <div class="outline-text-2" id="text-2">
-</div><div id="outline-container-org050e651" class="outline-3">
-<h3 id="org050e651"><span class="section-number-3">2.1</span> DAW analog metaphors</h3>
+</div><div id="outline-container-orgb008c0d" class="outline-3">
+<h3 id="orgb008c0d"><span class="section-number-3">2.1</span> DAW analog metaphors</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 One of the primary tools used by electronic musicians today for the production
@@ -352,8 +345,8 @@ alternative metaphor, that of drawing/sketching will now be discussed.
 </div>
 </div>
 
-<div id="outline-container-org3f81509" class="outline-3">
-<h3 id="org3f81509"><span class="section-number-3">2.2</span> Legacy systems</h3>
+<div id="outline-container-org95521da" class="outline-3">
+<h3 id="org95521da"><span class="section-number-3">2.2</span> Legacy systems</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>Oramics</li>
@@ -362,18 +355,18 @@ alternative metaphor, that of drawing/sketching will now be discussed.
 </div>
 </div>
 
-<div id="outline-container-orgb46758c" class="outline-3">
-<h3 id="orgb46758c"><span class="section-number-3">2.3</span> Golan Levin et al</h3>
+<div id="outline-container-org8b4c178" class="outline-3">
+<h3 id="org8b4c178"><span class="section-number-3">2.3</span> Golan Levin etc</h3>
 </div>
 </div>
 
 
-<div id="outline-container-orge018ca2" class="outline-2">
-<h2 id="orge018ca2"><span class="section-number-2">3</span> Similar work</h2>
+<div id="outline-container-org0bb1a2e" class="outline-2">
+<h2 id="org0bb1a2e"><span class="section-number-2">3</span> Similar work</h2>
 </div>
 
-<div id="outline-container-orgcafe0bd" class="outline-2">
-<h2 id="orgcafe0bd"><span class="section-number-2">4</span> <span class="todo TODO">TODO</span> My approach <code>[0/2]</code></h2>
+<div id="outline-container-orgdf3a760" class="outline-2">
+<h2 id="orgdf3a760"><span class="section-number-2">4</span> <span class="todo TODO">TODO</span> My approach <code>[0/2]</code></h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li class="off"><code>[&#xa0;]</code> Come up with a title</li>
@@ -381,27 +374,35 @@ alternative metaphor, that of drawing/sketching will now be discussed.
 </ul>
 </div>
 
-<div id="outline-container-orgfd2c9ad" class="outline-3">
-<h3 id="orgfd2c9ad"><span class="section-number-3">4.1</span> Adding allowances for stylus</h3>
+<div id="outline-container-orgd0e9948" class="outline-3">
+<h3 id="orgd0e9948"><span class="section-number-3">4.1</span> Adding allowances for stylus</h3>
 </div>
-<div id="outline-container-orgd84c9c9" class="outline-3">
-<h3 id="orgd84c9c9"><span class="section-number-3">4.2</span> Key specifications</h3>
+<div id="outline-container-org27ddf03" class="outline-3">
+<h3 id="org27ddf03"><span class="section-number-3">4.2</span> Key specifications</h3>
 </div>
-<div id="outline-container-orgc32c1d4" class="outline-3">
-<h3 id="orgc32c1d4"><span class="section-number-3">4.3</span> Paper.js</h3>
+<div id="outline-container-org5e448c4" class="outline-3">
+<h3 id="org5e448c4"><span class="section-number-3">4.3</span> Paper.js</h3>
 </div>
-<div id="outline-container-org35dab91" class="outline-3">
-<h3 id="org35dab91"><span class="section-number-3">4.4</span> Tone.js</h3>
+<div id="outline-container-orgdeaab6f" class="outline-3">
+<h3 id="orgdeaab6f"><span class="section-number-3">4.4</span> NUI</h3>
+<div class="outline-text-3" id="text-4-4">
+<p>
+Introduce the NUI
+</p>
 </div>
 </div>
-<div id="outline-container-org429a3e0" class="outline-2">
-<h2 id="org429a3e0"><span class="section-number-2">5</span> Execution</h2>
+<div id="outline-container-org74812f4" class="outline-3">
+<h3 id="org74812f4"><span class="section-number-3">4.5</span> Tone.js</h3>
+</div>
+</div>
+<div id="outline-container-org224521c" class="outline-2">
+<h2 id="org224521c"><span class="section-number-2">5</span> Execution</h2>
 <div class="outline-text-2" id="text-5">
-</div><div id="outline-container-org96cdec4" class="outline-3">
-<h3 id="org96cdec4"><span class="section-number-3">5.1</span> Early prototypes</h3>
+</div><div id="outline-container-orgca7c51c" class="outline-3">
+<h3 id="orgca7c51c"><span class="section-number-3">5.1</span> Early prototypes</h3>
 <div class="outline-text-3" id="text-5-1">
-</div><div id="outline-container-org296bda7" class="outline-4">
-<h4 id="org296bda7"><span class="section-number-4">5.1.1</span> Melodypainter</h4>
+</div><div id="outline-container-org58b6a05" class="outline-4">
+<h4 id="org58b6a05"><span class="section-number-4">5.1.1</span> Melodypainter</h4>
 <div class="outline-text-4" id="text-5-1-1">
 <p>
 Thus far, some early test prototypes to establish possible directions for the
@@ -416,8 +417,8 @@ relationship between the visuals and the generated music.
 </div>
 </div>
 
-<div id="outline-container-org3631acd" class="outline-4">
-<h4 id="org3631acd"><span class="section-number-4">5.1.2</span> Sonicsketch - shape recognition</h4>
+<div id="outline-container-org2a2dabe" class="outline-4">
+<h4 id="org2a2dabe"><span class="section-number-4">5.1.2</span> Sonicsketch - shape recognition</h4>
 <div class="outline-text-4" id="text-5-1-2">
 <p>
 A separate application was created in Processing which allowed users to draw
@@ -433,30 +434,90 @@ that Microsoft's ink api is now being used for further prototyping.
 </div>
 </div>
 
-<div id="outline-container-org1885edf" class="outline-3">
-<h3 id="org1885edf"><span class="section-number-3">5.2</span> Actual build out</h3>
+<div id="outline-container-orga6e6829" class="outline-3">
+<h3 id="orga6e6829"><span class="section-number-3">5.2</span> The build out</h3>
 <div class="outline-text-3" id="text-5-2">
-</div><div id="outline-container-org7297d4e" class="outline-4">
-<h4 id="org7297d4e"><span class="section-number-4">5.2.1</span> Advantages of the react.js model of UI programming</h4>
+</div><div id="outline-container-org5ede781" class="outline-4">
+<h4 id="org5ede781"><span class="section-number-4">5.2.1</span> Building the framework</h4>
+<div class="outline-text-4" id="text-5-2-1">
+</div><ol class="org-ol"><li><a id="org9907491"></a>Advantages of the react.js model of UI programming<br /></li></ol>
+</div>
+<div id="outline-container-org066b25d" class="outline-4">
+<h4 id="org066b25d"><span class="section-number-4">5.2.2</span> Stroke functionality</h4>
+<div class="outline-text-4" id="text-5-2-2">
+<p>
+Describe how the stroke functionality works and was implemented.
+</p>
+</div>
+<ol class="org-ol"><li><a id="orgeab9a24"></a>Overall app<br /><div class="outline-text-5" id="text-5-2-2-1">
+
+<div class="figure">
+<p><img src="tryout.png" alt="tryout.png" />
+</p>
+</div>
+</div></li>
+
+<li><a id="org3a10303"></a>Sketch walkthrough<br /><div class="outline-text-5" id="text-5-2-2-2">
+<div class="org-center">
+
+<div class="figure">
+<p><img src="./charts/images/attractor-01 (Small).png" alt="attractor-01 (Small).png" />
+</p>
+</div>
+
+<div class="figure">
+<p><img src="./charts/images/attractor-02 (Small).png" alt="attractor-02 (Small).png" />
+</p>
+</div>
+
+<div class="figure">
+<p><img src="./charts/images/attractor/attractor-03 (Small).png" alt="attractor-03 (Small).png" />
+</p>
+</div>
+
+<div class="figure">
+<p><img src="./charts/images/attractor-04 (Small).png" alt="attractor-04 (Small).png" />
+</p>
+</div>
+</div>
+</div></li></ol>
+</div>
+<div id="outline-container-org713cdd6" class="outline-4">
+<h4 id="org713cdd6"><span class="section-number-4">5.2.3</span> Enabling undo and redo</h4>
+</div>
+<div id="outline-container-org4a963e3" class="outline-4">
+<h4 id="org4a963e3"><span class="section-number-4">5.2.4</span> Catering for additional input types</h4>
+<div class="outline-text-4" id="text-5-2-4">
+<p>
+Describe issues encountered including a lack of support in paper.js and the
+small patch required to enable it.
+</p>
+</div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org3ae20fd" class="outline-2">
-<h2 id="org3ae20fd"><span class="section-number-2">6</span> Evaluation</h2>
+<div id="outline-container-orgf99b523" class="outline-2">
+<h2 id="orgf99b523"><span class="section-number-2">6</span> Evaluation <code>[0/1]</code></h2>
+<div class="outline-text-2" id="text-6">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> Come up with a better title.</li>
+</ul>
+</div>
 </div>
 
-<div id="outline-container-org528731b" class="outline-2">
-<h2 id="org528731b"><span class="section-number-2">7</span> Conclusion</h2>
+
+<div id="outline-container-org7ba8c48" class="outline-2">
+<h2 id="org7ba8c48"><span class="section-number-2">7</span> Conclusions and further work</h2>
 </div>
 
-<div id="outline-container-org2c480d5" class="outline-2">
-<h2 id="org2c480d5"><span class="section-number-2">8</span> References</h2>
+
+<div id="outline-container-org290cf4a" class="outline-2">
+<h2 id="org290cf4a"><span class="section-number-2">8</span> References</h2>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: Kevin Nolan</p>
-<p class="date">Created: 2017-07-25 Tue 18:16</p>
+<p class="date">Created: 2017-07-28 Fri 16:10</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

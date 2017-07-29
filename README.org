@@ -9,3 +9,5 @@ MMT thesis repo.
 https://allforabit.github.io/mmt-thesis/manuscript-draft/manuscript.html
 *** PDF
 https://allforabit.github.io/mmt-thesis/manuscript-draft/manuscript.pdf
+
+This is a thing about a thing yes it is
