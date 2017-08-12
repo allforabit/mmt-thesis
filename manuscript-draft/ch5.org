@@ -24,30 +24,52 @@ principles of the Clean Architecture as presented by Bob Martin (???).
 
 ** Early prototype work
 *** Melodypainter
-:NOTES:
-Thus far, some early test prototypes to establish possible directions for the
-application have been built. A Max Msp patch was created which allows the user
-to draw freehand lines, which are converted into break point function data and
-used as to generate a melodic profile in Bach. This is further processed into a
-pentatonic scale. Once input the system plays the resulting melody back. A
-notable flaw of the system was that it required users to draw shapes in a
-generally horizontal fashion for the data to be of use and to create a strong
-relationship between the visuals and the generated music.
+
+Melodypainter is an early protoype built out in Max MSP that allows users to
+draw freehand lines, which are converted into break point function data and used
+to generate a melodic profiles using Bach for Max MSP. Bach is a suite of
+composition tools that allow for a number of computer aided composition
+techniques (CAC) and provides similar functionality to IRCAM's Open Music
+system. These melodic profiles are then filtered to only includes notes from a
+pentatonic scale, to give reasonably pleasing aural results. Some notable flaws
+in the system include the following. It is limited to strictly western tonal
+music styles. It has no allowance for rhythm and plays only eight notes giving
+results a noticeably bland and predictable quality. The freeform nature of
+sketched input however was quite a pleasing means of inputting the control
+information.
+
+*** Sonicshaper [0/1]
+:TODO:
+ - [ ] Add a picture
 :END:
 
-*** Sonicshaper
-:NOTES:
 A separate application was created in Processing which allowed users to draw
 shapes, using either mouse or ideally, pen input and have a sound that is
 associated with each shape played back. As the sound of each shape plays back,
 it is lit up using animation, creating a strong connection between the shape and
-it's resulting sound. The application used the "gesture variation follower"
+it's resulting sound. The application uses the "gesture variation follower"
 system cite:caramiaux_adaptive_2015, which while promising in principle, didn't
 have a high rate of accuracy in recognizing the shapes. 
+
+
+*** Web version of William Coleman's SonicPainter [0/1]
+:TODO:
+ - [ ] Reference processing.js
+:END:
+:CONCEPTS:
+- OSC
+- Tone.js
 :END:
 
-
-*** Web version of William Coleman's SonicPainter
+A potential starting point that was considered was using the code from William's
+SonicPainter and porting it to the web platform. This process proved to be quite
+straightforward. The processing code could more or less be embedded in a webpage
+as is using "processing.js", a web version of the Processing library that
+enables users to run processing sketches in the Web Browser. Some notable
+changes that had to be made were removing the OSC functionality as this is not
+technically possible to use in a browser. In addition, some other pieces of code
+had to be commented out and tweaked. As it's not possible to run Max MSP patches
+in the browser, the audio system was re-implemented using Tone.js. 
 
 ** Actual implementation
 *** Setting up the architecture
