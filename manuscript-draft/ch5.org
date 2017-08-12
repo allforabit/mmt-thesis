@@ -157,11 +157,77 @@ The library was far from comprehensive and thusly a custom version of the
 library was used that included some custom functionality required for SonicSketch.
 
 **** Tone.js and react.js
+In some ways audio output can be thought of in a similar way to the visual
+output of the app and thusly can be treated in similar way by /React.js/. It can
+use the declarative data oriented system of react to configure the particular
+settings and connections in the audio graph and hook in to its lifecycle events
+to instanciate the various audio generating and processing web audio nodes. This
+addresses a notable (by design) ommission in Tone.js which does not allow the
+code to query the state of the audio graph once it has been setup. It is down to
+the userland code to keep track of this and manage it accordingly. The value
+proposal offered by introducing react.js into this part of the system is that it
+maintains the simple relationship between state and generated output.
+Conceptually the flow of change is:
+
+1. The state updates
+2. The react wrapper objects update their properties accordingly
+3. The lifecycle events are triggered which takes care of altering, adding and
+   removing web audio nodes (thus altering the audio being output)
+
+The design of this part of the application is influenced by /react music/, a
+system that uses /React.js/ with tuna.js, a web audio library similar to tone.js (???ref).
 
 **** Reagent and react.js paper.js bindings
+The final piece of the jigsaw in the underlying technology stack is the
+integration of react with clojurescript via the /Reagent/ library. The core
+syntax of this system is simple clojurescript vectors similar to the following:
+#+BEGIN_SRC clojure
+[:div 
+ "Hello " [:span {:style {:font-weight bold}}
+world]]
+#+END_SRC
+This would result in the following html output:
+#+BEGIN_SRC html
+<div>Hello <span style="font-weight: bold">world</span></div>
+#+END_SRC
+As can be seen the vectors begin with a keyword that corresponds to the tagname
+of the html. Additionally, instead of using html tag keywords, function calls
+can be made to generate html to allow for code reuse and logic. It was unclear
+how the paper.js bindings would work within this system due to the fact that it
+required a different version of react and uses non standard tag names for
+elements that can be drawn on screen such as "circle" and "rectangle". This
+however turned out to be much more straightforward than expected and the
+provided paper.js primitives could by simply using the relevant paper.js
+keywords. Complex scenegraphs could be constructed by using the following
+succint clojurescript syntax to describe the playback indicator:
+
+#+BEGIN_SRC clojure
+[:Group {:position [position 0]
+           :pivot [0 0]
+           :opacity    0.75}
+   [:Rectangle {:pivot [0 0]
+                :size [1 height]
+                :fill-color "#ffffff"}]
+   [:Path {:segments     [[-5 0] [5 0] [0 7] [-5 0]]
+           :fill-color "#ffffff"}]]
+#+END_SRC
+
+As can probably be inferred from the code the `position` and `height` are
+properties that are passed into the hiccup and trigger updates to the visual
+display when they change: in the case of position, when the playback
+position changes and in the case of the height, when the user resizes the
+browser window. The path element describes the triangle that is places at the
+top of the screen.
+
+The current state of the art in live code reloading in the browser is still not
+as comprehensive or as easy to setup as might be wished. Once it has been
+configured it is difficult to return to the compile and run workflow, and is in
+most cases a worthwhile investment of time. With these underlying elements in
+place the process of creating the application could begin and will now be
+described.
 
 *** Core functionality - timeline events (or notes)
-
+:NOTES:
 1. Introduction
    - Describe the core functionality
    - Describe core entities
@@ -177,6 +243,9 @@ library was used that included some custom functionality required for SonicSketc
 5. Move note
 6. Change sound (preset system)
 7. Probability
+:END:
+
+
 
 *** Secondary functionality
 1. Introduction
