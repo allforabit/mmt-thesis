@@ -1,6 +1,10 @@
+#+OPTIONS: d:nil
 * Execution
 :NOTES:
 Purpose: give a detailed account of the build of the project.
+:END:
+:REFS:
+ - Bob Martin - Clean Architecture
 :END:
 
 ** Introduction
@@ -106,4 +110,6 @@ in the browser, the audio system was re-implemented using Tone.js.
 *** Performance issues
 
 ** Conclusion
+:NOTES:
 - Summarise the resulting artifact
+:END: 

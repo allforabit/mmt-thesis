@@ -1,0 +1,11 @@
+* Evaluation
+** Introduction
+** Initial pilot test
+:NOTES:
+- Introduction :: Describe methodology used
+- Describe results
+- Describe comments and feedback
+- Verified that it was approachable and basically worked as a NUI application
+:END: 
+** Exhibition
+** Conclusion

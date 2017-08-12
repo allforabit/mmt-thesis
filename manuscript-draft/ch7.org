@@ -1,0 +1,25 @@
+* Conclusion and further work
+** Summary of work completed
+** Broader implications of development
+:NOTES:
+- Incorporate ideas into DAWs (move away from tracks and mixers)
+- Methodology used very successful for prototyping (delivery on web platform,
+  live code reloading)
+:END:
+** Future work
+*** Performance improvements
+:NOTES:
+- Try different audio engines, in particular wasm based
+- Move graphics to GPU based system
+:END:
+*** Broaden visual language
+:NOTES:
+- Incorporate and visualize more control data
+:END:
+*** Allow for larger structures
+:NOTES:
+- Perhaps by scrolling
+- Or multiple canvases/scenes
+- "Smart brushes" that would draw arpeggios, or similar generative structures
+:END:
+*** 3D spaces, VR, spatial audio
