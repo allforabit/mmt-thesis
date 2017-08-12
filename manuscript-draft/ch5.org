@@ -1,0 +1,87 @@
+* Execution
+:NOTES:
+Purpose: give a detailed account of the build of the project.
+:END:
+
+** Introduction
+The following chapter gives an outline of the process that was undertaken to
+build out the final application. A description of early prototype work is given
+to give context to the construction of the final working prototype version. This
+is followed by a description of the technical architecture of the system as well
+as an outline of the sometimes tricky setup process of getting the live reload
+system working (as described in the previous chapter). Some detailed discussion
+of the the core functionality of the system is then given. The core of the
+system primarily consists of timeline events, which visually manifest themselves
+as strokes on the canvas and aurally as fm syntesized frequency modulated
+sounds. As will be discussed an important aspect of any well constructed
+software system is a good degree of seperation of concerns, a characteristic
+espoused to and evident in the resulting code. To this end, the code that brings
+the central functionality to life can conceptually divided into a data or entity
+layer, a business logic or use case layer and an output layer which in this case
+consists of the visual output into a html canvas element and the audio output
+through the web audio api. In this sense the architecture conforms to the
+principles of the Clean Architecture as presented by Bob Martin (???). 
+
+** Early prototype work
+*** Melodypainter
+:NOTES:
+Thus far, some early test prototypes to establish possible directions for the
+application have been built. A Max Msp patch was created which allows the user
+to draw freehand lines, which are converted into break point function data and
+used as to generate a melodic profile in Bach. This is further processed into a
+pentatonic scale. Once input the system plays the resulting melody back. A
+notable flaw of the system was that it required users to draw shapes in a
+generally horizontal fashion for the data to be of use and to create a strong
+relationship between the visuals and the generated music.
+:END:
+
+*** Sonicshaper
+:NOTES:
+A separate application was created in Processing which allowed users to draw
+shapes, using either mouse or ideally, pen input and have a sound that is
+associated with each shape played back. As the sound of each shape plays back,
+it is lit up using animation, creating a strong connection between the shape and
+it's resulting sound. The application used the "gesture variation follower"
+system cite:caramiaux_adaptive_2015, which while promising in principle, didn't
+have a high rate of accuracy in recognizing the shapes. 
+:END:
+
+
+*** Web version of William Coleman's SonicPainter
+
+** Actual implementation
+*** Setting up the architecture
+**** Clojurescript and javascript npm modules
+**** Paper.js and react.js (paper.js bindings)
+**** Tone.js and react.js
+**** Reagent and react.js paper.js bindings
+*** Core functionality - timeline events (or notes)
+1. Introduction
+   - Describe the core functionality
+   - Describe core entities
+2. Add timeline event
+   - Business logic
+   - UI
+   - Audio
+3. Add vibrato
+   - Business logic
+   - UI
+   - Audio
+4. Remove note
+5. Move note
+6. Change sound (preset system)
+7. Probability
+
+*** Secondary functionality
+1. Introduction
+2. Transport controls
+3. Animation (current play position & notes)
+4. Undo and redo
+5. Fullscreen
+6. Outer UI
+7. Save and load file
+
+*** Performance issues
+
+** Conclusion
+- Summarise the resulting artifact

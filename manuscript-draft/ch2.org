@@ -1,0 +1,42 @@
+* Background to study
+:NOTES:
+Purpose: establish the dominant analog DAW metaphors and broad approaches and tools in use.
+:END:
+
+** Introduction
+    - Introduce what will be discussed in this section
+    - A brief historical perspective
+** The idea generation stage of music production
+    - Introduction :: Give an overview of different stages of music production
+                       as outlined in cite:duignan_computer_2008 and end with
+                       focus on the initial idea generation
+    - Using an instrument
+    - Scoring software
+    - Quirky music tools such as "Loopy"
+    - Most commonly in electronic music, DAWS
+** Discussion of DAW Metaphors
+    1. Introduction
+    2. Piano roll
+    3. Mixing console
+    4. Plugins
+** Discussion of more open systems
+    1. Introduction
+    2. Textual programming systems
+       - Supercollider
+       - Csound
+       - Commonmusic
+       - Nyquist
+       - Chuck
+    3. Graphical programming systems
+       - Max MSP
+       - Pure data
+       - Ircam Open music
+       - Plogue Bidule
+       - Jeskola Buzz
+** Music in the browser: a new frontier
+Discuss drum machines, etc available on the web. Note the accessibility that
+they provide. Perhaps introduce tone.js here.
+** Conclusion
+While the dominant metaphors used in DAWs have their uses they can lead to
+limitations in the creative process particularly at the early stage of ideas
+creation. More open system give too much power and impede the creative process.

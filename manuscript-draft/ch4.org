@@ -1,0 +1,46 @@
+* My approach
+:NOTES:
+Purpose: describe how I'm going about it and why. Describe the tools I'm using.
+:END:
+
+** Introduction
+** Appraisal of options
+    - Availability
+    - Usage style - instrument like (Levin)
+** Approach - theory
+    1. HCI considerations, in particular NUI cite:wigdor_brave_2011 
+    2. The Musical Interface Technology Design Space cite:overholt_musical_2009
+    3. Research into cross modal perception (time x axis, pitch y axis) - https://www.researchgate.net/publication/280777718_Shape_drawing_and_gesture_Cross-modal_mappings_of_sound_and_music 
+    # 3. Avoid inference (e.g. machine learning)
+** Approach - practice
+    1. Introduction
+    2. Delivery on Web Browser
+       1. Modern Web Browser as a delivery platform :: discuss pros and cons and situations
+           where it is likely to be a good option. I.e. prototyping where feedback
+           is important. Disadvantages performance, can't be used with pro audio
+           software such as ASIO. cite:adenot_web_2017 
+       2. Benefits of using Tone.js cite:mann_interactive_2015
+       3. Paper.js for the graphics system
+          - Scenegraph
+          - Line smoothing
+          - Vector system
+    3. FM synthesis :: Give a brief overview of FM synthesis and why it was a
+                       good choice for the application
+    4. Live coding workflow
+       1. Introduction
+          - The morphic interface
+          - Mention precedents such as smalltalk squeek
+            # - Alan Kay Steve Jobs story??? - cite:kay_what_2017 
+       2. React.js framework to allow for a declaritive programming model as well
+         as a live code reloading workflow
+       3. Clojurescript
+          1. Relationship to clojure
+          2. Benefits of using clojurescript
+             1. Immutable data structures (Binary tree)
+             2. Functional programming paradigm
+             3. Live code reloading (particularly when used in conjunction with
+               react.js)
+       4. Managing state with Re-frame
+          - Describe programming model
+          - It's relationship to FRP
+** Conclusion

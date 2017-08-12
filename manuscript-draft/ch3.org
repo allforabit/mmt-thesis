@@ -1,0 +1,31 @@
+* Similar work
+:NOTES:
+Purpose: trace the alternative history of musical systems (visual music, graphic synthesis)
+:END:
+
+** Introduction
+** Sonic sketching from a historical perspective
+    1. Visual music
+       1. Oskar Fischinger
+       2. Fantasia
+    2. Legacy synth systems
+       1. Oramics
+       2. UPIC
+       3. ANS synth
+** Sonic sketching in the twenty first century
+    1. Golan Levin cite:levin_painterly_2000 
+    2. Music animation machine cite:malinowski_music_2017
+    3. SonicPainter by William Coleman cite:coleman_sonicpainter:_2015 
+    4. Fischinger google doodle
+** Alternative music systems on the web
+ 1. Pink trombone - https://dood.al/pinktrombone/
+ 2. Tonehack
+ 3. Auraglyph (although not web based)
+ 4. http://arthurcarabott.com/mui-envelope/
+** Summary of currently available music creation systems 
+(Note that UPIC style sketch synths are not available online)
+** Conclusion 
+Both the twentieth and twenty first century have seen a great deal of
+experimentation with ideas of visualizing music and sketching. The audio
+processing capabilities available in modern browsers offers an opportunity to
+explore and refine less mainstream music creation metaphors.

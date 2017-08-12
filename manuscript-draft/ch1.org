@@ -1,0 +1,14 @@
+* Introduction
+# Purpose: introduce the topics under discussion, summarise work completed give thesis structure
+** Introduction
+:NOTES:
+Gentle introduction to the topics under discussion
+:END:
+
+** Summary of work completed
+:NOTES:
+Summarise the work undertook
+:END:
+
+** Motivation
+** Thesis structure
