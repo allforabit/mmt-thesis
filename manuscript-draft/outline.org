@@ -1,0 +1,209 @@
+#+TITLE: Kevin Nolan MMT thesis outline
+#+DESCRIPTION: Sketching sounds in the modern web browser
+#+AUTHOR: Kevin Nolan
+#+EMAIL: kevinn@tcd.ie
+#+OPTIONS: d:nil
+#+LATEX_CLASS_OPTIONS: [a4paper,12pt]
+#+PANDOC_OPTIONS: table-of-contents:nil number-sections:t filter:pandoc-crossref
+#+BIBLIOGRAPHY: ../bibliography/mmt-thesis-tidyup.bib
+
+#+LATEX_HEADER: \usepackage[a4paper, total={150mm,237mm}, left=30mm, top=30mm,]{geometry}
+#+LATEX_HEADER: \usepackage{fancyhdr}
+#+LATEX_HEADER: \pagestyle{fancyplain}
+# #+LATEX_HEADER: \lfoot{Kevin Nolan - kevinn@tcd.ie}
+# #+LATEX_HEADER: \rfoot{MMT Thesis outline 2017}
+
+* Introduction
+Purpose: introduce the topics under discussion, summarise work completed give thesis structure
+** Gentle introduction to the topics under discussion 
+** Summarise the work undertook
+** Motivation
+** Thesis structure
+
+* Background to study
+Purpose: establish the dominant analog DAW metaphors and broad approaches and tools in use.
+** Introduction
+    - Introduce what will be discussed in this section
+    - A brief historical perspective
+** The idea generation stage of music production
+    - Introduction :: Give an overview of different stages of music production
+                       as outlined in cite:duignan_computer_2008 and end with
+                       focus on the initial idea generation
+    - Using an instrument
+    - Scoring software
+    - Quirky music tools such as "Loopy"
+    - Most commonly in electronic music, DAWS
+** Discussion of DAW Metaphors
+    1. Introduction
+    2. Piano roll
+    3. Mixing console
+    4. Plugins
+** Discussion of more open systems
+    1. Introduction
+    2. Textual programming systems
+       - Supercollider
+       - Csound
+       - Commonmusic
+       - Nyquist
+       - Chuck
+    3. Graphical programming systems
+       - Max MSP
+       - Pure data
+       - Ircam Open music
+       - Plogue Bidule
+       - Jeskola Buzz
+** Music in the browser: a new frontier
+Discuss drum machines, etc available on the web. Note the accessibility that
+they provide. Perhaps introduce tone.js here.
+** Conclusion
+While the dominant metaphors used in DAWs have their uses they can lead to
+limitations in the creative process particularly at the early stage of ideas
+creation. More open system give too much power and impede the creative process.
+
+* Similar work
+Purpose: trace the alternative history of musical systems (visual music, graphic synthesis)
+** Introduction
+** Sonic sketching from a historical perspective
+    1. Visual music
+       1. Oskar Fischinger
+       2. Fantasia
+    2. Legacy synth systems
+       1. Oramics
+       2. UPIC
+       3. ANS synth
+** Sonic sketching in the twenty first century
+    1. Golan Levin cite:levin_painterly_2000 
+    2. Music animation machine cite:malinowski_music_2017
+    3. SonicPainter by William Coleman cite:coleman_sonicpainter:_2015 
+    4. Fischinger google doodle
+** Alternative music systems on the web
+ 1. Pink trombone - https://dood.al/pinktrombone/
+ 2. Tonehack
+ 3. Auraglyph (although not web based)
+ 4. http://arthurcarabott.com/mui-envelope/
+** Summary of currently available music creation systems 
+(Note that UPIC style sketch synths are not available online)
+** Conclusion 
+Both the twentieth and twenty first century have seen a great deal of
+experimentation with ideas of visualizing music and sketching. The audio
+processing capabilities available in modern browsers offers an opportunity to
+explore and refine less mainstream music creation metaphors.
+
+
+* My approach
+Purpose: describe how I'm going about it and why. Describe the tools I'm using.
+** Introduction
+** Appraisal of options
+    - Availability
+    - Usage style - instrument like (Levin)
+** Approach - theory
+    1. HCI considerations, in particular NUI cite:wigdor_brave_2011 
+    2. The Musical Interface Technology Design Space cite:overholt_musical_2009
+    3. Research into cross modal perception (time x axis, pitch y axis) - https://www.researchgate.net/publication/280777718_Shape_drawing_and_gesture_Cross-modal_mappings_of_sound_and_music 
+    # 3. Avoid inference (e.g. machine learning)
+** Approach - practice
+    1. Introduction
+    2. Delivery on Web Browser
+       1. Modern Web Browser as a delivery platform :: discuss pros and cons and situations
+           where it is likely to be a good option. I.e. prototyping where feedback
+           is important. Disadvantages performance, can't be used with pro audio
+           software such as ASIO. cite:adenot_web_2017 
+       2. Benefits of using Tone.js cite:mann_interactive_2015
+       3. Paper.js for the graphics system
+          - Scenegraph
+          - Line smoothing
+          - Vector system
+    3. FM synthesis :: Give a brief overview of FM synthesis and why it was a
+                       good choice for the application
+    4. Live coding workflow
+       1. Introduction
+          - The morphic interface
+          - Mention precedents such as smalltalk squeek
+            # - Alan Kay Steve Jobs story??? - cite:kay_what_2017 
+       2. React.js framework to allow for a declaritive programming model as well
+         as a live code reloading workflow
+       3. Clojurescript
+          1. Relationship to clojure
+          2. Benefits of using clojurescript
+             1. Immutable data structures (Binary tree)
+             2. Functional programming paradigm
+             3. Live code reloading (particularly when used in conjunction with
+               react.js)
+       4. Managing state with Re-frame
+          - Describe programming model
+          - It's relationship to FRP
+** Conclusion
+
+* Execution
+Purpose: give a detailed account of the build of the project.
+** Introduction
+** Early prototype work
+1. Melodypainter
+2. SonicSketch shape version
+3. Porting William Coleman's SonicPainter
+** Actual implementation
+*** Setting up the architecture
+1. Clojurescript and javascript npm modules
+2. Paper.js and react.js (paper.js bindings)
+3. Tone.js and react.js
+4. Reagent and react.js paper.js bindings
+*** Core functionality - timeline events (or notes)
+1. Introduction
+   - Describe the core functionality
+   - Describe core entities
+2. Add timeline event
+   - Business logic
+   - UI
+   - Audio
+3. Add vibrato
+   - Business logic
+   - UI
+   - Audio
+4. Remove note
+5. Move note
+6. Change sound (preset system)
+7. Probability
+
+*** Secondary functionality
+1. Introduction
+2. Transport controls
+3. Animation (current play position & notes)
+4. Undo and redo
+5. Fullscreen
+6. Outer UI
+7. Save and load file
+
+*** Performance issues
+
+** Conclusion
+- Summarise the resulting artifact
+
+* Evaluation
+** Introduction
+** Initial pilot test
+- Introduction :: Describe methodology used
+- Describe results
+- Describe comments and feedback
+- Verified that it was approachable and basically worked as a NUI application  
+** Exhibition
+** Conclusion
+
+* Conclusion and further work
+** Summary of work completed
+** Broader implications of development
+- Incorporate ideas into DAWs (move away from tracks and mixers)
+- Methodology used very successful for prototyping (delivery on web platform,
+  live code reloading)
+** Future work
+*** Performance improvements
+- Try different audio engines, in particular wasm based
+- Move graphics to GPU based system
+*** Broaden visual language
+- Incorporate and visualize more control data
+*** Allow for larger structures
+- Perhaps by scrolling
+- Or multiple canvases/scenes
+- "Smart brushes" that would draw arpeggios, or similar generative structures
+*** 3D spaces, VR, spatial audio
+
+* References

@@ -1,0 +1,319 @@
+% Created 2017-08-04 Fri 20:38
+% Intended LaTeX compiler: pdflatex
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[a4paper, total={150mm,237mm}, left=30mm, top=30mm,]{geometry}
+\author{Kevin Nolan}
+\date{\today}
+\title{Kevin Nolan MMT thesis outline}
+\hypersetup{
+ pdfauthor={Kevin Nolan},
+ pdftitle={Kevin Nolan MMT thesis outline},
+ pdfkeywords={},
+ pdfsubject={Sketching sounds in the modern web browser},
+ pdfcreator={Emacs 25.0.94.2 (Org mode 9.0.9)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+\section{Introduction}
+\label{sec:orgcfcd553}
+
+\section{Background to study}
+\label{sec:org97ad61c}
+\subsection{Introduction}
+\label{sec:org6a91cc1}
+\begin{itemize}
+\item Introduce what will be discussed in this section
+\item A brief historical perspective
+\end{itemize}
+\subsection{The idea generation stage of music production}
+\label{sec:orgee698d6}
+\begin{description}
+\item[{Introduction}] Give an overview of different stages of music production
+as outlined in \cite{duignan_computer_2008} and end with
+focus on the initial idea generation
+\item Using an instrument
+\item Scoring software
+\item Quirky music tools such as "Loopy"
+\item Most commonly in electronic music, DAWS
+\end{description}
+\subsection{Discussion of DAW Metaphors}
+\label{sec:orgc1d4147}
+\begin{enumerate}
+\item Introduction
+\item Piano roll
+\item Mixing console
+\item Plugins
+\end{enumerate}
+\subsection{Discussion of more open systems}
+\label{sec:org183e1d4}
+\begin{enumerate}
+\item Introduction
+\item Textual programming systems
+\begin{itemize}
+\item Supercollider
+\item Csound
+\item Commonmusic
+\item Nyquist
+\item Chuck
+\end{itemize}
+\item Graphical programming systems
+\begin{itemize}
+\item Max MSP
+\item Pure data
+\item Ircam Open music
+\item Plogue Bidule
+\item Jeskola Buzz
+\end{itemize}
+\end{enumerate}
+\subsection{Music in the browser: a new frontier}
+\label{sec:org582f749}
+Discuss drum machines, etc available on the web. Note the accessibility that
+they provide.
+\subsection{Conclusion}
+\label{sec:orge35fa60}
+While the dominant metaphors used in DAWs have their uses they can lead to
+limitations in the creative process particularly at the early stage of ideas
+creation. More open system give too much power and impede the creative process.
+
+
+\section{Similar work}
+\label{sec:org21aa393}
+\subsection{Introduction}
+\label{sec:orge91cf1d}
+\subsection{Sonic sketching from a historical perspective}
+\label{sec:org586cff9}
+\begin{enumerate}
+\item Visual music
+\begin{enumerate}
+\item Oskar Fischinger
+\item Fantasia
+\end{enumerate}
+\item Legacy synth systems
+\begin{enumerate}
+\item Oramics
+\item UPIC
+\item ANS synth
+\end{enumerate}
+\end{enumerate}
+\subsection{Sonic sketching in the twenty first century}
+\label{sec:orgd8b677b}
+\begin{enumerate}
+\item Golan Levin \cite{levin_painterly_2000}
+\item Music animation machine \cite{malinowski_music_2017}
+\item SonicPainter by William Coleman \cite{coleman_sonicpainter:_2015}
+\item Fischinger google doodle
+\end{enumerate}
+\subsection{Alternative music systems on the web}
+\label{sec:org4582e4e}
+(Aphex Twin link)
+\subsection{Summary of currently available music creation systems}
+\label{sec:org764cfbe}
+(Note that UPIC style sketch synths are not available online)
+\subsection{Conclusion}
+\label{sec:org9011e2c}
+Both the twentieth and twenty first century have seen a great deal of
+experimentation with ideas of visualizing music and sketching. The audio
+processing capabilities available in modern browsers offers an opportunity to
+explore and refine less mainstream music creation metaphors.
+
+
+\section{My approach}
+\label{sec:org234a3e0}
+\subsection{Introduction}
+\label{sec:orgf8dcfea}
+\subsection{Appraisal of current options}
+\label{sec:org147952e}
+\begin{itemize}
+\item Availability
+\item Usage style - instrument like (Levin)
+\end{itemize}
+\subsection{Approach - theory}
+\label{sec:orgcca6374}
+\begin{enumerate}
+\item HCI considerations, in particular NUI \cite{wigdor_brave_2011}
+\item The Musical Interface Technology Design Space \cite{overholt_musical_2009}
+\end{enumerate}
+\subsection{Approach - practice}
+\label{sec:orgea92578}
+\begin{enumerate}
+\item Introduction
+\item Delivery on Web Browser
+\begin{enumerate}
+\item Modern Web Browser as a delivery platform :: discuss pros and cons and situations
+where it is likely to be a good option. I.e. prototyping where feedback
+is important. Disadvantages performance, can't be used with pro audio
+software such as ASIO. \cite{adenot_web_2017}
+\item Benefits of using Tone.js \cite{mann_interactive_2015}
+\item Paper.js for the graphics system
+\begin{itemize}
+\item Scenegraph
+\item Line smoothing
+\item Vector system
+\end{itemize}
+\end{enumerate}
+\item FM synthesis :: Give a brief overview of FM synthesis and why it was a
+good choice for the application
+\item Live coding workflow
+\begin{enumerate}
+\item Introduction
+\begin{itemize}
+\item The morphic interface
+\item Mention precedents such as smalltalk squeek
+\end{itemize}
+\item React.js framework to allow for a declaritive programming model as well
+as a live code reloading workflow
+\item Clojurescript
+\begin{enumerate}
+\item Relationship to clojure
+\item Benefits of using clojurescript
+\begin{enumerate}
+\item Immutable data structures (Binary tree)
+\item Functional programming paradigm
+\item Live code reloading (particularly when used in conjunction with
+react.js)
+\end{enumerate}
+\end{enumerate}
+\item Managing state with Re-frame
+\begin{itemize}
+\item Describe programming model
+\item It's relationship to FRP
+\end{itemize}
+\end{enumerate}
+\end{enumerate}
+\subsection{Conclusion}
+\label{sec:orga2b93c0}
+
+\section{Execution}
+\label{sec:org24bf36e}
+
+\subsection{Introduction}
+\label{sec:org2c235eb}
+\subsection{Early prototype work}
+\label{sec:org4a6019c}
+\begin{enumerate}
+\item Melodypainter
+\item SonicSketch shape version
+\item Porting William Coleman's SonicPainter
+\end{enumerate}
+\subsection{Actual implementation}
+\label{sec:orgffe94eb}
+\subsubsection{Setting up the architecture}
+\label{sec:orgcc20f04}
+\begin{enumerate}
+\item Clojurescript and javascript npm modules
+\item Paper.js and react.js (paper.js bindings)
+\item Tone.js and react.js
+\item Reagent and react.js paper.js bindings
+\end{enumerate}
+\subsubsection{Core functionality - timeline events (or notes)}
+\label{sec:orgf2c29ee}
+\begin{enumerate}
+\item Introduction
+\begin{itemize}
+\item Describe the core functionality
+\item Describe core entities
+\end{itemize}
+\item Add timeline event
+\begin{itemize}
+\item Business logic
+\item UI
+\item Audio
+\end{itemize}
+\item Add vibrato
+\begin{itemize}
+\item Business logic
+\item UI
+\item Audio
+\end{itemize}
+\item Remove note
+\item Move note
+\item Change sound (preset system)
+\end{enumerate}
+
+\subsubsection{Secondary functionality}
+\label{sec:org89e7f42}
+\begin{enumerate}
+\item Introduction
+\item Transport controls
+\item Animation (current play position \& notes)
+\item Undo and redo
+\item Fullscreen
+\item Outer UI
+\item Save and load file
+\end{enumerate}
+
+\subsection{Conclusion}
+\label{sec:org01905a0}
+\begin{itemize}
+\item Summarise the resulting artifact
+\end{itemize}
+
+\section{Evaluation}
+\label{sec:orgc7754e3}
+\subsection{Introduction}
+\label{sec:orgb4c782f}
+\subsection{Initial pilot test}
+\label{sec:orgfd63fde}
+\begin{description}
+\item[{Introduction}] Describe methodology used
+\item Describe results
+\item Describe comments and feedback
+\item Verified that it was approachable and basically worked as a NUI application
+\end{description}
+\subsection{Exhibition}
+\label{sec:org5f9f7f4}
+\subsection{Conclusion}
+\label{sec:orge950425}
+
+\section{Conclusion and further work}
+\label{sec:org733257a}
+\subsection{Summary of work completed}
+\label{sec:org49fd10e}
+\subsection{Broader implications of development}
+\label{sec:orgfdd514d}
+\begin{itemize}
+\item Incorporate ideas into DAWs (move away from tracks and mixers)
+\item Methodology used very successful for prototyping (delivery on web platform,
+live code reloading)
+\end{itemize}
+\subsection{Future work}
+\label{sec:orgb80f054}
+\subsubsection{Performance improvements}
+\label{sec:orgf04e15a}
+\begin{itemize}
+\item Try different audio engines, in particular wasm based
+\item Move graphics to GPU based system
+\end{itemize}
+\subsubsection{Broaden visual language}
+\label{sec:org6673bbe}
+\begin{itemize}
+\item Incorporate and visualize more control data
+\end{itemize}
+\subsubsection{Allow for larger structures}
+\label{sec:org0b70dad}
+\begin{itemize}
+\item Perhaps by scrolling
+\item Or multiple canvases/scenes
+\item "Smart brushes" that would draw arpeggios, or similar generative structures
+\end{itemize}
+
+\section{References}
+\label{sec:org19dcd36}
+\end{document}

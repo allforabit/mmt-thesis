@@ -1,4 +1,4 @@
-% Created 2017-07-28 Fri 19:40
+% Created 2017-08-04 Fri 11:02
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper,12pt]{article}
 \usepackage[utf8]{inputenc}
@@ -27,7 +27,7 @@
  pdftitle={Kevin Nolan MMT thesis 2017},
  pdfkeywords={},
  pdfsubject={Sketching sounds in the modern web browser},
- pdfcreator={Emacs 25.0.94.2 (Org mode 9.0.9)}, 
+ pdfcreator={Emacs 26.0.50.1 (Org mode 9.0.9)}, 
  pdflang={English}}
 \begin{document}
 
@@ -36,10 +36,11 @@
 \tableofcontents
 
 
+
 \section{Introduction}
-\label{sec:org5fe1151}
+\label{sec:orgb12dd0d}
 \subsection{Motivations}
-\label{sec:org0142afd}
+\label{sec:orgdf66945}
 Some primary motivations for the creation of the app are as follows (in no
 particular order):
 \begin{itemize}
@@ -56,15 +57,15 @@ ease the complexity of managing fundamental concerns such as undo.
 \end{itemize}
 
 \subsection{Project goals}
-\label{sec:org1365b04}
+\label{sec:orgbacb5dd}
 \subsection{Structure of thesis}
-\label{sec:org6bf5f0a}
+\label{sec:orgcd7f3c8}
 
 \section{Background}
-\label{sec:org5621eb2}
+\label{sec:org68a1d09}
 
 \subsection{DAW analog metaphors}
-\label{sec:org46946c1}
+\label{sec:org1d99bb7}
 One of the primary tools used by electronic musicians today for the production
 of music is DAW and it's inherent metaphors based on analog system still reign
 supreme in the field \cite{bell_journal_2015}. The familiar concepts of analog
@@ -103,20 +104,33 @@ alternative metaphor, that of drawing/sketching will now be discussed.
 \end{caution}
 
 \subsection{Legacy systems}
-\label{sec:org909edb2}
+\label{sec:org6621bf6}
 \begin{itemize}
 \item Oramics
 \item UPIC
 \end{itemize}
 
 \subsection{Golan Levin etc}
-\label{sec:org9ae92ab}
+\label{sec:orgd921e72}
 
 
 \section{Similar work}
-\label{sec:org4c762d3}
+\label{sec:orgd34952f}
+
+
+Things to include
+\begin{itemize}
+\item ANS synth
+\end{itemize}
+
+
+Possible structure
+\begin{enumerate}
+\item 
+\end{enumerate}
+
 \subsection{Criteria}
-\label{sec:org47c5792}
+\label{sec:org4db3010}
 \begin{description}
 \item[{Web based}] Does the system work on a modern browser
 \item[{Symbolic rep}] Does the system use symbolic representation or is it more or
@@ -139,35 +153,125 @@ Oramics & No & Yes & None\\
 \end{center}
 
 \section{{\bfseries\sffamily TODO} My approach [0/2]}
-\label{sec:orgb479b30}
+\label{sec:org199542a}
+TODO
 \begin{itemize}
 \item $\square$ Come up with a title
 \item $\square$ Other stuff
 \end{itemize}
 
+
+Possible structure
+\begin{enumerate}
+\item NUI
+\item 
+\end{enumerate}
+
 \subsection{Adding allowances for stylus}
-\label{sec:org8f07cb7}
+\label{sec:org1bed041}
 \subsection{Relationship between control data and synths}
-\label{sec:org7a52243}
+\label{sec:orgc35337e}
 Discuss Roger Dannenberg conceptualization of the two main paradigms of music
 software systems. Resource based vs instance \cite{dannenberg_resource-instance_1991} 
 \subsection{Key specifications}
-\label{sec:org5cd5246}
+\label{sec:orgd37cbfb}
 \subsection{Paper.js}
-\label{sec:orgfdaf4fd}
+\label{sec:org3e1525d}
 \subsection{NUI}
-\label{sec:orgefb49b6}
+\label{sec:orge8158f7}
 Introduce the NUI
 \subsection{Tone.js}
-\label{sec:org2c4343f}
+\label{sec:orgf55cc6e}
 \cite{mann_interactive_2015}
 
 \section{Execution}
-\label{sec:orgce589e3}
+\label{sec:orgd078fd9}
+
+
+Potential structure:
+\begin{enumerate}
+\item Introduction
+\item Early prototypes
+\begin{enumerate}
+\item Melodypainter
+\item Sonicksetch
+\end{enumerate}
+\item Actual implementation using web technologies
+\begin{enumerate}
+\item Dependencies 
+\begin{enumerate}
+\item JS 
+\begin{enumerate}
+\item Tone.js
+\item Paper.js
+\item React.js 16
+\begin{itemize}
+\item Overview
+\item FibreReconciler
+\end{itemize}
+\item React bindings for paper.js
+\item Other: react-icons, rebass, screenfull
+\end{enumerate}
+\item CLJS
+\begin{enumerate}
+\item Overview of clojurescript
+\item Libraries
+\begin{itemize}
+\item Reagent
+\item Re-frame
+\item Thi.ng libraries (mostly utilitites)
+\end{itemize}
+\end{enumerate}
+\end{enumerate}
+\item Domain/entities
+\begin{enumerate}
+\item Note
+\item Playback
+\item Tool
+\item Preset palette
+\item Mode
+\end{enumerate}
+\item Use cases / business logic
+\begin{enumerate}
+\item Add note
+\item Remove note
+\item Move note
+\item Add vibrato to note
+\item Change sound
+\item Transport controls
+\item Display current position
+\item Current note animation
+\item Undo and redo
+\item Various utility - fullscreen
+\end{enumerate}
+\item Adapters (views, events, subscriptions, etc)
+\begin{enumerate}
+\item Note view
+\item Vibrato
+\item Audio using tone.js with react
+\begin{itemize}
+\item FM synthesis
+\end{itemize}
+\item Chrome (buttons and transport around the outside)
+\end{enumerate}
+\item Services (interfacing with external tools)
+\begin{enumerate}
+\item Rebass
+\item React icons
+\item Color system
+\end{enumerate}
+\item Core.js - bringing it all together
+\begin{enumerate}
+\item Mounting the renderer
+\item Setting up the default database
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+
 \subsection{Early prototypes}
-\label{sec:org9eb27cf}
+\label{sec:org4b844ef}
 \subsubsection{Melodypainter}
-\label{sec:org22be26a}
+\label{sec:org25b5502}
 Thus far, some early test prototypes to establish possible directions for the
 application have been built. A Max Msp patch was created which allows the user
 to draw freehand lines, which are converted into break point function data and
@@ -178,7 +282,7 @@ generally horizontal fashion for the data to be of use and to create a strong
 relationship between the visuals and the generated music.
 
 \subsubsection{Sonicsketch - shape recognition}
-\label{sec:org6d2a166}
+\label{sec:orga853f5d}
 A separate application was created in Processing which allowed users to draw
 shapes, using either mouse or ideally, pen input and have a sound that is
 associated with each shape played back. As the sound of each shape plays back,
@@ -189,77 +293,23 @@ have a high rate of accuracy in recognizing the shapes. It is for this reason
 that Microsoft's ink api is now being used for further prototyping.
 
 \subsection{The build out}
-\label{sec:org9212529}
+\label{sec:orgdb7c949}
 \subsubsection{Building the framework}
-\label{sec:orgc6f06ed}
+\label{sec:org09d7858}
 \paragraph{Advantages of the react.js model of UI programming}
-\label{sec:org0e83cb3}
+\label{sec:org04e4ebc}
 \subsubsection{Stroke functionality}
-\label{sec:org96f80ab}
+\label{sec:org085eaa7}
 Describe how the stroke functionality works and was implemented.
-\paragraph{Overall app}
-\label{sec:org581a076}
-
-\begin{center}
-\includegraphics[width=.9\linewidth]{tryout.png}
-\end{center}
-
-\begin{enumerate}
-\item The relevant code
-\label{sec:org25240f3}
-\begin{verbatim}
-(defn pointer-move [{:keys [temp-obj active-preset]} evt]
-  (when-let [{:keys [path group] :as temp-obj} @temp-obj]
-    (let [pointer-point (.. evt -point)
-          rel-pos       (.. group (globalToLocal pointer-point))]
-      (log (.. group -position) "pointer point rel")
-      ;; Only add positive points relative to first
-      ;; Remove points greater than pointer-points
-      (when-let [last-seg (.. path getLastSegment)]
-        (log last-seg)
-        (let [last-point (-> last-seg .-point)
-              pointer-x  (.-x rel-pos)]
-          (if (>= pointer-x (.-x last-point))
-              (-> path (.add rel-pos))
-              (let [greater-segs (filter
-                                  #(> (-> % .-point .-x) pointer-x)
-                                  (.-segments path))]
-                ;; Remove greater points
-                (doseq [seg greater-segs]
-                  (.removeSegment path (.-index seg))))))))))
-\end{verbatim}
-\end{enumerate}
-
-\paragraph{Sketch walkthrough}
-\label{sec:orgaebcfc6}
-
-\begin{center}
-\begin{figure}[htbp]
-
-\includegraphics[height=0.2\textwidth]{./charts/images/attractor-01 (Small).png}
-\caption{\label{fig:org5f8012d}
-This is the caption for the next table (or link)}
-\end{figure}
-
-
-\includegraphics[height=0.2\textwidth]{./charts/images/attractor-02 (Small).png}
-
-\begin{center}
-\includegraphics[height=5cm]{./charts/images/attractor-03 (Small).png}
-\end{center}
-\includegraphics[height=0.2\textwidth]{./charts/images/attractor-04 (Small).png}
-\end{center}
-
-Please see [\ref{attractor-01}] 
 \subsubsection{Enabling undo and redo}
-\label{sec:orgd213a93}
+\label{sec:orgcdcc826}
 \subsubsection{Catering for additional input types}
-\label{sec:orga664014}
+\label{sec:orgce0b257}
 Describe issues encountered including a lack of support in paper.js and the
 small patch required to enable it.
 
 \section{Evaluation [0/1]}
-\label{sec:orgbd01659}
+\label{sec:org9ff3665}
 \begin{itemize}
 \item $\square$ Come up with a better title.
 \end{itemize}
@@ -302,9 +352,9 @@ artifacts are in evidence
 
 
 \section{Conclusions and further work}
-\label{sec:org3559ffc}
+\label{sec:org2164899}
 \subsection{Future work}
-\label{sec:org3ea7f34}
+\label{sec:orgbece159}
 While SonicSketch in it's current format is useable for further ease of use it
 would need work done on performance related issues, including but not limited
 to: 
@@ -324,5 +374,5 @@ Allow for larger structures, perhaps by scrolling.
 Allow for meta-strokes where a stroke would draw the contents of another scene.
 
 \section{References}
-\label{sec:orgc0a1a79}
+\label{sec:orgec81d9a}
 \end{document}
