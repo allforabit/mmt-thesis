@@ -245,29 +245,165 @@ described.
 6. Change sound (preset system)
 7. Probability
 :END:
+
 At the core of the application is the creation of timeline events which unfold
 in a looped fashion. These events are created based on the input of the user
 with a mouse or mouse like input device. On the production of a valid input
 gesture, the screen is updated immediately with a visual display of this
 content. The details of this gesture is stored in memory and the event that will
-eventually create the sound is registered with tone.js. 
+eventually create the sound is registered with tone.js. Much of the events that
+occur in the system are captured in a main "View" component which houses the
+central html canvas element. To aid in organising the large amount of
+functionality associated with the component, higher order components are used to
+separate this out into logical groupings. A higher order component is a
+component that wraps a normal component to add functionality to it and accepts
+the same properties as the component it wraps (???ref-react). In this case the most logical
+grouping is by tool and so there are higher order components setup for each of
+the tools: draw, vibrato, delete, move, resize and probability.
 
-**** Add timeline event
+**** Add timeline event 
+:NOTES:
+ - Clojure atom
+:END:
+This is the default tool that is activated when the user opens the application
+and enables the user to add timeline events by drawing them onto the screen. It
+is added to the system when the "draw" tool is activated and a mouse drag
+operation is carried out from left to right within the bounds of the canvas
+element. The event is captured in the main canvas view and is initiated when the
+user left clicks the mouse triggering the following function:
+
+#+BEGIN_SRC clojure
+(defn pointer-down [{:keys [temp-obj active-preset]} evt]
+  (let [pointer-point (.. evt -point)
+        group         (js/paper.Group. (clj->js {:position    [(.. pointer-point -x) (.. pointer-point -y)]
+                                                 :applyMatrix false
+                                                 :pivot [0 0]}))
+        circle        (js/paper.Shape.Circle. (clj->js {:fillColor "#ffffff"
+                                                        :radius    5}))
+        path          (js/paper.Path. (clj->js {:strokeColor   "#ffffff"
+                                                :strokeWidth   2
+                                                :fullySelected true
+                                                :segments      [[0 0]]}))]
+    (.. group (addChildren #js [circle path]))
+    (reset! temp-obj {:path   path
+                      :circle circle
+                      :group  group
+                      :loc pointer-point})))
+#+END_SRC
+
+This function receives a hashmap with a reference to a /ClojureScript/ atom which
+can is `reset!` to contain a temporary visualisation of the newly created note.
+This function uses a heavy amount of javascript interop to directly instanciate
+paper.js objects and add them to a shared group.
+
+As the user continues to move the cursor further points are added to the path
+created in the `pointer-down` function. Some constraints however are placed on
+the creation of the path and only points that are past the last previous from
+left to right are added. If the users backtracks it lead to a deletion of
+points, providing an intuitive undo like behaviour and implementing a recipricol
+HCI interaction pattern recommended by NUI principles. 
+#+BEGIN_SRC clojure
+(defn pointer-move [{:keys [temp-obj active-preset]} evt]
+  (when-let [{:keys [path group] :as temp-obj} @temp-obj]
+    (let [pointer-point (.. evt -point)
+          rel-pos       (.. group (globalToLocal pointer-point))]
+      ;; Only add positive points relative to first
+      ;; Remove points greater than pointer-points
+      (when-let [last-seg (.. path getLastSegment)]
+        (let [first-seg   (.. path getFirstSegment)
+              first-point (-> first-seg .-point)
+              last-point  (-> last-seg .-point)
+              pointer-x   (.-x rel-pos)
+              amp-env     (-> active-preset :envelope)
+              stage-width (.. evt -tool -view -viewSize -width)
+              max-width   (if (= (-> amp-env :sustain) 0)
+                            (let [time (+ (-> amp-env :attack)
+                                          (-> amp-env :decay)
+                                          (-> amp-env :release))]
+                              (-> time
+                                  ;; Seconds to beats
+                                  (* (/ js/Tone.Transport.bpm.value 60))
+                                  (time->euclidian stage-width)))
+                            nil)]
+          (when (or
+                 (nil? max-width)
+                 (< pointer-x (+ (.-x first-point) max-width)))
+            (-> path (.add rel-pos))
+            (let [greater-segs (filter
+                                #(> (-> % .-point .-x) pointer-x)
+                                (.-segments path))]
+                ;; Remove greater points
+              (doseq [seg greater-segs]
+                  (.removeSegment path (.-index seg))))))))))
+#+END_SRC
+
+Completion of a note occurs when the user releases the button and triggers the
+`pointer-up` function:
+#+BEGIN_SRC clojure
+(defn pointer-up [{:keys [temp-obj active-preset stage-size]} evt]
+  (let [{:keys [path circle group loc] :as temp-obj} @temp-obj]
+    (.simplify path 10)
+    ;; Send the actual note
+    (dispatch [:note-add (-> (path->note path loc stage-size)
+                             (assoc ,,, :preset active-preset)
+                             ;; Use the color from the active preset
+                             (assoc ,,, :color (:color active-preset)))] )
+    ;; Remove temp stuff
+    (.remove path)
+    (.remove group)
+    (.remove circle))
+  ;; Unset temp obj
+  (reset! temp-obj nil))
+#+END_SRC
+This function simplifies the path by calling the paper.js `simplify` method on the path
+object and dramatically reduces the amount of data captured while preserving the
+basic characteristic of the user's stroke (???ref-simplify-fn). Most importantly it
+calls the /re-frame/ `dispatch` function to add the note to the app database. A
+`path->note` function is used to convert the stroke from the domain of euclidean
+space on the visual space of the canvas to the domain of time-pitch space for
+use with the audio synthesis system. The path->note function can be seen below:
+#+BEGIN_SRC clojure
+(defn path->note [path first-point stage-size]
+  "Main entry point to this namespace"
+  (let [path-width (.. path -bounds -width)
+        width      (:width stage-size)
+        height     (:height stage-size)]
+    {:freq        (domain/euclidean->freq (.. first-point -y) height)
+     :onset       (domain/euclidean->time (.. first-point -x) width)
+     :duration    (domain/euclidean->time path-width width)
+     :velocity    0.5
+     :enabled     true
+     :probability 1.0
+     :color       @(col/as-css (get colors (rand-int 100)))
+     :height      (.. path -bounds -height)
+     :width       (.. path -bounds -width)
+     :envelopes   {:frequency {:raw     (paper-path->vec path [width height])
+                               :sampled (paper-path->sample path stage-size)}
+                   :vibrato   (reduce (fn [a b] (assoc a b [b 0])) (sorted-map) (range 11))}}))
+#+END_SRC 
+The domain of time-pitch is used to store the notes in memory and makes it
+possible to maintain a responsive relationship between the screen size and the
+drawn notes.
+
+
+
+
 **** Add vibrato
 **** Remove note
 **** Move note
+**** Resize note
 **** Change sound (preset system)
 **** Probability tool
 
 
 *** Secondary functionality
-1. Introduction
-2. Transport controls
-3. Animation (current play position & notes)
-4. Undo and redo
-5. Fullscreen
-6. Outer UI
-7. Save and load file
+**** Introduction
+**** Transport controls
+**** Animation (current play position & notes)
+**** Undo and redo
+**** Fullscreen
+**** Outer UI
+**** Save and load file
 
 *** Performance issues
 
