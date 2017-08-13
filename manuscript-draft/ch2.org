@@ -4,22 +4,66 @@ Purpose: establish the dominant analog DAW metaphors and broad approaches and to
 :END:
 
 ** Introduction
-    - Introduce what will be discussed in this section
-    - A brief historical perspective
+:NOTES:
+- Introduce what will be discussed in this section
+- A brief historical perspective
+ :END:
 ** The idea generation stage of music production
-    - Introduction :: Give an overview of different stages of music production
-                       as outlined in cite:duignan_computer_2008 and end with
-                       focus on the initial idea generation
-    - Using an instrument
-    - Scoring software
-    - Quirky music tools such as "Loopy"
-    - Most commonly in electronic music, DAWS
+:NOTES:
+- Introduction :: Give an overview of different stages of music production
+                    as outlined in cite:duignan_computer_2008 and end with
+                    focus on the initial idea generation
+- Using an instrument
+- Scoring software
+- Quirky music tools such as "Loopy"
+- Most commonly in electronic music, DAWS
+:END:
 ** Discussion of DAW Metaphors
-    1. Introduction
-    2. Piano roll
-    3. Mixing console
-    4. Plugins
+:NOTES:
+1. Introduction
+2. Piano roll
+3. Mixing console
+4. Plugins
+:END:
+
+One of the primary tools used by electronic musicians today for the production
+of music is DAW and it's inherent metaphors based on analog system still reign
+supreme in the field cite:bell_journal_2015. The familiar concepts of analog
+tape machines and mixers benefit the novice user by offering a network of
+familiar and tangible real world metaphors in which to carry out their creative
+work. However, as well as the benefits that these types of metaphors bring, they
+also impose some limitations and bring about certain biases. Musical ideas that
+are difficult to realise can be left unexplored.
+
+A particular criticism of the DAW is the difficulty in maintaining and managing
+the editing of complex automation information. Automation is the term given to
+the continuous altering of aspects of the sound and is usually represented in
+lanes separate to the primary note pitch information. It may be recorded in or
+drawn in by the producer. Difficulties can arise, when multiple subtly
+interacting lines of automation, such as pitch bends and filter changes are
+being manipulated. William Coleman gives a particularly clear example of this
+and outlines the difficulty of representing "portamento time", the time it takes
+a note to slide from one to the next. The visual results can be jarring,
+unintuitive and not reflective of the audio results.
+
+#+begin_caution
+Duignan (2008) describes a similar problem in his study that monitored
+professional producers working in DAW environments
+[[cite:duignan_computer_2008][p. 156]]. The particular problem identified by
+Duignan was that of processing one off effects for single musical events. A
+number of convoluted processes were observed, including bouncing the affected
+portion to audio, duplicating the track, setting up a particular auxiliary for
+the effect and controlling the effect with automation. In these cases, the
+hierarchy imposed by the DAW gets in the way, where it could be modeled quite
+elegantly in a more open program such as Max Msp. This, unfortunately, raises
+the issue of drifting into the area of analytic thinking and away from creative
+thinking, a combination that John Cage advises against: "Don't try to create and
+analyse at the same time. They're different processes." cite:popova_10_2012 The
+need to explore alternative metaphors is clear. A description of a promising
+alternative metaphor, that of drawing/sketching will now be discussed.
+#+end_caution
 ** Discussion of more open systems
+:NOTES:
     1. Introduction
     2. Textual programming systems
        - Supercollider
@@ -33,6 +77,7 @@ Purpose: establish the dominant analog DAW metaphors and broad approaches and to
        - Ircam Open music
        - Plogue Bidule
        - Jeskola Buzz
+:END:
 ** Music in the browser: a new frontier
 Discuss drum machines, etc available on the web. Note the accessibility that
 they provide. Perhaps introduce tone.js here.
@@ -40,3 +85,6 @@ they provide. Perhaps introduce tone.js here.
 While the dominant metaphors used in DAWs have their uses they can lead to
 limitations in the creative process particularly at the early stage of ideas
 creation. More open system give too much power and impede the creative process.
+
+
+

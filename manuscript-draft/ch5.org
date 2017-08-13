@@ -1,4 +1,5 @@
 #+OPTIONS: d:nil
+#+PANDOC_OPTIONS: table-of-contents:nil number-sections:t
 
 * Execution
 :NOTES:
@@ -223,7 +224,7 @@ The current state of the art in live code reloading in the browser is still not
 as comprehensive or as easy to setup as might be wished. Once it has been
 configured it is difficult to return to the compile and run workflow, and is in
 most cases a worthwhile investment of time. With these underlying elements in
-place the process of creating the application could begin and will now be
+place the process of creating the core functionality application could begin and will now be
 described.
 
 *** Core functionality - timeline events (or notes)
@@ -245,6 +246,18 @@ described.
 7. Probability
 :END:
 
+At the core of the application is the creation of timeline events which unfold
+in a looped fashion. These events are created based on the input of the user
+with a mouse or mouse like input device. On the production of a valid input
+gesture, the screen is updated immediately with a visual display of this
+content. The details of this gesture is stored in memory and the event that will
+eventually create the sound is registered with tone.js. 
+**** Add timeline event
+**** Add vibrato
+**** Remove note
+**** Move note
+**** Change sound (preset system)
+**** Probability tool
 
 
 *** Secondary functionality

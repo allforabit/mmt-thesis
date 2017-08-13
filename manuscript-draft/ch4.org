@@ -1,3 +1,5 @@
+#+OPTIONS: d:nil
+#+PANDOC_OPTIONS: table-of-contents:nil number-sections:t
 * My approach
 :NOTES:
 Purpose: describe how I'm going about it and why. Describe the tools I'm using.
@@ -5,42 +7,90 @@ Purpose: describe how I'm going about it and why. Describe the tools I'm using.
 
 ** Introduction
 ** Appraisal of options
-    - Availability
-    - Usage style - instrument like (Levin)
+   :NOTES:
+   - Availability
+   - Usage style - instrument like (Levin)
+   :END:
 ** Approach - theory
-    1. HCI considerations, in particular NUI cite:wigdor_brave_2011 
-    2. The Musical Interface Technology Design Space cite:overholt_musical_2009
-    3. Research into cross modal perception (time x axis, pitch y axis) - https://www.researchgate.net/publication/280777718_Shape_drawing_and_gesture_Cross-modal_mappings_of_sound_and_music 
-    # 3. Avoid inference (e.g. machine learning)
+  :NOTES:
+  1. HCI considerations, in particular NUI cite:wigdor_brave_2011 
+  2. The Musical Interface Technology Design Space cite:overholt_musical_2009
+  3. Research into cross modal perception (time x axis, pitch y axis) - https://www.researchgate.net/publication/280777718_Shape_drawing_and_gesture_Cross-modal_mappings_of_sound_and_music 
+  :END:
+
+*** HCI considerations
+*** The Musical Interface Technology Design Space (MITDS)
+*** Cross modal perception
+
 ** Approach - practice
-    1. Introduction
-    2. Delivery on Web Browser
-       1. Modern Web Browser as a delivery platform :: discuss pros and cons and situations
-           where it is likely to be a good option. I.e. prototyping where feedback
-           is important. Disadvantages performance, can't be used with pro audio
-           software such as ASIO. cite:adenot_web_2017 
-       2. Benefits of using Tone.js cite:mann_interactive_2015
-       3. Paper.js for the graphics system
-          - Scenegraph
-          - Line smoothing
-          - Vector system
-    3. FM synthesis :: Give a brief overview of FM synthesis and why it was a
+*** Delivery on Web Browser
+**** Modern Web Browser as a delivery platform
+    :NOTES:
+    Discuss pros and cons and situations where it is likely to be a good option.
+    I.e. prototyping where feedback is important. Disadvantages performance, can't
+    be used with pro audio software such as ASIO. cite:adenot_web_2017
+    :END:
+            
+**** Benefits of using Tone.js cite:mann_interactive_2015
+**** Paper.js for the graphics system
+     :NOTES:
+     - Scenegraph
+     - Line smoothing
+     - Vector system
+     :END:
+**** FM synthesis :: Give a brief overview of FM synthesis and why it was a
                        good choice for the application
-    4. Live coding workflow
-       1. Introduction
-          - The morphic interface
-          - Mention precedents such as smalltalk squeek
-            # - Alan Kay Steve Jobs story??? - cite:kay_what_2017 
-       2. React.js framework to allow for a declaritive programming model as well
-         as a live code reloading workflow
-       3. Clojurescript
+**** Live coding workflow
+***** Introduction
+      :NOTES:
+      - The morphic interface
+      - Mention precedents such as smalltalk squeek
+        # - Alan Kay Steve Jobs story??? - cite:kay_what_2017 
+      :END:
+***** React.js framework
+      :NOTES:
+      To allow for a declaritive programming model as well
+      as a live code reloading workflow
+      :END:
+React is a web framework built by Facebook that aids the developer in updating
+the DOM (Document Object Model), a process that is required when the state of
+teh applciation changes. This was a role traditionally carrried out on the
+server and served to users as a static page. This all changed however with the
+rise of Single Page Applications (SPA) around the 2???s. The value proposition
+of the SPA is increased interactivity and responsives to user input, allowing
+the look and contents of the page to update dynamically as the user interacst
+with the system. To aid in the construction of these SPA's a number of
+frameworks to help the process were introduced by the open source community.
+Some popular early examples include /Backbone.js/ and /Angular.js/. A technique
+that saw some popularity was a system called two way binding which created two
+way link between the current state in the model and the visual appearance of the
+view. This however has a number of issues including some serious performance
+issues, in addition to some conceptual problems (???ref). React offers a simpler
+one way bidning ssytem using what is termed the Virtual DOM. In this model a
+special virtual version of the DOM is constructed and when the model changes is
+updated. The parts of the DOM that require changing can thusly be pinpointed and
+the real DOM can be efficiently updated. This system has proven to be
+particulalrly beneficial when paired with functional programming techniques, a
+style of programming that emphasizes the use of pure functions as the primary
+building block of programs. In the case of working with the DOM, it can lead to
+not only an increase in efficiency in the rendering of the applications but also
+a simplification of the programming model. A number of projects have emerged
+that attempt to bring this benefits of the react model beyond the realm of the
+DOM including writing console prgorams (???ref), writing web audio applications
+(???ref) and even Arduino projects (???ref).
+
+***** Clojurescript
+       :NOTES:
           1. Relationship to clojure
           2. Benefits of using clojurescript
              1. Immutable data structures (Binary tree)
              2. Functional programming paradigm
              3. Live code reloading (particularly when used in conjunction with
                react.js)
-       4. Managing state with Re-frame
-          - Describe programming model
-          - It's relationship to FRP
+       :END:
+***** Managing state with Re-frame
+      :NOTES:
+      - Describe programming model
+      - It's relationship to FRP
+      :END:
 ** Conclusion
