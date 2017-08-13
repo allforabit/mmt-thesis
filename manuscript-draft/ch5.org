@@ -1,5 +1,8 @@
 #+OPTIONS: d:nil
 #+PANDOC_OPTIONS: table-of-contents:nil number-sections:t
+#+LATEX_HEADER: \usepackage[a4paper, total={150mm,237mm}, left=30mm, top=30mm,]{geometry}
+#+LATEX_HEADER: \usepackage{fancyhdr}
+#+LATEX_HEADER: \pagestyle{fancyplain}
 
 * Execution
 :NOTES:
@@ -122,7 +125,7 @@ libraries as dependencies. However, with the use of clojurescript some extra
 steps needed to be carried out. In addition to adding the dependencies, a
 javascript file was created that imported these into a "deps" object. This deps
 object could then be referred to in clojurescript using the standard interop
-syntax `js/deps.myDependency`. At the time of development an alpha feature that
+syntax =js/deps.myDependency=. At the time of development an alpha feature that
 allowed npm dependencies to be declared as part of the project.clj file was
 experimented with but was not used in due to difficulties getting it to work.
 While the project setup was not as elegant or succint as might be wished, it did
@@ -213,7 +216,7 @@ succint clojurescript syntax to describe the playback indicator:
            :fill-color "#ffffff"}]]
 #+END_SRC
 
-As can probably be inferred from the code the `position` and `height` are
+As can probably be inferred from the code the =position= and =height= are
 properties that are passed into the hiccup and trigger updates to the visual
 display when they change: in the case of position, when the playback
 position changes and in the case of the height, when the user resizes the
@@ -275,7 +278,8 @@ user left clicks the mouse triggering the following function:
 #+BEGIN_SRC clojure
 (defn pointer-down [{:keys [temp-obj active-preset]} evt]
   (let [pointer-point (.. evt -point)
-        group         (js/paper.Group. (clj->js {:position    [(.. pointer-point -x) (.. pointer-point -y)]
+        group         (js/paper.Group. (clj->js {:position 
+                        [(.. pointer-point -x) (.. pointer-point -y)]
                                                  :applyMatrix false
                                                  :pivot [0 0]}))
         circle        (js/paper.Shape.Circle. (clj->js {:fillColor "#ffffff"
@@ -292,12 +296,12 @@ user left clicks the mouse triggering the following function:
 #+END_SRC
 
 This function receives a hashmap with a reference to a /ClojureScript/ atom which
-can is `reset!` to contain a temporary visualisation of the newly created note.
+can is =reset!= to contain a temporary visualisation of the newly created note.
 This function uses a heavy amount of javascript interop to directly instanciate
 paper.js objects and add them to a shared group.
 
 As the user continues to move the cursor further points are added to the path
-created in the `pointer-down` function. Some constraints however are placed on
+created in the =pointer-down= function. Some constraints however are placed on
 the creation of the path and only points that are past the last previous from
 left to right are added. If the users backtracks it lead to a deletion of
 points, providing an intuitive undo like behaviour and implementing a recipricol
@@ -338,7 +342,7 @@ HCI interaction pattern recommended by NUI principles.
 #+END_SRC
 
 Completion of a note occurs when the user releases the button and triggers the
-`pointer-up` function:
+=pointer-up= function:
 #+BEGIN_SRC clojure
 (defn pointer-up [{:keys [temp-obj active-preset stage-size]} evt]
   (let [{:keys [path circle group loc] :as temp-obj} @temp-obj]
@@ -355,11 +359,11 @@ Completion of a note occurs when the user releases the button and triggers the
   ;; Unset temp obj
   (reset! temp-obj nil))
 #+END_SRC
-This function simplifies the path by calling the paper.js `simplify` method on the path
+This function simplifies the path by calling the paper.js =simplify= method on the path
 object and dramatically reduces the amount of data captured while preserving the
 basic characteristic of the user's stroke (???ref-simplify-fn). Most importantly it
-calls the /re-frame/ `dispatch` function to add the note to the app database. A
-`path->note` function is used to convert the stroke from the domain of euclidean
+calls the /re-frame/ =dispatch= function to add the note to the app database. A
+=path->note= function is used to convert the stroke from the domain of euclidean
 space on the visual space of the canvas to the domain of time-pitch space for
 use with the audio synthesis system. The path->note function can be seen below:
 #+BEGIN_SRC clojure
@@ -382,11 +386,19 @@ use with the audio synthesis system. The path->note function can be seen below:
                    :vibrato   (reduce (fn [a b] (assoc a b [b 0])) (sorted-map) (range 11))}}))
 #+END_SRC 
 The domain of time-pitch is used to store the notes in memory and makes it
-possible to maintain a responsive relationship between the screen size and the
+possible to maintain a relative relationship between the screen size and the
 drawn notes.
 
-
-
+The dispatched note event is handled by a /re-frame/ =reg-event-db= handler
+which describes the alteration that is required to be made to the database. It
+also uses a series of interceptors, to perform validation of the database and to
+remove some of the boilerplate from the event handler functions. Interceptors
+are similar conceptually to middleware and is the place where all of the side
+effects arising from an event are actioned. Moving application side effects to
+this placed ensures that they are isolated and means that the majority of the
+program can be kept as pure logic improving to make it easier to test, debug and
+reason about. As can be seen the 
+location 
 
 **** Add vibrato
 **** Remove note
