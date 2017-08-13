@@ -245,13 +245,13 @@ described.
 6. Change sound (preset system)
 7. Probability
 :END:
-
 At the core of the application is the creation of timeline events which unfold
 in a looped fashion. These events are created based on the input of the user
 with a mouse or mouse like input device. On the production of a valid input
 gesture, the screen is updated immediately with a visual display of this
 content. The details of this gesture is stored in memory and the event that will
 eventually create the sound is registered with tone.js. 
+
 **** Add timeline event
 **** Add vibrato
 **** Remove note
