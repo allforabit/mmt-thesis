@@ -46,7 +46,6 @@ and outlines the difficulty of representing "portamento time", the time it takes
 a note to slide from one to the next. The visual results can be jarring,
 unintuitive and not reflective of the audio results.
 
-#+begin_caution
 Duignan (2008) describes a similar problem in his study that monitored
 professional producers working in DAW environments
 [[cite:duignan_computer_2008][p. 156]]. The particular problem identified by
@@ -61,7 +60,7 @@ thinking, a combination that John Cage advises against: "Don't try to create and
 analyse at the same time. They're different processes." cite:popova_10_2012 The
 need to explore alternative metaphors is clear. A description of a promising
 alternative metaphor, that of drawing/sketching will now be discussed.
-#+end_caution
+
 ** Discussion of more open systems
 :NOTES:
     1. Introduction

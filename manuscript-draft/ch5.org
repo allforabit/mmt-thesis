@@ -1,8 +1,8 @@
-#+OPTIONS: d:nil
-#+PANDOC_OPTIONS: table-of-contents:nil number-sections:t
-#+LATEX_HEADER: \usepackage[a4paper, total={150mm,237mm}, left=30mm, top=30mm,]{geometry}
-#+LATEX_HEADER: \usepackage{fancyhdr}
-#+LATEX_HEADER: \pagestyle{fancyplain}
+# #+OPTIONS: d:nil
+# #+PANDOC_OPTIONS: table-of-contents:nil number-sections:t
+# #+LATEX_HEADER: \usepackage[a4paper, total={150mm,237mm}, left=30mm, top=30mm,]{geometry}
+# #+LATEX_HEADER: \usepackage{fancyhdr}
+# #+LATEX_HEADER: \pagestyle{fancyplain}
 
 * Execution
 :NOTES:
@@ -397,8 +397,61 @@ are similar conceptually to middleware and is the place where all of the side
 effects arising from an event are actioned. Moving application side effects to
 this placed ensures that they are isolated and means that the majority of the
 program can be kept as pure logic improving to make it easier to test, debug and
-reason about. As can be seen the 
-location 
+reason about. As can be seen the handler function is very simple:
+#+BEGIN_SRC clojure
+(reg-event-db
+ :note-add
+ note-interceptors
+ (fn [notes [note-info]]
+   (let [id    (allocate-next-id notes)
+         note  (assoc note-info :id id)]
+     (if (>= (:duration note) 0.001)
+       (assoc notes id note)
+       notes))))
+#+END_SRC
+This does a simple check to make sure that note has a minimum duration and if so
+alters the notes vector to include the new vector which will instruct /re-frame/
+to update it's internal atom with this new state.
+
+The structure of the note hashmap is defined using /clojure.spec/, a core
+library to perform data validation and a tool that may be used similarly to
+types in strongly typed languages. The note specs are defined as follows:
+#+BEGIN_SRC clojure
+(s/def ::id int?)
+(s/def ::freq float?)
+(s/def ::onset float?)
+(s/def ::duration float?)
+(s/def ::velocity float?)
+(s/def ::color string?)
+(s/def ::note (s/keys :req-un [::id ::freq ::onset ::duration]
+                      :opt-un [::velocity]))
+#+END_SRC
+Although note specified here, notes also have an =envelopes= key that stores
+frequency and vibrato envelopes. For example:
+#+BEGIN_SRC clojure
+{:frequency {:raw [{:point [-0.01 99.7] :handle-in [0 100] :handle-out [0 99.8]}  ...
+                   {:point [2.8 98.02] :handle-in [-0.10 100.4], :handle-out [0 100]}]
+             :sampled [-0.36991368680641185 ... -2.172026174596564]}
+ :vibrato {0 [0 0], ... 10 [10 0]}}
+#+END_SRC
+
+The update in state spins /re-frame/'s subscription system into action and any
+views that are subscribed to the application state are now re-rendered as needs
+be. The =graphics-notes= view for instance is subscribed to =:notes=,
+=:graphics-stage-width=, =:graphics-stage-height:= and =:mode=:
+#+BEGIN_SRC clojure
+(defn graphics-notes []
+  (let [notes         (subscribe [:notes])
+        width         (subscribe [:graphics-stage-width])
+        height        (subscribe [:graphics-stage-height])
+        ....]
+    ;; playback-time @(subscribe [:playback-time])
+    (into [:Group]
+          (map (fn [note]
+                 ^{:key (:id note)} [graphics-note* ...]) @notes))))
+#+END_SRC
+When a note is added this render function will be ran which will call the
+=[graphics-note*]= component for each of the notes.
 
 **** Add vibrato
 **** Remove note
