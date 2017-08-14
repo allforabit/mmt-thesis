@@ -1,3 +1,5 @@
+#+LATEX_HEADER: \usepackage{graphicx}
+
 * Evaluation
 ** Introduction
 ** Initial pilot test
@@ -8,4 +10,19 @@
 - Verified that it was approachable and basically worked as a NUI application
 :END: 
 ** Exhibition
+
+#+BEGIN_LATEX
+\begin{figure}[h]
+\centering
+\includegraphics[width=1.0\textwidth]{./assets/hm-yellow-red.pdf}
+\caption{a nice plot}
+\label{fig:mesh1}
+\end{figure}
+#+END_LATEX
+
+As you can see in the figure \ref{fig:mesh1}, the 
+function grows near 0. Also, in the page \pageref{fig:mesh1} 
+is the same example.
+ 
+
 ** Conclusion
