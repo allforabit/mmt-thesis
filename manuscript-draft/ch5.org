@@ -1,5 +1,7 @@
-# #+OPTIONS: d:nil
+#+OPTIONS: d:nil
+#+PROPERTY: header-args    :exports none
 # #+PANDOC_OPTIONS: table-of-contents:nil number-sections:t
+#+PANDOC_OPTIONS: csl:./harvard.csl
 # #+LATEX_HEADER: \usepackage[a4paper, total={150mm,237mm}, left=30mm, top=30mm,]{geometry}
 # #+LATEX_HEADER: \usepackage{fancyhdr}
 # #+LATEX_HEADER: \pagestyle{fancyplain}
@@ -29,7 +31,7 @@ the central functionality to life can conceptually divided into a data or entity
 layer, a business logic or use case layer and an output layer which in this case
 consists of the visual output into a html canvas element and the audio output
 through the web audio api. In this sense the architecture conforms to the
-principles of the Clean Architecture as presented by Bob Martin (???). 
+principles of the Clean Architecture as presented by Bob Martin cite:martin_clean_2012. 
 
 ** Early prototype work
 *** Melodypainter
@@ -468,35 +470,46 @@ truncated form:
  - Probability tool
 :END:
 
-#+INCLUDE: "ch5-figs.org::editing-notes"
+# #+INCLUDE: "ch5-figs.org::editing-notes"
 Once created, a number of editing operations can be performed on the notes. Apart from the *delete* action all of these operations involve first selecting the note on the *mouse down* event, carrying out the editing of the note and completing the action with the mouse up event. The particular tool can be activated by clicking the icon the right-hand side of the screen (see \ref{fig:sonicsketch-tools-panel}). Clicking one of these dispatches the =:change-mode= event and changes the *app-db* to the specified mode as well as setting the application to state =:pending=. Flowing from this change are a number of changes:
- 1. The relevant paper.js tool is activated which will route further mouse
-    events to the appropriate dispatch handlers. For instance, when the =:resize= mode is selected, *mouse move* events will be handled by =:resize-tool-pointer-move=.
+ 1. The relevant paper.js tool is activated which will route further mouse events to the appropriate dispatch handlers. For instance, when the =:resize= mode is selected, *mouse move* events will be handled by =:resize-tool-pointer-move=.
  2. It updates the visual look of the cursor to remind the user which of mode they are in.
-3. A visual indicator is shown around the icon of the selected mode
+ 3. A visual indicator is shown around the icon of the selected mode
 The overall effect of this is an activation of a number of different modes, each of which will now be discussed.
 
 In the case of deleting notes, the event is simply raised in the *click* event of the note, which takes care of dispatching the =:note-delete= event.
-#+INCLUDE: "ch5-code.org::dispatch-note-delete"
+# #+INCLUDE: "ch5-code.org::dispatch-note-delete"
 This is handled by a very simple handler, =(dissoc notes note-id)= that instructs /re-frame/ to remove the note in question from the database. Similar to the process that occurs when a note is added, the visual display is now updated to no longer show the note. In addition, the signal generator, effects, envelopes and events associated with the note are removed from the audio component tree with /React.js/'s lifecycle events taking care to clean up any synth's and effects by calling their =dispose= methods.
 
 Moving notes and resizing notes work very similarly and both follow the most basic pattern described above of selection, manipulation, and completion. The note selection event is raised from the note's *mouse down* event handler, dispatching the =:note-select= event with the *note-id*. This updates the *app-db* to set the =:active-note-id: to the received id, sets the app state to =:active=, sets the note state to be =:active= and resets previously active notes to state, =:normal=. This state update changes the visual display of the active note to be highlighted by slightly lightening the colour of the note's surrounding glow. More importantly, the note now becomes the active item on which further user interactions are performed on. In the case of the *move* tool the stored onset and pitch properties of the note are altered to reflect the position of the user's mouse. This, in turn, updates the visual display of the note and causes the audio system to re-queue the note events to the new onset and pitch values. The *resize* tool, on the other hand, changes the size of the starting node of the note and alters the velocity accordingly. The altered size is calculated from the coordinates of the *mouse down* event and is clamped to a maximum size that corresponds to the maximum velocity of the note.
 
 The slightly more esoteric *probability* tool works in a very similar fashion to the *resize* tools and again creates adjustments that work relative to *mouse down* coordinates. The visual effect that this creates, however, is a dulling of the saturation of the note. Its effect is to add an element of randomness and depending on how saturated the note is, it will cause the note to randomly skip. The code for this is below: #=INCLUDE: "ch5-code.org::probability-queueing" If the probability is set to =1.0= (which is the default) or fully saturated the note will play on every loop. If however, it is below this it will skip in a random but probabilistic fashion, adding a small amount of stochasticism to playback.
 
-The vibrato tool is the most complex in it's implementation and involves a small popup UI element that allows the user to draw in a vibrato envelope which is visually reflected in the note lines as an overlaid sinewave.
+The vibrato tool is the most complex in its implementation and involves a small popup UI element that allows the user to draw in a vibrato envelope which is visually reflected in the note lines as an overlaid sinewave. After selection occurs,  in the usual way, *mouse move* events dispatch to the =:vibrato-continue= handler which updates a vibrato modulation parameter in the note, a single float value that represents the current real-time vibrato value.  This modulation parameter is passed back to the view through properties where triggers a =:component-did-update= function call. It is here that a dispatch is made to the =:vibrato-envelope-point= to create the envelope point. The reason for the back and forth between the view and the event handlers is to allow the event handlers to manage the state changes but deal with the specifics of the geometry of the vibrato overlay in the view. It is probably best illustrated in the provided figure (\ref{fig:vibrato-control-flow}). 
 
-
+A visual overlay is shown to the user when a vibrato action is started, that shows a 10 point envelope, whose points are all set to =0.0= by default. The user can then drag at varying heights at various horizontal points on the axis and create the time-varying vibrato envelope. This envelope is visualised (and remains visible after the vibrato operation has completed) with a sinewave that tracks the curve of the frequency envelope and varies its amplitude depending on the strength of the vibrato at that particular point. The code to achieve this is below:
+# #+INCLUDE: "ch5-code.org::vibrato-overlay"
 
 *** Secondary functionality
-**** Introduction
-**** Transport controls
-**** Animation (current play position & notes)
-**** Undo and redo
-**** Fullscreen
-**** Outer UI
-**** Save and load file
+:NOTES:
+ - Introduction
+ - Transport controls
+ - Animation (current play position & notes)
+ - Undo and redo
+ - Fullscreen
+ - Outer UI
+ - Save and load file
+:END:
 
+Aside from the core functionality of note creation and editing, a number of other use cases had to be catered for to make the application useable. This included transport controls, to allow the user to start and stop playback; some simple animation to show which notes are being played and to tighten the link between the visuals and the audio; undo and redo functionality; a fullscreen toggle to maximise the immersiveness; as well as the ability to save and load sketches. While not central to the concept, standard usability features such as undo/redo would be a noticeable omission that would decrease beginner friendliness. Some of these extra features were made more straightforward than would normally be the case due to the architecture of placing the state in a single place, the /re-frame/ *app db*.
+
+Both the transport and the fullscreen mechanism consisted of a simple finite state machine (FSM) that who's transitions are caused by user actions. The transport state machine responds to both the button click and *spacebar* keypresses to toggle its state between playing and stopped and based on this, triggering playback in /tone.js/. The fullscreen FSM transitions occur not only when the user clicks the fullscreen button but also when the browser fullscreen status changes. This keeps the UI in a correct and consistent state at all times, regardless of how the state is reached.
+
+Undo/redo and save/load functionality was relatively straightforward to implement for the reasons mentioned above (centrally located state) as well as the ease of serialising /clojurescript/ data. Adding undo/redo was as easy as adding an additional dependency and adding it as an interceptor to any events that needed to be undoable such as adding or deleting notes. 
+# #+INCLUDE: "./ch5-code.org::undoable-middleware"
+The particular parts of state that needed to be restored were also configured and included the =notes= collection and the =tempo=. Both of these elements were saved and restored by the save/restore functionality which worked by serialising this data as a string and restoring with a single function call to /clojurescript/'s =reader/read-string=.
+
+Animation...
 
 ** Conclusion
 - Summarise the resulting artifact
