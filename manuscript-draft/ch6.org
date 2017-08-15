@@ -70,4 +70,7 @@ def incmatrix(genl1,genl2):
  
 \pagebreak
 
+
+** Performance issues
+
 ** Conclusion

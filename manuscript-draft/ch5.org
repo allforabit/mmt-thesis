@@ -5,6 +5,7 @@
 # #+LATEX_HEADER: \pagestyle{fancyplain}
 
 #+STARTUP: showeverything
+#+BIBLIOGRAPHY: ../bibliography/mmt-thesis-tidyup.bib
 
 * Execution
 :NOTES:
@@ -437,11 +438,24 @@ frequency and vibrato envelopes. For example:
  :vibrato {0 [0 0], ... 10 [10 0]}}
 #+END_SRC
 
-The update in state spins /re-frame/'s subscription system into action and any views that are subscribed to the application state are now re-rendered as needs be. The =graphics-notes= view for instance is subscribed to =:notes=, =:graphics-stage-width=, =:graphics-stage-height:= and =:mode=:
+The update in state spins /re-frame/'s subscription system into action and any
+views that are subscribed to the changed application state are now re-rendered.
+The =graphics-notes= view for instance is subscribed to =:notes=,
+=:graphics-stage-width=, =:graphics-stage-height:= and =:mode=:
 #+INCLUDE: "./ch5-code.org::graphics-notes"
-When a note is added this render function will be ran which will call the =[graphics-note*]= component for each of the notes, and update the visual display of the screen to show the new note. A similar process happens in the audio system except in this case, new web audio nodes are created, timeline events are queued up at the correct time and audio envelopes are setup that trace the curve of the drawn lines.
+When a note is added this render function will run which will call the
+=[graphics-note*]= component for each of the notes, and update the visual
+display of the screen to show the new note. A similar process happens in the
+audio system except, in this case, new web audio nodes are created, timeline
+events are queued up at the correct time and audio envelopes are setup that
+traces the curve of the drawn lines. cite:adenot_web_2017     
 #+INCLUDE: "./ch5-code.org::fm-synth"
-The above shows the =fm-synth= which sits at the heart of the audio generating part of the system. Potential parent components of this would be audio effects, or the master bus. It's child components are comprised of note events and envelopes that drive frequency changes over the course of the note playback. The composition of events, envelopes, synths, effects and channels is shown in truncated form:
+The above shows the =fm-synth= which sits at the heart of the audio generating
+part of the system. Potential parent components of this would be audio effects
+or the master bus. It's child components are comprised of note events and
+envelopes that drive frequency changes over the course of the note playback. The
+composition of events, envelopes, synths, effects and channels is shown in
+truncated form:
 #+INCLUDE: "./ch5-code.org::audio-component-tree"
 
 **** Editing notes
@@ -454,7 +468,23 @@ The above shows the =fm-synth= which sits at the heart of the audio generating p
  - Probability tool
 :END:
 
-The 
+#+INCLUDE: "ch5-figs.org::editing-notes"
+Once created, a number of editing operations can be performed on the notes. Apart from the *delete* action all of these operations involve first selecting the note on the *mouse down* event, carrying out the editing of the note and completing the action with the mouse up event. The particular tool can be activated by clicking the icon the right-hand side of the screen (see \ref{fig:sonicsketch-tools-panel}). Clicking one of these dispatches the =:change-mode= event and changes the *app-db* to the specified mode as well as setting the application to state =:pending=. Flowing from this change are a number of changes:
+ 1. The relevant paper.js tool is activated which will route further mouse
+    events to the appropriate dispatch handlers. For instance, when the =:resize= mode is selected, *mouse move* events will be handled by =:resize-tool-pointer-move=.
+ 2. It updates the visual look of the cursor to remind the user which of mode they are in.
+3. A visual indicator is shown around the icon of the selected mode
+The overall effect of this is an activation of a number of different modes, each of which will now be discussed.
+
+In the case of deleting notes, the event is simply raised in the *click* event of the note, which takes care of dispatching the =:note-delete= event.
+#+INCLUDE: "ch5-code.org::dispatch-note-delete"
+This is handled by a very simple handler, =(dissoc notes note-id)= that instructs /re-frame/ to remove the note in question from the database. Similar to the process that occurs when a note is added, the visual display is now updated to no longer show the note. In addition, the signal generator, effects, envelopes and events associated with the note are removed from the audio component tree with /React.js/'s lifecycle events taking care to clean up any synth's and effects by calling their =dispose= methods.
+
+Moving notes and resizing notes work very similarly and both follow the most basic pattern described above of selection, manipulation, and completion. The note selection event is raised from the note's *mouse down* event handler, dispatching the =:note-select= event with the *note-id*. This updates the *app-db* to set the =:active-note-id: to the received id, sets the app state to =:active=, sets the note state to be =:active= and resets previously active notes to state, =:normal=. This state update changes the visual display of the active note to be highlighted by slightly lightening the colour of the note's surrounding glow. More importantly, the note now becomes the active item on which further user interactions are performed on. In the case of the *move* tool the stored onset and pitch properties of the note are altered to reflect the position of the user's mouse. This, in turn, updates the visual display of the note and causes the audio system to re-queue the note events to the new onset and pitch values. The *resize* tool, on the other hand, changes the size of the starting node of the note and alters the velocity accordingly. The altered size is calculated from the coordinates of the *mouse down* event and is clamped to a maximum size that corresponds to the maximum velocity of the note.
+
+The slightly more esoteric *probability* tool works in a very similar fashion to the *resize* tools and again creates adjustments that work relative to *mouse down* coordinates. The visual effect that this creates, however, is a dulling of the saturation of the note. Its effect is to add an element of randomness and depending on how saturated the note is, it will cause the note to randomly skip. The code for this is below: #=INCLUDE: "ch5-code.org::probability-queueing" If the probability is set to =1.0= (which is the default) or fully saturated the note will play on every loop. If however, it is below this it will skip in a random but probabilistic fashion, adding a small amount of stochasticism to playback.
+
+The vibrato tool is the most complex in it's implementation and involves a small popup UI element that allows the user to draw in a vibrato envelope which is visually reflected in the note lines as an overlaid sinewave.
 
 
 
@@ -467,7 +497,6 @@ The
 **** Outer UI
 **** Save and load file
 
-*** Performance issues
 
 ** Conclusion
 - Summarise the resulting artifact
