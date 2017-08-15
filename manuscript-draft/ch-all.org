@@ -1,10 +1,11 @@
-#+PROPERTY: header-args :exports none
-#+OPTIONS: d:nil
-#+PANDOC_OPTIONS: table-of-contents:nil number-sections:t
-#+LATEX_HEADER: \usepackage[a4paper, total={150mm,237mm}, left=30mm, top=30mm,]{geometry}
-#+LATEX_HEADER: \usepackage{fancyhdr}
-#+LATEX_HEADER: \usepackage{svg}
-#+LATEX_HEADER: \pagestyle{fancyplain}
+# #+PROPERTY: header-args :exports none
+# #+OPTIONS: d:nil
+# #+PANDOC_OPTIONS: table-of-contents:nil number-sections:t
+# #+LATEX_HEADER: \usepackage[a4paper, total={150mm,237mm}, left=30mm, top=30mm,]{geometry}
+# #+LATEX_HEADER: \usepackage{fancyhdr}
+# #+LATEX_HEADER: \usepackage{svg}
+# #+LATEX_HEADER: \pagestyle{fancyplain}
+
 #+INCLUDE: "./ch1.org"
 #+INCLUDE: "./ch2.org"
 #+INCLUDE: "./ch3.org"

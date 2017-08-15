@@ -16,7 +16,8 @@
                  [thi.ng/geom "0.0.1178-SNAPSHOT"]
                  [thi.ng/math "0.2.1"]
                  [thi.ng/color "1.2.0"]
-                 [thi.ng/typedarrays "0.1.6"]]
+                 [thi.ng/typedarrays "0.1.6"]
+                 [walmartlabs/datascope "0.1.1"]]
 
   :source-paths ["src"]
 

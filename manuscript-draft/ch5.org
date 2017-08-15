@@ -4,6 +4,8 @@
 # #+LATEX_HEADER: \usepackage{fancyhdr}
 # #+LATEX_HEADER: \pagestyle{fancyplain}
 
+#+STARTUP: showeverything
+
 * Execution
 :NOTES:
 Purpose: give a detailed account of the build of the project.
@@ -435,30 +437,25 @@ frequency and vibrato envelopes. For example:
  :vibrato {0 [0 0], ... 10 [10 0]}}
 #+END_SRC
 
-The update in state spins /re-frame/'s subscription system into action and any
-views that are subscribed to the application state are now re-rendered as needs
-be. The =graphics-notes= view for instance is subscribed to =:notes=,
-=:graphics-stage-width=, =:graphics-stage-height:= and =:mode=:
-#+BEGIN_SRC clojure
-(defn graphics-notes []
-  (let [notes         (subscribe [:notes])
-        width         (subscribe [:graphics-stage-width])
-        height        (subscribe [:graphics-stage-height])
-        ....]
-    ;; playback-time @(subscribe [:playback-time])
-    (into [:Group]
-          (map (fn [note]
-                 ^{:key (:id note)} [graphics-note* ...]) @notes))))
-#+END_SRC
-When a note is added this render function will be ran which will call the
-=[graphics-note*]= component for each of the notes.
+The update in state spins /re-frame/'s subscription system into action and any views that are subscribed to the application state are now re-rendered as needs be. The =graphics-notes= view for instance is subscribed to =:notes=, =:graphics-stage-width=, =:graphics-stage-height:= and =:mode=:
+#+INCLUDE: "./ch5-code.org::graphics-notes"
+When a note is added this render function will be ran which will call the =[graphics-note*]= component for each of the notes, and update the visual display of the screen to show the new note. A similar process happens in the audio system except in this case, new web audio nodes are created, timeline events are queued up at the correct time and audio envelopes are setup that trace the curve of the drawn lines.
+#+INCLUDE: "./ch5-code.org::fm-synth"
+The above shows the =fm-synth= which sits at the heart of the audio generating part of the system. Potential parent components of this would be audio effects, or the master bus. It's child components are comprised of note events and envelopes that drive frequency changes over the course of the note playback. The composition of events, envelopes, synths, effects and channels is shown in truncated form:
+#+INCLUDE: "./ch5-code.org::audio-component-tree"
 
-**** Add vibrato
-**** Remove note
-**** Move note
-**** Resize note
-**** Change sound (preset system)
-**** Probability tool
+**** Editing notes
+:NOTES:
+ - Vibrato
+ - Remove note
+ - Move note
+ - Resize note
+ - Change sound (preset system)
+ - Probability tool
+:END:
+
+The 
+
 
 
 *** Secondary functionality
