@@ -1,12 +1,15 @@
 # Master document
 # #+LATEX_HEADER: \documentclass{article}
+
+#+PROPERTY: header-args    :exports none
+
 #+LATEX_HEADER: \usepackage[utf8]{inputenc}
 #+LATEX_HEADER: \usepackage[english]{babel}
 #+LATEX_HEADER: \usepackage[a4paper, total={150mm,237mm}, left=30mm, top=30mm,]{geometry}
 #+LATEX_HEADER: \usepackage{fancyhdr}
 #+LATEX_HEADER: \pagestyle{fancyplain}
-#+LATEX_HEADER: \lfoot{Kevin Nolan - kevinn@tcd.ie}
-#+LATEX_HEADER: \rfoot{MMT Thesis 2017}
+# #+LATEX_HEADER: \lfoot{Kevin Nolan - kevinn@tcd.ie}
+# #+LATEX_HEADER: \rfoot{MMT Thesis 2017}
 #+LATEX_HEADER: \usepackage{pdfpages}
 #+LATEX_HEADER: \usepackage{color}
 #+LaTeX_HEADER: \usepackage[cache=false]{minted}
