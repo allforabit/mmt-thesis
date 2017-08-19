@@ -6,6 +6,14 @@ Purpose: describe how I'm going about it and why. Describe the tools I'm using.
 :END:
 
 ** Introduction
+The following chapter opens with an appraisal of currently available graphical
+synthesis systems that were discussed in the previous chapter to more clearly
+define the niche that SonicSketch seeks to fill. Some theory behind the
+development is then given including HCI considerations, the Musical Interface
+Technology Design Space and research into cross modal perception. The practical
+approach is then given which delves into the more technical aspects of the
+project build out including a discussion on the Web Audio Api, /tone.js/,
+/paper.js/, /ClojureScript/ and /react.js/. 
 ** Appraisal of options
    :NOTES:
    - Availability
@@ -70,8 +78,7 @@ diagram of the provided figure (fig. 3).
    - line smoothing
    - vector system
    :end:
-*** FM synthesis :: give a brief overview of fm synthesis and why it was a
-                     good choice for the application
+*** FM synthesis 
 *** Live coding workflow
 **** [Introduction]
 :notes:

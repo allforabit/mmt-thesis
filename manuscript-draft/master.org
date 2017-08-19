@@ -1,7 +1,7 @@
 # Master document
 # #+LATEX_HEADER: \documentclass{article}
 
-#+PROPERTY: header-args    :exports none
+# #+PROPERTY: header-args    :exports none
 
 #+LATEX_HEADER: \usepackage[utf8]{inputenc}
 #+LATEX_HEADER: \usepackage[english]{babel}

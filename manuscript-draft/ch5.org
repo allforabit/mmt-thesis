@@ -1,5 +1,5 @@
 #+OPTIONS: d:nil
-#+PROPERTY: header-args    :exports none
+# #+PROPERTY: header-args    :exports none
 # #+PANDOC_OPTIONS: table-of-contents:nil number-sections:t
 #+PANDOC_OPTIONS: csl:./harvard.csl
 # #+LATEX_HEADER: \usepackage[a4paper, total={150mm,237mm}, left=30mm, top=30mm,]{geometry}
@@ -32,7 +32,7 @@ layer, a business logic or use case layer and an output layer which in this case
 consists of the visual output into a html canvas element and the audio output
 through the web audio api. In this sense the architecture conforms to the
 principles of the Clean Architecture as presented by Bob Martin cite:martin_clean_2012. 
-
+cite:martin\_clean\_2012
 ** Early prototype work
 *** Melodypainter
 
