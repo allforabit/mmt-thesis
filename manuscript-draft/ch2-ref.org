@@ -1,0 +1,52 @@
+
+* Hardware mixer
+#+NAME: hardware-mixer
+#+BEGIN_LATEX
+\begin{figure}[h]
+\centering
+\includegraphics[width=1.0\textwidth]{./assets/ssl-hardware-mixer.jpg}
+\caption{SSL SL9000J (72 channel) console at Cutting Room Recording Studio, NYC}
+\label{fig:hardware-mixer}
+\end{figure}
+#+END_LATEX
+
+
+* FX
+#+NAME: fx
+#+BEGIN_LATEX
+\begin{figure}[h]
+\centering
+\includegraphics[width=1.0\textwidth]{./assets/fx.jpg}
+\caption{Skeuomorphic software FX}
+\label{fig:fx}
+\end{figure}
+#+END_LATEX
+
+* SonicPainter
+#+NAME: sonicpainter
+#+BEGIN_LATEX
+\begin{figure}[h]
+\centering
+\includegraphics[width=1.0\textwidth]{./assets/sonicpainter2.png}
+\caption{SonicPainter by William Coleman}
+\label{fig:sonicpainter}
+\end{figure}
+#+END_LATEX
+
+* Xenakis
+#+NAME: xenakis
+#+BEGIN_LATEX
+\begin{figure}[h]
+\centering
+\includegraphics[width=1.0\textwidth]{./assets/Iannis-Xenakis-Mycenae-Alpha-score.jpg}
+\caption{Iannis Xenakis - Mycenae Alpha score}
+\label{fig:xenakis-alpha}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{./assets/xenakis-and-the-upic-system.jpg}
+\caption{Iannis Xenakis showing UPIC to a younger audience}
+\label{fig:xenakis-children}
+\end{figure}
+#+END_LATEX

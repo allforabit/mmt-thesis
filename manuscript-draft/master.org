@@ -1,8 +1,11 @@
 # Master document
-# #+LATEX_HEADER: \documentclass{article}
 
 # #+PROPERTY: header-args    :exports none
+#+LATEX_CLASS: report
+#+LaTeX_CLASS_OPTIONS: [12pt]
 
+# #+LATEX_HEADER: \documentclass
+#+LATEX_HEADER: \usepackage{graphicx}
 #+LATEX_HEADER: \usepackage[utf8]{inputenc}
 #+LATEX_HEADER: \usepackage[english]{babel}
 #+LATEX_HEADER: \usepackage[a4paper, total={150mm,237mm}, left=30mm, top=30mm,]{geometry}
@@ -13,15 +16,14 @@
 #+LATEX_HEADER: \usepackage{pdfpages}
 #+LATEX_HEADER: \usepackage{color}
 #+LaTeX_HEADER: \usepackage[cache=false]{minted}
+#+LaTeX_HEADER: \linespread{1.3}
 
 # #+LaTeX_HEADER: \newminted{common-lisp}{fontsize=\footnotesize}
 
 #+BIBLIOGRAPHY: ../bibliography/mmt-thesis-tidyup.bib
+#+PANDOC_OPTIONS: csl:./harvard.csl
 
 #+PANDOC_OPTIONS: latex-engine-opt:-shell-escape
-
-# #+SETUPFILE: ../meta/setup.org
-
 
 * Front matter                                                       :prelim:
 \includepdf[pages={1-},scale=1.0]{title-page.pdf}
@@ -35,8 +37,6 @@
 \listoffigures
 \cleardoublepage
 
-\listoftables
-\cleardoublepage
 
 # arabic numbering
 # \mainmatter
@@ -45,5 +45,7 @@
 
 * Chapters :prelim:
 #+INCLUDE: "./ch-all.org"
+
+* Appendices
 
 * Bibliography

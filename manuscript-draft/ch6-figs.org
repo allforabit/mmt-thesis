@@ -1,0 +1,43 @@
+#+LATEX_HEADER: \usepackage{graphicx}
+
+* Evaluation
+** Introduction
+** Initial pilot test
+:NOTES:
+- Introduction :: Describe methodology used
+- Describe results
+- Describe comments and feedback
+- Verified that it was approachable and basically worked as a NUI application
+:END: 
+** Exhibition
+
+#+BEGIN_LATEX
+\begin{figure}[h]
+\centering
+\includegraphics[width=1.0\textwidth]{./assets/hm-yellow-red.pdf}
+\caption{Heat graph displaying note start points}
+\label{fig:note-onset-hm}
+\end{figure}
+#+END_LATEX
+
+As you can see in the figure \ref{fig:note-onset-hm}, the majority of activity
+is in the upper regions of the frequency spectrum and concentrated at the
+beginning and the middle of the screen. 
+
+
+#+BEGIN_LATEX
+\begin{figure}[h]
+\centering
+\includegraphics[width=1.0\textwidth]{./assets/exhibit-cat.png}
+\caption{Some exhibit participants managed to draw figurative artwork!}
+\label{fig:exhibit-cat}
+\end{figure}
+#+END_LATEX
+
+ 
+\pagebreak
+
+
+** Performance issues
+
+** Conclusion

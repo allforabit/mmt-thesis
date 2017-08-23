@@ -1,0 +1,75 @@
+* Adding notes sketch
+#+NAME: adding-notes-sketch
+#+BEGIN_LATEX
+\begin{figure}
+    \begin{subfigure}{0.475\textwidth}
+        \includegraphics[width=\textwidth]{./charts/images/attractor-01.png}
+        \caption{User starts note by dragging left to right}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.475\textwidth}
+        \includegraphics[width=\textwidth]{./charts/images/attractor-02.png}
+        \centering
+        \caption{Dragging back clears note}
+    \end{subfigure}
+
+    \caption{Adding notes in SonicSketch}
+    \label{fig:adding-notes-sketch}
+\end{figure}
+#+END_LATEX
+
+
+* Adding notes fsm
+#+BEGIN_SRC plantuml :file assets/adding-notes-uml.png
+  scale 900 width
+  [*] --> Default
+
+  state Default {
+    [*] --> Idle
+    Idle --> AddingNote : EvPointerDown
+    AddingNote --> Idle : EvPointerUp
+  }
+
+  state AddingNote {
+    [*] --> StartNote
+    StartNote --> DefineFrequencyEnvelope : EvDragRight
+    StartNote --> DefineAmplitudeEnvelope : EvDragUp
+
+    state DefineFrequencyEnvelope {
+      [*] --> EditFreqEnvelope
+      EditFreqEnvelope -left-> UndoFreqEnv : EvDragLeft
+      UndoFreqEnv -> EditFreqEnvelope : EvDragRight
+      UndoFreqEnv -down-> PullFreqEnvelope : EvDragLeftVertAwayFromOrigPath
+      note left of PullFreqEnvelope : Users veers away from originally drawn path
+    }
+  }
+
+  state EditNote {
+    [*] --> StartEditingNote
+  }
+#+END_SRC
+
+
+#+NAME: adding-notes-uml
+#+BEGIN_LATEX
+\begin{figure}[h]
+\centering
+\includegraphics[width=1.0\textwidth]{./assets/adding-notes-uml.png}
+\caption{Statechart showing note add process.}
+\label{fig:adding-notes-uml}
+\end{figure}
+#+END_LATEX
+
+#+RESULTS: adding-notes-uml
+[[file:assets/adding-notes-uml.png]]
+
+* Editing notes
+#+NAME: editing-notes
+#+BEGIN_LATEX
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.1\textwidth]{./assets/tools-panel.png}
+\caption{SonicSketch tools panel}
+\label{fig:sonicsketch-tools-panel}
+\end{figure}
+#+END_LATEX

@@ -1,25 +1,16 @@
 * Conclusion and further work
-** Summary of work completed
-** Broader implications of development
-:NOTES:
-- Incorporate ideas into DAWs (move away from tracks and mixers)
-- Methodology used very successful for prototyping (delivery on web platform,
-  live code reloading)
-:END:
+The dominant metaphors that underpin the modern DAW were discussed. Its potential restrictiveness in some situations was illustrated with an example composition. An alternative realisation was discussed using the Csound audio programming language. The alternative metaphor of sketching was then explored from a historic perspective to the more recent example of SonicPainter by William Coleman. A more detailed critique of SonicPainter followed that identified the key areas that SonicSketch would address. The core pieces of technology being used in the application were then broken down along with reasons for their choice.  SonicSketch, an application that brings graphic synthesis to the modern web browser, was then described both in its functionality and underlying implementation. Finally, the resulting project was evaluated both from a self-assessment and a user perspective.
+
 ** Future work
-*** Performance improvements
-:NOTES:
-- Try different audio engines, in particular wasm based
-- Move graphics to GPU based system
-:END:
-*** Broaden visual language
-:NOTES:
-- Incorporate and visualize more control data
-:END:
-*** Allow for larger structures
-:NOTES:
-- Perhaps by scrolling
-- Or multiple canvases/scenes
-- "Smart brushes" that would draw arpeggios, or similar generative structures
-:END:
-*** 3D spaces, VR, spatial audio
+As such, there is an endless scope for improvements and features that could be made and the following represents some of these:
+
+- Performance improvements :: As is mentioned in the previous chapter, the application requires some performance improvements to make it a viable musician's tool. Ideally, the app should be able to run on mobile devices, as the uncluttered interface would be a good match for the limited screen size.
+- Larger structures :: The app doesn't offer any facility for larger structures. It would be interesting to explore how the sketching metaphor could translate to working at the arrangement level by perhaps introducing a level of recursion and allowing the user to sketch sketches.
+- Micro structures :: The preset timbres are a serious limitation to the current version. Taking inspiration from the UPIC, sonic flexibility could be greatly increased by allowing users to define timbres by sketching waveforms and envelopes.
+- Zooming and panning :: This would allow users to focus on particular parts of their sonic sketches and navigate through the sketch similarly to graphic editors like Photoshop.
+- More input devices :: Work was carried out to integrate graphics tablets into the application using the W3C Pointer API, a relatively new API that provides comprehensive support for multiple input devices including multitouch and graphics tablets (with pressure support and angle data). Unfortunately, it wasn't included in this version and is left for future work.
+- Grids :: While the freeform un gridded canvas of the current version is fun to play with, an optional grid would allow for more precise control. Rather than only offering the chromatic grid, only suited to western music, however, a number of different grids could be made available. Perhaps a psychoacoustic grid based on the Bark scale could provide an interesting alternative or a grid based on Setharthes' dissonance curves.
+
+The presented application represents a very small step in exploring the metaphor of sonic sketching. A virtually bottomless source of inspiration can be found in the many systems that have gone before it, some of which exist, and some of which can only be enjoyed through textual description, images and if, we're lucky videos.  The modern web browser represents a unique opportunity to experiment with and develop these alternative approaches to music interface design in an environment that offers unprecedented ease of access for its users. 
+
+#+LATEX: \newpage

@@ -3,36 +3,115 @@
 # Purpose: introduce the topics under discussion, summarise work completed give thesis structure
 
 ** Introduction
-The traditional route for both recorded and performed musical expression has been through playing a musical instrument. Through this simple but powerful interface, ideas can be explored by the skilled practitioner in a free flowing, intuitive manner. The ubiquity of high powered computers has led to a fundamental change to this process, however. Electronic music can now be produced entirely on a computer, enabling those without the background or training to produce music to a professional standard. The affordances of infinite editability and tweak-ability allows the novice producer to organically build compositions through a process of trial and error. The requirement to perform to a high standard is no longer necessary. 
+The traditional route for both recorded and performed musical expression has
+been through playing a musical instrument. Through this simple but powerful
+interface, ideas can be explored by the skilled practitioner in a free flowing,
+intuitive manner. The ubiquity of high powered computers has led to a
+fundamental change to this process, however. Electronic music can now be
+produced entirely on a computer, enabling those without the background or
+training to produce music to a professional standard. The affordances of
+infinite editability and tweak-ability allows the novice producer to organically
+build compositions through a process of trial and error. The requirement to
+perform to a high standard is no longer necessary.
 
-The primary tool of this new breed of electronic musician, is the Digital Audio Workstation (DAW), a powerful software application for composing, arranging and editing musical events and audio material, mixing tracks and applying audio effects. To control this power, the electronic musician must master the vast array of knobs, sliders, buttons and complex hierarchies of settings. This complexity poses some difficult Human Computer Interaction (HCI) challenges both for software developers and end users \cite{duignan_abstraction_2010}. 
+The primary tool of this new breed of electronic musician, is the Digital Audio
+Workstation (DAW), a powerful software application for composing, arranging and
+editing musical events and audio material, mixing tracks and applying audio
+effects. To control this power, the electronic musician must master the vast
+array of knobs, sliders, buttons and complex hierarchies of settings. This
+complexity poses some difficult Human Computer Interaction (HCI) challenges both
+for software developers and end users \cite{duignan_abstraction_2010}.
 
-A common solution to this is to provide the user with real world metaphors in the presentation of the interface. In this way, the highly abstract process that takes place in digital systems can be grounded in a metaphorical language understandable to the user. An extremely dominant metaphor is that of the analog mixer and the hardware multi-track tape machine which have, since the mid-1990s, become a mainstay construct in the interfaces of commercial DAWs \cite{bell_journal_2015}. The effectiveness of this metaphor is evident in the vast amount of music produced in this environments. There are some situations, however, where the metaphor can get in the way and lead to another new, separate layer of complexity that must, in turn, be managed by its users. 
+A common solution to this is to provide the user with real world metaphors in
+the presentation of the interface. In this way, the highly abstract process that
+takes place in digital systems can be grounded in a metaphorical language
+understandable to the user. An extremely dominant metaphor is that of the analog
+mixer and the hardware multi-track tape machine which have, since the mid-1990s,
+become a mainstay construct in the interfaces of commercial DAWs
+\cite{bell_journal_2015}. The effectiveness of this metaphor is evident in the
+vast amount of music produced in this environments. There are some situations,
+however, where the metaphor can get in the way and lead to another new, separate
+layer of complexity that must, in turn, be managed by its users.
 
 ** Motivation
-This leads to the central motivation behind the work on SonicSketch: that of exploring alternative metaphors that support the early stage of music production and fulfills the role traditionally filled by an instrument. In exploring these alternative metaphors, an attempt is made to regain some of what is lost when working directly with the computer. At the same time, the distinct advantages of working in a digital medium will be maintained. 
+This leads to the central motivation behind the work on SonicSketch: that of
+exploring alternative metaphors that support the early stage of music production
+and fulfills the role traditionally filled by an instrument. In exploring these
+alternative metaphors, an attempt is made to regain some of what is lost when
+working directly with the computer. At the same time, the distinct advantages of
+working in a digital medium will be maintained.
 
-The intention is not to suggest that analog studio metaphors can be replaced, or even that there is any reason that they should be. Instead, the intention is to augment these rich metaphors with other metaphors more suited to certain stages of the creative process. The need for such efforts is in some ways acknowledged by mainstream DAW manufacturers. For instance Ableton Live, a highly popular DAW application, has recently opened its application programming interface (API) to allow other programs to create compatible files \cite{ableton_live_2017}. This enables producers to work in diverse, idiosyncratic and perhaps less featured environments more suited to the capturing of ideas and creative flow. The option is open to then move freely to the more powerful fully featured environments offered by the DAW.
+The intention is not to suggest that analog studio metaphors can be replaced, or
+even that there is any reason that they should be. Instead, the intention is to
+augment these rich metaphors with other metaphors more suited to certain stages
+of the creative process. The need for such efforts is in some ways acknowledged
+by mainstream DAW manufacturers. For instance Ableton Live, a highly popular DAW
+application, has recently opened its application programming interface (API) to
+allow other programs to create compatible files \cite{ableton_live_2017}. This
+enables producers to work in diverse, idiosyncratic and perhaps less featured
+environments more suited to the capturing of ideas and creative flow. The option
+is open to then move freely to the more powerful fully featured environments
+offered by the DAW.
 
 ** Goals and Objectives
-The overarching and primary goal of this project is to create a software application called SonicSketch that is specifically targeted at the early ideation part of the music production process. Building on a strong theoretical and technical foundation it will forego densely populated analog studio inspired DAW interface patterns and will instead focus on the metaphor of sketching. Users will draw various graphic symbols and lines on screen to produce sounds of different pitch, amplitude, and timbre which can be played back and altered in realtime.
+The overarching and primary goal of this project is to create a software
+application called SonicSketch that is specifically targeted at the early
+ideation part of the music production process. Building on a strong theoretical
+and technical foundation it will forego densely populated analog studio inspired
+DAW interface patterns and will instead focus on the metaphor of sketching.
+Users will draw various graphic symbols and lines on screen to produce sounds of
+different pitch, amplitude, and timbre which can be played back and altered in
+realtime.
 
 The final artifact should be:
- - Beginner friendly :: the user should not need any lengthy explanation or instructions on its use but should be able to dive in and start making sounds straight away.
-- User friendly :: basic standard usability features should be added to reduce friction and allow users to engage more freely with the application.
-- Expert friendly :: flexible enough to allow users to use it for longer periods of time without getting tiring of it.
+- Beginner friendly :: the user should not need any lengthy explanation or
+     instructions on its use but should be able to dive in and start making
+     sounds straight away.
+- User friendly :: basic standard usability features should be added to reduce
+                   friction and allow users to engage more freely with the
+                   application.
+- Expert friendly :: flexible enough to allow users to use it for longer periods
+     of time without getting tiring of it.
 
-These aspects will be assessed by using self-assessment as well as by testing with users. User testing will take the form of both interview and a standard usability test. To maximize availability and broaden the potential user base of testers, the application will be developed as a web application that will run in a modern browser without requiring the installation of any special software.
+These aspects will be assessed by using self-assessment as well as by testing
+with users. User testing will take the form of both interview and a standard
+usability test. To maximize availability and broaden the potential user base of
+testers, the application will be developed as a web application that will run in
+a modern browser without requiring the installation of any special software.
 
 ** Approach
-The project is based upon and builds on SonicPainter, an application built by William Coleman for his Master's thesis. Similarly motivated by the overwhelming complexity of modern DAWs, the interface aims to be minimal and free of distraction. It presents a minimal canvas like space that allows the user to draw lines of various length, shape, and orientation resulting in sounds that vary in timing, duration, frequency, and timbre.
+The project is based upon and builds on SonicPainter, an application built by
+William Coleman for his Master's thesis. Similarly motivated by the overwhelming
+complexity of modern DAWs, the interface aims to be minimal and free of
+distraction. It presents a minimal canvas like space that allows the user to
+draw lines of various length, shape, and orientation resulting in sounds that
+vary in timing, duration, frequency, and timbre.
 
-Building on this existing work is advantageous in several ways. It provides a more concrete foundation than starting off with a blank slate. Features and approaches can be assessed so that certain features that work well can be incorporated and improved. Equally pitfalls in the original work can be avoided. A summary of intended improvements are as follows:
- - Increased discoverability of functions by adding user interface elements that enhance the "sketch" metaphor.
+Building on this existing work is advantageous in several ways. It provides a
+more concrete foundation than starting off with a blank slate. Features and
+approaches can be assessed so that certain features that work well can be
+incorporated and improved. Equally pitfalls in the original work can be avoided.
+A summary of intended improvements are as follows:
+ - Increased discoverability of functions by adding user interface elements that
+   enhance the "sketch" metaphor.
  - Increased accessibility by making it available online.
- - Improvements to usability such as allowing users to sketch in a freehand way more easily.
+ - Improvements to usability such as allowing users to sketch in a freehand way
+   more easily.
  - Technical improvements to avoid crashes and unexpected application behaviour.
  - Improve correlation between the visuals and the audio.
 
 ** Thesis structure
-This thesis begins with a discussion of the current dominant tools and practices in use in music production today with a strong focus on the ideation phase. A historical perspective is then given on more idiosyncratic approaches to music creation systems. An emphasis is given to systems that utilize a more visual approach. This is followed by a discussion of more recent work that to some degree takes influence from these approaches. The theoretical and practical approach that was taken in the build out of the project is then given and is followed by a more detailed technical walkthrough of how the system was put together. An evaluation of the success of the project is then given both from the perspective of the creator and from users that tested it. Finally, the broader implications of the work are discussed in addition to some suggestions for future research and development. 
+This thesis begins with a discussion of the current dominant tools and practices
+in use in music production today with a strong focus on the ideation phase. A
+historical perspective is then given on more idiosyncratic approaches to music
+creation systems. An emphasis is given to systems that utilize a more visual
+approach. This is followed by a discussion of more recent work that to some
+degree takes influence from these approaches. The theoretical and practical
+approach that was taken in the build out of the project is then given and is
+followed by a more detailed technical walkthrough of how the system was put
+together. An evaluation of the success of the project is then given both from
+the perspective of the creator and from users that tested it. Finally, the
+broader implications of the work are discussed in addition to some suggestions
+for future research and development.
+
+#+LATEX: \newpage

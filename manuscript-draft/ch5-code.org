@@ -82,3 +82,50 @@
           (map (fn [note]
                  ^{:key (:id note)} [graphics-note* ...]) @notes))))
 #+END_SRC
+
+
+
+
+* Editing notes
+#+NAME: probability-queueing
+#+BEGIN_SRC clojure
+  (let [enabled (-> (Math.random)
+                    (<= ,, probability))]
+    ;; Only trigger the note if enabled is true.
+    ;; If probability is 1.0 will always be true.
+    (if enabled
+      (do
+        (rf/dispatch [:note-enable id])
+        (some-> out
+                (.triggerAttackRelease ,,, freq (prep-time dur) t velocity)))
+      (rf/dispatch [:note-disable id])))
+#+END_SRC
+
+* Undoable middleware
+#+NAME: undoable-middleware
+#+BEGIN_SRC clojure
+;; Code here
+#+END_SRC
+
+
+* Note view animation
+#+NAME: note-view-animation
+#+BEGIN_SRC clojure
+(rf/reg-sub
+ :note
+ :<- [:notes-raw]
+ :<- [:playback-beat]
+ (fn [[notes playback-time] [_ id]]
+   (let [{:keys [onset duration] :as note} (get notes id)
+         end-time                          (+ onset duration)]
+     (let [updated-note (if (and
+                             (> playback-time onset)
+                             (< playback-time end-time))
+                          (-> note
+                              (assoc ,,, :playing true)
+                              (assoc ,,, :playback-time (- playback-time onset)))
+                          (if (true? (-> note :playing))
+                            (assoc note :playing false)
+                            note))]
+       updated-note))))
+#+END_SRC
