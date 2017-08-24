@@ -1,3 +1,35 @@
+* Prototype
+#+NAME: melodysketch
+#+BEGIN_LATEX
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.65\textwidth]{./assets/melodysketch.png}
+\caption{MelodySketch interface}
+\label{fig:melodysketch}
+\end{figure}
+#+END_LATEX
+
+#+NAME: sonicshaper
+#+BEGIN_LATEX
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.4\textwidth]{./assets/ss.png}
+\caption{SonicShaper interface}
+\label{fig:sonicshaper}
+\end{figure}
+#+END_LATEX
+
+
+#+NAME: sonicpainter-web
+#+BEGIN_LATEX
+\begin{figure}[h]
+\centering
+\includegraphics[width=1.0\textwidth]{./assets/sonicpainter-web.png}
+\caption{SonicPainter in a web browser}
+\label{fig:sonicpainter-web}
+\end{figure}
+#+END_LATEX
+
 * Adding notes sketch
 #+NAME: adding-notes-sketch
 #+BEGIN_LATEX
@@ -62,7 +94,7 @@
 
 #+RESULTS: adding-notes-uml
 [[file:assets/adding-notes-uml.png]]
-
+ :noexport:
 * Editing notes
 #+NAME: editing-notes
 #+BEGIN_LATEX

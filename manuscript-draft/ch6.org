@@ -1,3 +1,31 @@
+# #+OPTIONS: d:nil
+# # #+PROPERTY: header-args    :exports none
+# #+LATEX_CLASS: report
+# #+LaTeX_CLASS_OPTIONS: [12pt]
+
+# # #+LATEX_HEADER: \documentclass
+# #+LATEX_HEADER: \usepackage{graphicx}
+# #+LATEX_HEADER: \usepackage[utf8]{inputenc}
+# #+LATEX_HEADER: \usepackage[english]{babel}
+# #+LATEX_HEADER: \usepackage[a4paper, total={150mm,237mm}, left=30mm, top=30mm,]{geometry}
+# # #+LATEX_HEADER: \usepackage{fancyhdr}
+# # #+LATEX_HEADER: \pagestyle{fancyplain}
+# # #+LATEX_HEADER: \lfoot{Kevin Nolan - kevinn@tcd.ie}
+# # #+LATEX_HEADER: \rfoot{MMT Thesis 2017}
+# #+LATEX_HEADER: \usepackage{pdfpages}
+# #+LATEX_HEADER: \usepackage{color}
+# #+LaTeX_HEADER: \usepackage[cache=false]{minted}
+# #+LATEX_HEADER: \usepackage{caption}
+# #+LATEX_HEADER: \usepackage{subcaption}
+# #+LaTeX_HEADER: \linespread{1.3}
+
+# # #+LaTeX_HEADER: \newminted{common-lisp}{fontsize=\footnotesize}
+
+# #+BIBLIOGRAPHY: ../bibliography/mmt-thesis-tidyup.bib
+# #+PANDOC_OPTIONS: csl:./harvard.csl
+
+# # #+PANDOC_OPTIONS: latex-engine:xelatex
+# #+PANDOC_OPTIONS: latex-engine-opt:-shell-escape
 * Evaluation
 ** Introduction
 An evaluation of the application will now be given. This is based on
@@ -127,7 +155,7 @@ unidimensional usability scoring \citep{brook_sus_1995}.
 dimensions, however, usability and learnability. This helps to gauge how
 beginner friendly the application in addition to how generally usable it is.
 
-# #+INCLUDE: "ch3-figs.org::sus-results"
+#+INCLUDE: "ch6-ref.org::sus-results"
 
 The final score that the system got was 85 out of 100. Learnability scored
 higher than general usability, getting a total of 92 while general usability
@@ -151,6 +179,8 @@ the application was straightforward and easy to start using, and provides a good
 basis for future work.
 
 *** General feedback
+#+INCLUDE: "./ch6-ref.org::note-onset-hm"
+#+INCLUDE: "./ch6-ref.org::user-sonic-sketches"
 Overall the feedback from both the questionnaire and at the exhibition was
 positive with users reporting that it was a "fun and enjoyable experience" and
 that they "... could play with [it] for ages." A number of testers suggested
@@ -178,5 +208,3 @@ incur any major friction in usage whereas others leave room for improvement.
 Performance issues were discussed along with some potential remedies for these.
 Finally, the SUS usability survey was discussed along with general feedback
 received from users.
-
-#+LATEX: \newpage

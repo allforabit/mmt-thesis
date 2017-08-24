@@ -1,7 +1,7 @@
 # Master document
-
+#+OPTIONS: d:nil
 # #+PROPERTY: header-args    :exports none
-#+LATEX_CLASS: report
+#+LATEX_CLASS: book
 #+LaTeX_CLASS_OPTIONS: [12pt]
 
 # #+LATEX_HEADER: \documentclass
@@ -9,27 +9,53 @@
 #+LATEX_HEADER: \usepackage[utf8]{inputenc}
 #+LATEX_HEADER: \usepackage[english]{babel}
 #+LATEX_HEADER: \usepackage[a4paper, total={150mm,237mm}, left=30mm, top=30mm,]{geometry}
-#+LATEX_HEADER: \usepackage{fancyhdr}
-#+LATEX_HEADER: \pagestyle{fancyplain}
+# #+LATEX_HEADER: \usepackage{fancyhdr}
+# #+LATEX_HEADER: \pagestyle{fancyplain}
 # #+LATEX_HEADER: \lfoot{Kevin Nolan - kevinn@tcd.ie}
 # #+LATEX_HEADER: \rfoot{MMT Thesis 2017}
 #+LATEX_HEADER: \usepackage{pdfpages}
+#+LATEX_HEADER: \usepackage[toc,page]{appendix}
 #+LATEX_HEADER: \usepackage{color}
 #+LaTeX_HEADER: \usepackage[cache=false]{minted}
+#+LATEX_HEADER: \usepackage{caption}
+#+LATEX_HEADER: \usepackage{subcaption}
 #+LaTeX_HEADER: \linespread{1.3}
+
+#+LaTeX_HEADER: \widowpenalty10000
+#+LaTeX_HEADER: \clubpenalty10000
 
 # #+LaTeX_HEADER: \newminted{common-lisp}{fontsize=\footnotesize}
 
 #+BIBLIOGRAPHY: ../bibliography/mmt-thesis-tidyup.bib
 #+PANDOC_OPTIONS: csl:./harvard.csl
 
+# #+PANDOC_OPTIONS: latex-engine:xelatex
 #+PANDOC_OPTIONS: latex-engine-opt:-shell-escape
+#+PANDOC_OPTIONS: number-sections:t
+#+PANDOC_OPTIONS: chapters:t
+#+OPTIONS: toc:nil creator:nil H:4 num:4 ':t ^:{}
 
-* Front matter                                                       :prelim:
+# * Front matter                                                       :prelim:
+\frontmatter
+\pagenumbering{roman} 
 \includepdf[pages={1-},scale=1.0]{title-page.pdf}
 
+* Acknowledgments
 
-* Table of Contents                                                  :prelim:
+#+LATEX: \begin{large}
+Thanks to my family and friends for all the support throughout the past year, in
+particular this last stretch.
+
+Thanks to the MMT staff and lecturers for their tireless dedication. In
+particular, thanks to Liam for guiding me through the sometimes stormy waters of
+completing this thesis project.
+
+Finally thanks to all my classmates for making this a memorable and enjoyable
+year!
+#+LATEX: \end{large}
+
+
+# * Table of Contents                                                  :prelim:
 
 \tableofcontents
 \cleardoublepage
@@ -37,15 +63,28 @@
 \listoffigures
 \cleardoublepage
 
+\pagenumbering{arabic}
 
-# arabic numbering
-# \mainmatter
+\mainmatter
 
+# * Chapters :prelim:
 
+#+INCLUDE: "./ch-all.org" :minlevel 1
 
-* Chapters :prelim:
-#+INCLUDE: "./ch-all.org"
-
-* Appendices
+#+LATEX: \begin{appendices}
+#+LATEX: \chapter{SUS questionnaire}
+The following is the list of propositions that the tester must grade from
+strongly agree to strongly disagree.
+1. I think that I would like to use this system frequently
+2. I found the system unnecessarily complex
+3. I thought the system was easy to use
+4. I think that I would need the support of a technical person to be able to use this system
+5. I found the various functions in this system were well integrated
+6. I thought there was too much inconsistency in this system
+7. I would imagine that most people would learn to use this system very quickly
+8. I found the system very cumbersome to use
+9. I felt very confident using the system
+10. I needed to learn a lot of things before I could get going with this system
+#+LATEX: \end{appendices}
 
 * Bibliography

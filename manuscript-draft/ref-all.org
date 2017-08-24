@@ -1,0 +1,11 @@
+#+LATEX_HEADER: \usepackage{graphicx}
+#+LATEX_HEADER: \usepackage{caption}
+#+LATEX_HEADER: \usepackage{subcaption}
+* Figures
+
+** Background: Sonic Sketching
+#+INCLUDE: "./ch2-ref.org"
+** Execution
+#+INCLUDE: "./ch5-ref.org"
+** Evaluation
+#+INCLUDE: "./ch6-ref.org"

@@ -77,16 +77,37 @@
         width         (subscribe [:graphics-stage-width])
         height        (subscribe [:graphics-stage-height])
         ....]
-    ;; playback-time @(subscribe [:playback-time])
     (into [:Group]
           (map (fn [note]
                  ^{:key (:id note)} [graphics-note* ...]) @notes))))
 #+END_SRC
 
 
+* Vibrato overlay
+#+NAME: vibrato-overlay
+#+BEGIN_SRC clojure
+  (->> (range 0.0 1.0 0.01)
+       (map #(vector % (get-pos-of-curve-at-time curve %)))
+       (map  (fn [[time p]]
+               (let [norm          (.. curve (getNormalAt time))
+                     loc           (.. curve (getLocationAtTime time))
+                     relative-left (- (.. loc -point -x) left)
+                     idx           (->
+                                     ;; Normalize
+                                     (/ relative-left width)
+                                     ;; Mult by amp-env count
+                                     (* (count amp-env))
+                                     ;; Add amp-env starting point
+                                     (+ (-> amp-env (first) (first)))
+                                     ;; Round it off
+                                     (Math/round))
+                     amp           (-> (get amp-env idx)
+                                       (second))]
+                 ;; Amp is here
+                 (sine-eq-along-vec time p norm (* amp 100) l)))))
+#+END_SRC
 
-
-* Editing notes
+* Probability queuing
 #+NAME: probability-queueing
 #+BEGIN_SRC clojure
   (let [enabled (-> (Math.random)
@@ -99,12 +120,6 @@
         (some-> out
                 (.triggerAttackRelease ,,, freq (prep-time dur) t velocity)))
       (rf/dispatch [:note-disable id])))
-#+END_SRC
-
-* Undoable middleware
-#+NAME: undoable-middleware
-#+BEGIN_SRC clojure
-;; Code here
 #+END_SRC
 
 

@@ -4,7 +4,7 @@
 #+BEGIN_LATEX
 \begin{figure}[h]
 \centering
-\includegraphics[width=1.0\textwidth]{./assets/ssl-hardware-mixer.jpg}
+\includegraphics[width=0.8\textwidth]{./assets/ssl-hardware-mixer.jpg}
 \caption{SSL SL9000J (72 channel) console at Cutting Room Recording Studio, NYC}
 \label{fig:hardware-mixer}
 \end{figure}
@@ -16,7 +16,7 @@
 #+BEGIN_LATEX
 \begin{figure}[h]
 \centering
-\includegraphics[width=1.0\textwidth]{./assets/fx.jpg}
+\includegraphics[width=0.6\textwidth]{./assets/fx.jpg}
 \caption{Skeuomorphic software FX}
 \label{fig:fx}
 \end{figure}

@@ -1,0 +1,39 @@
+* Clojurescript intro
+#+NAME: clojurescript-intro
+#+BEGIN_SRC clojure
+  ;; A list. It is quoted as otherwise it would treat it as a function call
+  '(1 2 3 4)
+
+  ;; Call a function. In this case calling the multiply function.
+  (* 2 2)
+
+  ;; Define a variable a
+  (def a 1)
+
+  ;; Define a function b
+  (defn b [n] (* n n))
+
+  ;; A vector is the most common way to represent sequential data in clojurescript
+  [1 2 3 4]
+
+  ;; A hashmap is used for associative data and more often than not uses keywords
+  ;; as keys. Keywords are used similarly to constant strings in other languages.
+  {:hello "world"}
+
+  ;; Vectors and hashmaps are immutable and can't be changed after they've been created
+  ;; An atom is used for data that needs to change (to model state changes for instance).
+  (def c (atom 1))
+
+  ;; To change it's value use the reset! function.
+  ;; Here it changes the c atom to 2.
+  (reset! c 2)
+
+  ;; Clojurescript can interface with javascript in a straightforward manner
+  ;; but uses a slightly different syntax. The term that is normally
+  ;; used to describe this is js interop.
+  ;; Calling a function:
+  (js/console.log "Hello world")
+  ;; Calling a method on an object:
+  (.reload js/location)
+
+#+END_SRC

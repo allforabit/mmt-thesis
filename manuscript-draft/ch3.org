@@ -1,3 +1,4 @@
+* Methodology
 ** Introduction
 This chapter outlines the approach that will be taken in the realisation of the
 SonicSketch application. An assessment of SonicPainter will be given to identify
@@ -38,18 +39,18 @@ a small toggleable information box. Unfortunately, this issue repeats itself in
 a good deal of the functionality with additional features hidden behind keyboard
 shortcuts that would be difficult or impossible to discover.
 
-The intention of SonicPainter and SonicSketch is to create a tool for musicians.
-Some basic usability additions greatly improve its potential utility in this
-regard. With this in mind, some additional features will be added to improve
-usability. This includes an undo and redo a feature that can help greatly to
-increase the confidence of using the system. Save and load functionality makes
-it possible to resume sketches and goes some way to making it a more viable real
-world tool for musicians. In addition, editing capabilities for existing notes
-will be expanded on, including moving and deletion. Some other basic features
-that will be added are tempo adjustment, to allow the user to slow down and
-speed up playback; velocity adjustment, to make notes play at varying amplitudes
-and an adaptive sizing system to allow the application to occupy the full size
-of the user's screen.
+# The intention of SonicPainter and SonicSketch is to create a tool for musicians.
+# Some basic usability additions greatly improve its potential utility in this
+# regard. With this in mind, some additional features will be added to improve
+# usability. This includes an undo and redo a feature that can help greatly to
+# increase the confidence of using the system. Save and load functionality makes
+# it possible to resume sketches and goes some way to making it a more viable real
+# world tool for musicians. In addition, editing capabilities for existing notes
+# will be expanded on, including moving and deletion. Some other basic features
+# that will be added are tempo adjustment, to allow the user to slow down and
+# speed up playback; velocity adjustment, to make notes play at varying amplitudes
+# and an adaptive sizing system to allow the application to occupy the full size
+# of the user's screen.
 
 *** Issues with audio visual connection
 Some deficiencies were found with the mapping between visuals and audio. It is
@@ -173,7 +174,8 @@ community. Some popular early examples include Backbone.js and Angular.js. A
 technique that saw some popularity was a system called two-way binding which
 created a two-way link between the current state in the model and the visual
 appearance of the view. This, however, has a number of issues including some
-serious performance issues, in addition to some conceptual problems (???ref).
+serious performance issues, in addition to some conceptual problems
+\cite{whelpley_is_2014}.
 
 React offers a simpler one-way binding system using what is termed the /virtual
 DOM/. This works by maintaining a virtual version of the dom in a javascript.
@@ -185,8 +187,10 @@ building block of programs. In the case of working with the DOM, it can lead to
 not only an increase in efficiency in the rendering of the applications but also
 a simplification of the programming model as a secondary benefit. A number of
 projects have emerged that attempt to bring this secondary benefit beyond the
-realm of the DOM. This includes writing console programs (???ref), writing web
-audio applications (???ref) and even for embedded electronics (???ref).
+realm of the DOM. This includes writing command-line programs
+\cite{demedes_vadimdemedes/ink:_2017}, writing web audio applications
+\cite{formidablelabs_react-music:_2017} and even for embedded electronics
+\cite{kasten_react-hardware:_2017}.
 
 *** Clojurescript
 Clojurescript is a compile to javascript programming language that is based on
@@ -196,12 +200,24 @@ known for its minimal syntax consisting primarily of parens. The word Lisp is
 derived from the term "List Processor" as Lisps source code and data structures
 are built around lists. Clojure and ClojureScript promote a functional
 programming style. Clojurescript and other functional programming languages such
-as /Elm/ have seen an increase in usage in the past number of years as this
+as Elm have seen an increase in usage in the past number of years as this
 paradigm has proved useful in managing complex stateful UIs. Some annotated
 examples of ClojureScript follow that show the basic building blocks of the
 language and will help in understanding the code walkthrough in the next
 chapter.
-# #+INCLUDE: "ch3-code.org::clojurescript"
+
+#+LATEX: \begin{footnotesize}
+#+INCLUDE: "ch3-code.org::clojurescript-intro"
+#+LATEX: \end{footnotesize}
+
+This covers some basics that will be particularly helpful for readers that are
+familiar with C style languages. A more in depth is beyond the scope of this
+document and interested readers should consult the many resources available
+online. The most commonly used build tool that is used with ClojureScript (and
+Clojure) is /Leiningen/, which takes care of managing the code dependencies and
+converting the code from ClojureScript to javascript. These dependencies are
+defined in the "project.clj" file. The primary dependencies used by SonicSketch,
+/Reagent/ and /re-frame/ will now be discussed.
 
 *** Reagent & Re-frame
 Reagent is a library that provides an idiomatic ClojureScript interface to
@@ -241,5 +257,3 @@ were described in detail including some brief justification behind these
 technical choices. This covered the Web Audio API technology that underlies the
 audio aspect of the project, as well as the libraries and frameworks being used
 to manage the views and state of the app.
-
-#+LATEX: \newpage

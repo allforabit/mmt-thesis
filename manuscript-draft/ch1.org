@@ -29,7 +29,7 @@ understandable to the user. An extremely dominant metaphor is that of the analog
 mixer and the hardware multi-track tape machine which have, since the mid-1990s,
 become a mainstay construct in the interfaces of commercial DAWs
 \cite{bell_journal_2015}. The effectiveness of this metaphor is evident in the
-vast amount of music produced in this environments. There are some situations,
+vast amount of music produced in this environment. There are some situations,
 however, where the metaphor can get in the way and lead to another new, separate
 layer of complexity that must, in turn, be managed by its users.
 
@@ -38,8 +38,8 @@ This leads to the central motivation behind the work on SonicSketch: that of
 exploring alternative metaphors that support the early stage of music production
 and fulfills the role traditionally filled by an instrument. In exploring these
 alternative metaphors, an attempt is made to regain some of what is lost when
-working directly with the computer. At the same time, the distinct advantages of
-working in a digital medium will be maintained.
+working directly with the computer without compromising the distinct advantages
+it brings.
 
 The intention is not to suggest that analog studio metaphors can be replaced, or
 even that there is any reason that they should be. Instead, the intention is to
@@ -71,7 +71,7 @@ The final artifact should be:
                    friction and allow users to engage more freely with the
                    application.
 - Expert friendly :: flexible enough to allow users to use it for longer periods
-     of time without getting tiring of it.
+     of time without tiring of it.
 
 These aspects will be assessed by using self-assessment as well as by testing
 with users. User testing will take the form of both interview and a standard
@@ -81,7 +81,7 @@ a modern browser without requiring the installation of any special software.
 
 ** Approach
 The project is based upon and builds on SonicPainter, an application built by
-William Coleman for his Master's thesis. Similarly motivated by the overwhelming
+William Coleman as a Master's thesis. Similarly motivated by the overwhelming
 complexity of modern DAWs, the interface aims to be minimal and free of
 distraction. It presents a minimal canvas like space that allows the user to
 draw lines of various length, shape, and orientation resulting in sounds that
@@ -102,16 +102,13 @@ A summary of intended improvements are as follows:
 
 ** Thesis structure
 This thesis begins with a discussion of the current dominant tools and practices
-in use in music production today with a strong focus on the ideation phase. A
-historical perspective is then given on more idiosyncratic approaches to music
-creation systems. An emphasis is given to systems that utilize a more visual
-approach. This is followed by a discussion of more recent work that to some
-degree takes influence from these approaches. The theoretical and practical
-approach that was taken in the build out of the project is then given and is
-followed by a more detailed technical walkthrough of how the system was put
-together. An evaluation of the success of the project is then given both from
+in use in music production today with a strong focus on the ideation phase. Some
+alternative approaches to these more mainstream approaches is then discussed,
+focusing in systems that, to some degree, use sketching as a metaphor. Both
+legacy and more recent systems are considered in this survey. A discussion and
+critique of SonicPainter will follow this. The technical approach is being taken
+by SonicSketch is then introduced followed by a detailed walkthrough of it's
+development. An evaluation of the success of the project is then given both from
 the perspective of the creator and from users that tested it. Finally, the
 broader implications of the work are discussed in addition to some suggestions
 for future research and development.
-
-#+LATEX: \newpage

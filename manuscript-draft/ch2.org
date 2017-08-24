@@ -51,13 +51,12 @@ found in hardware mixing desks (see figure \ref{fig:hardware-mixer}). The mixing
 desk enabled the producer to control the relative amplitude of a finite amount
 of channels in addition to performing tasks such as panning to balance the
 signal in a stereo field. The slim vertical sliders found on most systems were
-codified in the 1960's by Bill Putnam and were created with ergonomics in mind
-\cite{bell_journal_2015}. This layout allowed the producer to manipulate
-multiple channels of audio simultaneously in a practice known variously as
-"riding the faders" and "playing the mixer". Despite the fact that the digital
-variants of these are largely controlled by a mouse that only affords the
-manipulation of a single fader at a time, they are still, largely speaking,
-presented in this fashion on screen.
+codified in the 1960's by Bill Putnam \cite{bell_journal_2015}. This layout
+allowed the producer to manipulate multiple channels of audio simultaneously in
+a practice known variously as "riding the faders" and "playing the mixer".
+Despite the fact that the digital variants of these are largely controlled by a
+mouse that only affords the manipulation of a single fader at a time, they are
+still, largely speaking, presented in this fashion on screen.
 
 *** Outboard effects unit
 #+INCLUDE: "./ch2-ref.org::fx"
@@ -65,21 +64,21 @@ Outboard effects are hardware units used in studios to add audio effects to one
 or more channels on the mixing desk. The standard configuration of most studios
 allows for two different ways of applying these effects, by using insert effects
 and send effects. Insert effects are typically used when it only needs to affect
-a single channel, for instance, a chorus effect applied to an electric guitar.
+a single channel, for instance, a chorus effect applied on an electric guitar.
 Send effects allow the producer to send a certain amount of the signal from a
 channel to specialised channels to perform processing on the signal in parallel
-with the original signal. It is typically used to apply effects that affect
-multiple channels of audio such as reverb effects. The introduction of Virtual
-Studio Technology (VST), by Steinberg, was responsible for bringing the outboard
-effects metaphor to a whole new height. This allowed third party developers to
-create virtual effects and instruments, and let producers expand their virtual
-studio beyond the built in effects. The visual interfaces increasingly paid
-homage to their hardware influences, emulating not only functionality but also
-the visual look (see figure \ref{fig:fx}).
-\citet{levin_painterly_2000} describes this as skeuomorphism, a design pattern
-where visual objects not only mimic real world objects in functionality but also
-incorporate unneeded visual features. The purpose of this is not only decorative
-but also educational, and gives connotational cues on how it should be used.
+with the original signal. It is typically used to apply effects on multiple
+channels of audio such as reverb. The introduction of Virtual Studio Technology
+(VST), by Steinberg, was responsible for bringing the outboard effects metaphor
+to a whole new height. This allowed third party developers to create virtual
+effects and instruments, and let producers expand their virtual studio beyond
+the built in effects. The visual interfaces increasingly paid homage to their
+hardware influences, emulating not only functionality but also the visual look
+(see figure \ref{fig:fx}). \citet{levin_painterly_2000} describes this as
+skeuomorphism, a design pattern where visual objects not only mimic real world
+objects in functionality but also incorporate unneeded visual features. The
+purpose of this is not only decorative but also educational, and gives
+connotational cues as to how it should be used.
 
 *** The piano roll
 The piano roll is a primary metaphor found in almost all mainstream DAWS and is
@@ -88,12 +87,12 @@ for Musical Instrument Digital Interface is a standard protocol developed in the
 1980s to allow control instructions to be sent between devices. It provided a
 standard language to for instance tell a synthesizer to play a particular note
 at a precise time and duration. These instructions could be collected into a
-MIDI file to, in effect, create a playable digital score. It is slightly
-distinct from the previously discussed examples in that it originates from a
-much earlier time period, the player pianos of the 1920s. The original piano
-rolls were operated by feeding a roll of paper with holes punched to indicate
-the precise timing that an attached piano should strike its notes. This provides
-an apt and suitable description for the MIDI musical data it normally
+MIDI file to, in effect, create a playable digital score. The piano roll is
+slightly distinct from the previously discussed examples in that it originates
+from a much earlier time period, the player pianos of the 1920s. The original
+piano rolls were operated by feeding a roll of paper with holes punched to
+indicate the precise timing that an attached piano should strike its notes. This
+provides an apt and suitable description for the MIDI musical data it normally
 represents. Similar to a player piano, no audible results are possible without
 an attached piano, and in the case of MIDI, an attached sound generating
 synthesizer device. \cite{bell_journal_2015,levin_painterly_2000}
@@ -116,7 +115,7 @@ a DAW. The idea is broken into the following compositional "recipe":
 While this may seem like a contrived example this, in fact, constitutes a
 compositional technique called Klangfarbenmelodie that involves splitting a
 melodic line between instruments or timbres to create a timbre melody. The
-glissandos and altering of vibrato intensity add further complexity and better
+glissandos and altering of vibrato intensity add further complexity to better
 illustrate some of the weaknesses inherent in DAW metaphors.
  
 *** Realization in a DAW
@@ -196,24 +195,22 @@ summed by John Cage: "Don't try to create and analyse at the same time. They're
 different processes" \cite{popova_10_2012}.
 
 ** Sketching as an alternative metaphor
-While audio programming languages are an abstraction over more complex
-underlying computational processes, they largely speaking offer a model that is
-closer to these processes than the more abstracted DAW interfaces. As we have
-discussed, though what is gained in flexibility can be lost in intuitiveness and
-ease of interaction. Rather than discarding these higher level metaphors,
-perhaps a better approach would be to explore alternate metaphors.
+While audio programming languages offer a model that is closer to the underlying
+computational processes taking place than the more abstracted DAW interfaces. As
+we have discussed, though what is gained in flexibility can be lost in
+intuitiveness and ease of interaction. Rather than discarding these higher level
+metaphors, perhaps a better approach would be to explore alternate metaphors.
 
 A rather promising but nonmainstream approach is that of sonic sketching. This
 has a long and illustrious historical precedent reaching back well before the,
-now more prevalent, studio metaphors. As is pointed out by Levin (2002), the
-exploration of synchrony between audio and visuals is a practice going back
-centuries and was variously termed "ocular music, visual music, color music, or
-music for the eyes" (Levin, 2000). The twentieth-century technique of the
-optical soundtrack, however, brought these ideas to a new level of
-sophistication. The technique, which involved placing marks via photography or
-direct manipulation to specify audio properties, was explored by such luminaries
-as Oskar Fischinger, Norman McLaren and Daphne Oram. Oram's particular take on
-the technique will now be discussed.
+now more prevalent, studio metaphors. Graphical sound generation techniques have
+a long history starting with experiments beginning in the early 20th century
+\cite[pg. 329]{roads_computer_1996}. The technique of the optical soundtrack,
+however, brought these ideas to a new level of sophistication. The technique,
+which involved placing marks via photography or direct manipulation to specify
+audio properties, was explored by such luminaries as Oskar Fischinger, Norman
+McLaren and Daphne Oram. Oram's particular take on the technique will now be
+discussed.
 
 *** Oramics
 A primary motivating factor behind Daphne Oram's development of the Oramics
@@ -221,8 +218,8 @@ machine was to bring more human-like qualities to the sounds generated by
 electronic means. The machine worked by playing back multiple lanes of film tape
 in unison, defining a monophonic series of notes as well as control signals to
 shape their timbre, pitch and amplitude. She details the thought process behind
-this in her hugely insightful and broad ranging journal style book, "An
-Individual Note" \cite{oram_individual_1972}.
+this in her journal style book, "An Individual Note"
+\cite{oram_individual_1972}.
 
 The aspects of the sound that she wishes to control are volume, duration,
 timbre, pitch, vibrato, and reverb. In order to do this, she describes a simple
@@ -249,25 +246,28 @@ generating the electronic signal.
 The UPIC ("Unité polyagogique informatique du CEMAMU") was a graphic sound
 synthesis system that was designed by Iannis Xenakis and arose from his graphic
 approach to composition. His earliest work, "Metastasis", was conceived using a
-graphic approach to describe trajectories and sound masses . This approach has
-been attributed to his background in architecture, having worked in the studio
-of Le Corbusier. The UPIC was first conceived of in the seventies with the
-realisation of the first version in 1975 and its first public showcase in 1977.
-The work "Mycanae Alpha" (figure \ref{fig:xenakis-alpha}), composed in 1978 was
-the first work to use the system and was a "nine-minute 38-second composition of
-dense and intense textures, of phase-shifting waveforms rich in harmonics that
-cascade, flutter, crash, and scream like sirens in a vast cosmological
-territory" \cite{tyranny_mycenae-alpha_2017} .
+graphic approach to describe the trajectories and sound masses that inhabits the
+orchestral landscape of the piece. This approach has been attributed to his
+background in architecture, having worked in the studio of Le Corbusier. The
+UPIC was first conceived of in the seventies with the realisation of the first
+version in 1975 and its first public showcase in 1977 \cite[pg.
+331]{roads_computer_1996}. The work "Mycanae Alpha" (figure
+\ref{fig:xenakis-alpha}), composed in 1978 was the first work to use the system
+and was a "nine-minute 38-second composition of dense and intense textures, of
+phase-shifting waveforms rich in harmonics that cascade, flutter, crash, and
+scream like sirens in a vast cosmological territory"
+\cite{tyranny_mycenae-alpha_2017} .
 
-This early version worked by drawing on a large digitizing graphics tablet which
-was interpreted by a high-powered computer (for that period) and converted into
-audio signals. The graphic approach to sound specification worked on a synthesis
-level by allowing the composer to draw and audition waveforms. Larger structures
-could be drawn in by switching to a "score" page and drawing lines, or "arcs" as
-they were denoted, on a pitch-time canvas. The final version of the application
-ran on personal computers and allowed for real-time interaction with a 64
-oscillator synthesizer. At this stage, the input means had changed to a computer
-mouse but nevertheless retained the graphic approach of interaction.
+The early version of the UPIC worked by drawing on a large digitizing graphics
+tablet which was interpreted by a high-powered computer (for that period) and
+converted into audio signals. The graphic approach to sound specification worked
+on a synthesis level by allowing the composer to draw and audition waveforms.
+Larger structures could be drawn in by switching to a "score" page and drawing
+lines, or "arcs" as they were denoted, on a pitch-time canvas. The final version
+of the application ran on personal computers and allowed for real-time
+interaction with a 64 oscillator synthesizer. At this stage, the input means had
+changed to a computer mouse but nevertheless retained the graphic approach of
+interaction. \cite{nunzio_upic_2014}
 
 A primary goal of the UPIC project was that of pedagogy. Xenakis reasoned that
 the universality of sketching meant that it could provide an excellent teaching
@@ -277,7 +277,7 @@ composer autonomy. At the time of its conception in the seventies, the technical
 barrier to entry into electronic music creation was very high and interfaces to
 help with this were rare or non-existent. Though the UPIC is not available to
 the general public currently, it has inspired a number of other systems that are
-available.
+available today.  \cite{nunzio_upic_2014}
 
 *** A Golan Levin's AVES
 Golan Levin created the interactive audio-visual system, AVES, a series of audio
@@ -310,10 +310,10 @@ it.
 Levin's work is largely realtime and transitory in nature with gestures giving
 rise to visual and audio reactions that rise, fall and dissipate. A description
 that he uses of some of work is that of creating ripples in a pond. Therefore
-his work is very much geared towards an instrument like experience and is not
+his work is very much geared towards an instrument like experience. It is not
 concerned with the recording or visualization of a score or timeline of musical
-events as would be the function of compositional tools such as DAWs. Indeed it
-is a conscious design decision to avoid such representations. Many of the
+events as would be the function of a compositional tools such as a DAW. Indeed
+it is a conscious design decision to avoid such representations. Many of the
 principles and ideas of his work can, however, be applied in the context of a
 composition tool.
 
@@ -326,7 +326,7 @@ found in commercial DAWs \cite{coleman_sonicpainter:_2015}. The focus of the
 line and node based interface (see figure \ref{fig:sonicpainter}) is to bring
 timbral shaping to the fore rather than being hidden away in miscellaneous
 automation lanes. The design takes influence from legacy musical systems, in
-particular, UPIC and incorporates ideas from visual music and embodied
+particular, the UPIC and incorporates ideas from visual music and embodied
 cognition.
 
 Similarly to traditional sequencers, the x axis represents time and the y-axis,
@@ -337,9 +337,7 @@ the unfolding of the note can be explicitly represented visually. Other timbral
 aspects such as vibrato are represented by further visual manipulation of the
 line. For instance, an overlaid sine wave line indicates the timing and
 amplitude of the vibrato. In addition, the system allows for freehand input of
-notes. Coleman recommends that the system could be improved by adding
-multi-touch input, allowing for other synthesis techniques, time/pitch grid
-quantization, and further visual timbre feedback representations.
+notes. 
 
 ** Conclusion
 The dominant metaphors present in DAWs, which are by and large analog studio
@@ -360,5 +358,3 @@ interface to audio systems was explored by tracing it's early roots in the
 optical soundtracks of Oram to the realtime synth sketching of Xenakis's UPIC
 through to the contemporary approaches of Golan Levin's AVES system and William
 Coleman's SonicPainter.
-
-#+LATEX: \newpage

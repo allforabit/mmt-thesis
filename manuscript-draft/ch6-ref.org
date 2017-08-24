@@ -1,0 +1,30 @@
+* Exhibit
+#+NAME: note-onset-hm
+#+BEGIN_LATEX
+\begin{figure}[h]
+\centering
+\includegraphics[width=1.0\textwidth]{./assets/hm-yellow-red.pdf}
+\caption{Heat graph displaying note start points}
+\label{fig:note-onset-hm}
+\end{figure}
+#+END_LATEX
+
+#+NAME: user-sonic-sketches
+#+BEGIN_LATEX
+\begin{figure}[h]
+\centering
+\includegraphics[width=1.0\textwidth]{./assets/exhibit-cat.png}
+\caption{Some exhibit participants managed to draw figurative artwork!}
+\label{fig:exhibit-cat}
+\end{figure}
+#+END_LATEX
+
+* SUS
+#+NAME: sus-results
+#+CAPTION: Results of SUS questionnaire
+| Factor                      | result |
+|-----------------------------+--------|
+| Learnability                | 92     |
+| Usability                   | 83     |
+| Overall system satisfaction | 85     |
+
