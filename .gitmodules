@@ -1,0 +1,3 @@
+[submodule "kevin-nolan-sonicsketch-thesis/sonicsketch-src"]
+	path = kevin-nolan-sonicsketch-thesis/sonicsketch-src
+	url = https://github.com/allforabit/sonicsketch.git

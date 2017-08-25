@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"> -->
+    <meta charset=utf-8>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sonicsketch</title>
+    <style type="text/css" media="screen">
+      html { background: #3b4133; }
+      body { touch-action: none; margin: 0; padding: 0; overflow: hidden; }
+    </style>
+    <link href="css/sonicsketch.css" rel="stylesheet"/>
+    <link rel="manifest" href="/manifest.json">
+    <script type="text/javascript" src="js/pep.min.js"></script>
+    <script type="text/javascript" src="js/stats.min.js"></script>
+    <script src="upup.min.js"></script>
+    <script>
+      UpUp.start({
+        'content-url': 'index.html',
+        'assets': [
+          'js/compiled/sonicsketch.js'
+        ]
+      });
+     // Prevent refresh on save of file
+     if(window.location.href.indexOf("?") === -1 ){
+       window.location.href = "?";
+     }
+
+    </script>
+
+  </head>
+  <body>
+    <div id="app">
+    </div>
+    <a href="#" id="file-export-link" style="display:none" download="thing.txt" />
+    <script type="text/javascript" charset="utf-8" src="js/compiled/sonicsketch.js"></script>
+    <script type="text/javascript" >sonicsketch.core.run()</script>
+    <script>
+     /* var stats = new Stats();*/
+     /* stats.showPanel( 0 ); // 0: fps, 1: ms, 2: mb, 3+: custom*/
+      //document.body.appendChild( stats.dom );
+
+      function animate() {
+
+        stats.begin();
+
+        // monitored code goes here
+
+        stats.end();
+
+        requestAnimationFrame( animate );
+
+      }
+
+     /* requestAnimationFrame( animate );*/
+
+    </script>
+  </body>
+</html>

@@ -2,7 +2,7 @@
 #+OPTIONS: d:nil
 # #+PROPERTY: header-args    :exports none
 #+LATEX_CLASS: book
-#+LaTeX_CLASS_OPTIONS: [12pt]
+#+LaTeX_CLASS_OPTIONS: [a4paper,12pt,oneside]
 
 # #+LATEX_HEADER: \documentclass
 #+LATEX_HEADER: \usepackage{graphicx}
@@ -13,6 +13,7 @@
 # #+LATEX_HEADER: \pagestyle{fancyplain}
 # #+LATEX_HEADER: \lfoot{Kevin Nolan - kevinn@tcd.ie}
 # #+LATEX_HEADER: \rfoot{MMT Thesis 2017}
+# #+LATEX_HEADER: \usepackage{empty}
 #+LATEX_HEADER: \usepackage{pdfpages}
 #+LATEX_HEADER: \usepackage[toc,page]{appendix}
 #+LATEX_HEADER: \usepackage{color}
@@ -27,18 +28,38 @@
 # #+LaTeX_HEADER: \newminted{common-lisp}{fontsize=\footnotesize}
 
 #+BIBLIOGRAPHY: ../bibliography/mmt-thesis-tidyup.bib
+
 #+PANDOC_OPTIONS: csl:./harvard.csl
+
+# #+PANDOC_OPTIONS: csl:./harvard-durham-university-business-school.csl
 
 # #+PANDOC_OPTIONS: latex-engine:xelatex
 #+PANDOC_OPTIONS: latex-engine-opt:-shell-escape
 #+PANDOC_OPTIONS: number-sections:t
 #+PANDOC_OPTIONS: chapters:t
+#+PANDOC_OPTIONS: include-after-body:appendix.tex
 #+OPTIONS: toc:nil creator:nil H:4 num:4 ':t ^:{}
 
 # * Front matter                                                       :prelim:
 \frontmatter
 \pagenumbering{roman} 
 \includepdf[pages={1-},scale=1.0]{title-page.pdf}
+
+* Abstract
+
+SonicSketch is a graphic synthesis music tool that runs in the modern web browser and allows users to draw sonic material on a canvas in a freeform, creative and intuitive manner. 
+
+It is aimed at the ideation phase of digital music creation and seeks to highlight the metaphor of sketching instead of the more common analog studio metaphors found in the digital audio workstation (DAW). 
+
+While it takes influence from a number of graphic synthesis systems SonicSketch directly builds on the ideas and concepts of SonicPainter, a separate application created by William Coleman. A critique of this system is given to identify the areas that SonicSketch improves upon.
+
+A detailed account is given of the development process of SonicSketch, including the early prototype work, the architectural setup and the building of the application.
+
+The resulting artifact is evaluated both from a self-assessment and a user perspective. The results of a usability test and general user feedback indicate that it is enjoyable, easy to use and learn.
+
+Finally, a number of proposed improvements and features are given, to make the
+application a more flexible and useful tool for musicians.
+
 
 * Acknowledgments
 
@@ -58,33 +79,16 @@ year!
 # * Table of Contents                                                  :prelim:
 
 \tableofcontents
-\cleardoublepage
+# \cleardoublepage
 
 \listoffigures
-\cleardoublepage
+# \cleardoublepage
 
-\pagenumbering{arabic}
+# \pagenumbering{arabic}
 
 \mainmatter
 
 # * Chapters :prelim:
 
 #+INCLUDE: "./ch-all.org" :minlevel 1
-
-#+LATEX: \begin{appendices}
-#+LATEX: \chapter{SUS questionnaire}
-The following is the list of propositions that the tester must grade from
-strongly agree to strongly disagree.
-1. I think that I would like to use this system frequently
-2. I found the system unnecessarily complex
-3. I thought the system was easy to use
-4. I think that I would need the support of a technical person to be able to use this system
-5. I found the various functions in this system were well integrated
-6. I thought there was too much inconsistency in this system
-7. I would imagine that most people would learn to use this system very quickly
-8. I found the system very cumbersome to use
-9. I felt very confident using the system
-10. I needed to learn a lot of things before I could get going with this system
-#+LATEX: \end{appendices}
-
 * Bibliography

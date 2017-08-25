@@ -11,8 +11,9 @@ fundamental change to this process, however. Electronic music can now be
 produced entirely on a computer, enabling those without the background or
 training to produce music to a professional standard. The affordances of
 infinite editability and tweak-ability allows the novice producer to organically
-build compositions through a process of trial and error. The requirement to
-perform to a high standard is no longer necessary.
+build their skills by composing using a process of trial and error. The
+requirement to perform on a musical instrument to a high standard is no longer
+necessary. \cite[pg. 12]{duignan_computer_2008}
 
 The primary tool of this new breed of electronic musician, is the Digital Audio
 Workstation (DAW), a powerful software application for composing, arranging and
@@ -20,15 +21,15 @@ editing musical events and audio material, mixing tracks and applying audio
 effects. To control this power, the electronic musician must master the vast
 array of knobs, sliders, buttons and complex hierarchies of settings. This
 complexity poses some difficult Human Computer Interaction (HCI) challenges both
-for software developers and end users \cite{duignan_abstraction_2010}.
+for software developers and end users \citep{duignan_abstraction_2010}.
 
 A common solution to this is to provide the user with real world metaphors in
 the presentation of the interface. In this way, the highly abstract process that
 takes place in digital systems can be grounded in a metaphorical language
 understandable to the user. An extremely dominant metaphor is that of the analog
 mixer and the hardware multi-track tape machine which have, since the mid-1990s,
-become a mainstay construct in the interfaces of commercial DAWs
-\cite{bell_journal_2015}. The effectiveness of this metaphor is evident in the
+become a mainstay construct in the interfaces of commercial DAWs (Bell et al.
+\citeyear{bell_journal_2015}). The effectiveness of this metaphor is evident in the
 vast amount of music produced in this environment. There are some situations,
 however, where the metaphor can get in the way and lead to another new, separate
 layer of complexity that must, in turn, be managed by its users.
@@ -53,7 +54,7 @@ environments more suited to the capturing of ideas and creative flow. The option
 is open to then move freely to the more powerful fully featured environments
 offered by the DAW.
 
-** Goals and Objectives
+** Goals
 The overarching and primary goal of this project is to create a software
 application called SonicSketch that is specifically targeted at the early
 ideation part of the music production process. Building on a strong theoretical
@@ -81,11 +82,11 @@ a modern browser without requiring the installation of any special software.
 
 ** Approach
 The project is based upon and builds on SonicPainter, an application built by
-William Coleman as a Master's thesis. Similarly motivated by the overwhelming
-complexity of modern DAWs, the interface aims to be minimal and free of
-distraction. It presents a minimal canvas like space that allows the user to
-draw lines of various length, shape, and orientation resulting in sounds that
-vary in timing, duration, frequency, and timbre.
+William Coleman as a Master's thesis \cite{coleman_sonicpainter:_2015}.
+Similarly motivated by the overwhelming complexity of modern DAWs, the interface
+aims to be minimal and free of distraction. It presents a canvas like space that
+allows the user to draw lines of various length, shape, and orientation
+resulting in sounds that vary in timing, duration, frequency, and timbre.
 
 Building on this existing work is advantageous in several ways. It provides a
 more concrete foundation than starting off with a blank slate. Features and
@@ -101,14 +102,14 @@ A summary of intended improvements are as follows:
  - Improve correlation between the visuals and the audio.
 
 ** Thesis structure
-This thesis begins with a discussion of the current dominant tools and practices
+Chapter 2 begins with a discussion of the current dominant tools and practices
 in use in music production today with a strong focus on the ideation phase. Some
-alternative approaches to these more mainstream approaches is then discussed,
-focusing in systems that, to some degree, use sketching as a metaphor. Both
-legacy and more recent systems are considered in this survey. A discussion and
-critique of SonicPainter will follow this. The technical approach is being taken
-by SonicSketch is then introduced followed by a detailed walkthrough of it's
-development. An evaluation of the success of the project is then given both from
-the perspective of the creator and from users that tested it. Finally, the
-broader implications of the work are discussed in addition to some suggestions
-for future research and development.
+alternative approaches are then discussed, focusing on systems that, to some
+degree, use sketching as a metaphor. Both legacy and more recent systems will be
+considered in this survey. A discussion and critique of SonicPainter will follow
+this. The technical approach being taken by SonicSketch will then be introduced
+followed by a detailed walkthrough of it's development. An evaluation of the
+success of the project will then be given both from the perspective of the
+creator and from the users that tested it. Finally, the broader implications of
+the work will be discussed in addition to some suggestions for future research
+and development.

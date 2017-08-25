@@ -1,4 +1,13 @@
 
+# #+LATEX_HEADER: \usepackage{graphicx}
+# #+LATEX_HEADER: \usepackage[utf8]{inputenc}
+# #+LATEX_HEADER: \usepackage[english]{babel}
+# #+LATEX_HEADER: \usepackage[a4paper, total={150mm,237mm}, left=30mm, top=30mm,]{geometry}
+# #+LATEX_HEADER: \usepackage{pdfpages}
+# #+LATEX_HEADER: \usepackage[toc,page]{appendix}
+# #+LATEX_HEADER: \usepackage{color}
+# #+LATEX_HEADER: \usepackage{caption}
+# #+LATEX_HEADER: \usepackage{subcaption}
 * Hardware mixer
 #+NAME: hardware-mixer
 #+BEGIN_LATEX
@@ -48,5 +57,77 @@
 \includegraphics[width=0.5\textwidth]{./assets/xenakis-and-the-upic-system.jpg}
 \caption{Iannis Xenakis showing UPIC to a younger audience}
 \label{fig:xenakis-children}
+\end{figure}
+#+END_LATEX
+
+
+* AVES
+#+NAME: aves
+#+BEGIN_LATEX
+\begin{figure}[h]
+\centering
+\includegraphics[width=1.0\textwidth]{./assets/aurora.jpg}
+\caption{Golan Levin's Aurora (part of AVES)}
+\label{fig:aves}
+\end{figure}
+#+END_LATEX
+
+
+* Oramics
+#+NAME: oramics
+#+BEGIN_LATEX
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{./assets/oramics-wikipedia.jpg}
+\caption{Daphne Oram's Oramics machine}
+\label{fig:oramics}
+\end{figure}
+#+END_LATEX
+
+* Csound score
+#+NAME: csound-score
+#+LABEL: csound-score
+#+CAPTION: CSound score represented as a table. Each row contains the data for each note.
+| Instrument\\id | Start\\ time | Duration | Start\\ freqeuncy | End\\ frequency | Timbre | Start\\ vibrato\\ level | End\\ vibrato\\ level |
+|----------------+--------------+----------+-------------------+-----------------+--------+-------------------------+-----------------------|
+|              1 |            0 |        2 |               440 |             880 |      3 |                     .01 |                    20 |
+|              1 |            0 |        2 |               880 |             440 |      3 |                      20 |                  0.01 |
+|              1 |            2 |        2 |              1320 |             660 |      6 |                    0.01 |                    20 |
+|              1 |            2 |        2 |               660 |            1320 |      6 |                      20 |                  0.01 |
+|              1 |            4 |        2 |               330 |             660 |      2 |                     .01 |                    20 |
+|              1 |            4 |        2 |               660 |             330 |      2 |                      20 |                   .01 |
+|              1 |            6 |        2 |               880 |            1720 |      1 |                     .01 |                    20 |
+|              1 |            6 |        2 |              1720 |             880 |      1 |                      20 |                   .01 |
+|              1 |            8 |        2 |               220 |             440 |      9 |                     .01 |                    20 |
+|              1 |            8 |        2 |               440 |             220 |      9 |                      20 |                   .01 |
+
+
+* Realization in DAW
+#+NAME: comp-daw
+#+BEGIN_LATEX
+\begin{figure}
+    \begin{subfigure}{1.0\textwidth}
+        \includegraphics[width=\textwidth]{./assets/daw-walkthrough/timeline.png}
+        \caption{The timeline showing the vibrato automation on each track.}
+    \end{subfigure}
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./assets/daw-walkthrough/pitch-env.png}
+        \centering
+        \caption{The pitch envelope. Requires multiple clicks to display.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./assets/daw-walkthrough/note.png}
+        \centering
+        \caption{Each note is contained in its own timeline clip.}
+    \end{subfigure}
+    \begin{subfigure}{1.0\textwidth}
+        \includegraphics[width=\textwidth]{./assets/daw-walkthrough/fx-chain.png}
+        \centering
+        \caption{The instrument and effect chain. The small red dot on the DRY/WET knob indicates automation.}
+    \end{subfigure}
+
+    \caption{DAW realisation of composition}
+    \label{fig:comp-daw}
 \end{figure}
 #+END_LATEX

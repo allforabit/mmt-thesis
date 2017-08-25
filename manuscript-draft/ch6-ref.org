@@ -11,13 +11,52 @@
 
 #+NAME: user-sonic-sketches
 #+BEGIN_LATEX
+
 \begin{figure}[h]
 \centering
-\includegraphics[width=1.0\textwidth]{./assets/exhibit-cat.png}
+\includegraphics[width=1.0\textwidth]{./assets/sketches/maura.png}
 \caption{Some exhibit participants managed to draw figurative artwork!}
 \label{fig:exhibit-cat}
 \end{figure}
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=1.0\textwidth]{./assets/sketches/becky.png}
+\caption{Some users explored visual rhythms}
+\label{fig:exhibit-cat}
+\end{figure}
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=1.0\textwidth]{./assets/sketches/untitled.png}
+\caption{Vibrato added to a sketch}
+\label{fig:exhibit-cat}
+\end{figure}
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=1.0\textwidth]{./assets/sketches/maura.png}
+\caption{Exploring a clustered approach to sonic composition}
+\label{fig:exhibit-cat}
+\end{figure}
+
 #+END_LATEX
+
+
+* Composition
+#+NAME: composition-sketch
+#+BEGIN_LATEX
+\begin{figure}[h]
+\centering
+\includegraphics[width=1.0\textwidth]{./assets/composition-sketch.png}
+\caption{The Klangfarbenmelodie composition realised in SonicSketch}
+\label{fig:composition-sketch}
+\end{figure}
+#+END_LATEX
+
 
 * SUS
 #+NAME: sus-results

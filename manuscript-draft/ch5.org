@@ -51,13 +51,14 @@ information.
  - [ ] Add a picture
 :END:
 #+INCLUDE: "./ch5-ref.org::sonicshaper"
-A separate application was created in Processing which allowed users to draw
+A separate application was created in [fn:1]Processing which allowed users to draw
 shapes, using either mouse or ideally, pen input. A sound that is associated
 with each shape is then played back. As the sound of each shape plays back, it
-is lit up using animation, creating a strong connection between the shape and
-it's resulting sound. The application uses the "gesture variation follower"
-system cite:caramiaux_adaptive_2015, which while promising in principle, didn't
-have a high rate of accuracy in recognizing the shapes.
+is illuminated using animation, creating a strong connection between the shape
+and it's resulting sound. The application uses the "gesture variation follower",
+a system that allows realtime recognition of gesture shapes
+\cite{caramiaux_adaptive_2015}. While promising in principle, it didn't have a
+high rate of accuracy, making it difficult to predictably control.
 
 *** Web version of William Coleman's SonicPainter
 :TODO:
@@ -75,9 +76,9 @@ have a high rate of accuracy in recognizing the shapes.
 A potential starting point that was considered was using the code from William's
 SonicPainter and porting it to the web browser
 \cite{coleman_sonicpainter:_2015}. This process proved to be quite
-straightforward. The processing code could be embedded in a webpage with minimal
-modification, using "processing.js", a web version of the Processing library
-that enables users to run processing sketches in the Web Browser
+straightforward. The Processing code could be embedded in a webpage with minimal
+modification, using /Processing.js/, a web version of the Processing library
+that enables users to run Processing sketches in the Web Browser
 \cite{fry_processing.js_2017}. Some notable changes that had to be made were
 removing the OSC functionality as this is not technically possible to use in a
 browser. In addition, some other pieces of code were removed and altered
@@ -466,6 +467,7 @@ The ~graphics-notes~ view for instance is subscribed to ~:notes~,
 #+LATEX: \begin{footnotesize}
 #+INCLUDE: "./ch5-code.org::graphics-notes"
 #+LATEX: \end{footnotesize}
+#+INCLUDE: "./ch5-ref.org::note"
 When a note is added this render function will run which will call the
 ~[graphics-note]~ component for each of the notes, and update the visual
 display of the screen to show the new note. A similar process happens in the
@@ -560,6 +562,7 @@ value), the note will play on every loop. If, however, it is below this it will
 skip in a random but probabilistic fashion, adding a small amount of
 stochasticism to playback.
 
+#+INCLUDE: "./ch5-ref.org::vibrato"
 The vibrato tool is the most complex in its implementation and involves a small
 popup UI element that allows the user to draw in a vibrato envelope which is
 visually reflected in the note lines as an overlaid sinewave. After selection
@@ -653,3 +656,7 @@ React, ClojureScript, Reagent and Paper.js was outlined. An in depth description
 of the primary functionality that enables users to draw and edit notes on the
 screen was given, followed by a more brief look at secondary functionality such
 as undo, saving and note animation.
+
+* Footnotes
+
+[fn:1] Processing is a creative coding environment that runs in the Java virtual machine

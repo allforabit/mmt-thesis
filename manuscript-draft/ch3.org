@@ -17,7 +17,7 @@ SonicSketch in the following ways:
    notes can be seen at a glance without having to click into separate tracks.
 - Visualisation of vibrato effect using overlaid sine wave is suitable in theory
   but perhaps could be implemented better.
- - Uses FM synthesis as the synthesis engine. This versatile and efficient is a
+- Uses FM synthesis as the synthesis engine. This versatile and efficient is a
    good fit particularly for use in the web browser where performance can be an
    issue.
 Some issues that have been identified with SonicPainter will now be addressed.
@@ -75,21 +75,21 @@ and clicking multiple times.
 
 This unexpected behaviour could be avoided by either disallowing mode changes
 during note creation or by ending the note when the mode has changed. These type
-of issues are common even in commercial applications as is illustrated in Harel
-(???). An example he gives is that of a calculator built by Microsoft that
-enters an invalid state in a number of different situations. To counter these
-issues a disciplined approach will be taken to managing state in SonicSketch by
-performing /validation/ operations and the use of /finite-state Machines/ (FSM).
-Validation is a technique used to ensure that data is in the correct format and
-that any required information is present and in an allowable format. A
-finite-state machine is a computational model that can be in only one of a
-finite number of states. These states may change due to external input which
-triggers transitions from one state to the next. They can prove useful in
-avoiding invalid states and to reduce the amount of conditional logic in the
-program.
+of issues are common even in commercial applications as is illustrated in
+\citet{horrocks_constructing_1999}. An example he gives is that of a calculator
+built by Microsoft that enters an invalid state in a number of different
+situations. To counter these issues a disciplined approach will be taken to
+managing state in SonicSketch by performing /validation/ operations and the use
+of /finite-state Machines/ (FSM). Validation is a technique used to ensure that
+data is in the correct format and that any required information is present and
+in an allowable format. A finite-state machine is a computational model that can
+be in only one of a finite number of states. These states may change due to
+external input which triggers transitions from one state to the next. They can
+prove useful in avoiding invalid states and to reduce the amount of conditional
+logic in the program.
 
 *** Linear representation of frequency
-The SonicPainter represents a frequency range of 20-500 Hertz (Hz) on its
+SonicPainter represents a frequency range of 20-500 Hertz (Hz) on its
 Y-axis. This is mapped linearly from the on-screen coordinates to frequency
 values. It is not made clear why this range and mapping was chosen and may have
 been for aesthetic reasons. Psychoacoustically it may be suitable to map this

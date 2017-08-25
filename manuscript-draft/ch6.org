@@ -33,7 +33,21 @@ self-assessment, user feedback and a usability questionnaire that polled a small
 number of participants. User feedback was garnered at an exhibition that
 showcased the application. More informal ongoing feedback also identified some
 issues that were fixed in the final version of the application, in addition to
-some that weren't.
+some that weren't. Before delving into this discussion, let us briefly return to
+the composition mentioned earlier to see how it is realised in SonicSketch.
+
+** Returning to the composition
+#+INCLUDE: "ch6-ref.org::composition-sketch"
+As can be seen from the figure (figure \ref{fig:composition-sketch}), a more
+organic looking version of the Klangfarbenmelodie is in evidence. Depending, on
+the type of music being created this may be /too/ organic and not accurate
+enough. Aside from these issues though, the visuals give a good visual
+representation of the underlying compositional idea. It is, in fact, very easy
+to imagine an idea of this kind originating in an environment like SonicSketch,
+whereas it is more difficult to imagine it originating in a DAW or an audio
+programming environment. Of course, equally there are other ideas that would be
+easy to execute in a DAW but impossible or very difficult in a graphic synthesis
+system such as this.
 
 ** Assessment
 *** System architecture
@@ -64,6 +78,7 @@ This proved to be another source of confusion for users and indicates that it
 may be inconsistent with other parts of the UI.
 
 *** Timbre selection
+#+INCLUDE: "./ch5-ref.org::palette"
 Timbre selection is provided by clicking on one of the four coloured symbols to
 the left of the screen. The regular geometric shapes represent harmonic shapes
 and the more chaotic shapes represent non-harmonic sounds. Users did not seem to
@@ -73,11 +88,11 @@ relationship between the visual appearance and the audio result. Some users felt
 that the integration of timbre selection was a little flawed. When a tool other
 than the sketch tool was in use, and a timbre selection was made, the
 expectation was that it would return to the sketch tool. Instead, it stayed on
-the same tool but just changed the timbre. This was updated in the final version
-to reflect this expected behaviour. Another suggestion was to use icons that
-represent the instrument rather than the more abstract icons present in the UI.
-It was decided though that this would lead to an expectation of more realistic
-sounds and, thus, was avoided, however.
+the same tool but just changed the timbre. This will be improved on in future
+work. Another suggestion was to use icons that represent the instrument rather
+than the more abstract icons present in the UI. It was decided though that this
+would lead to an expectation of more realistic sounds and, thus, was avoided,
+however.
 
 *** Vibrato
 Similar to tools other than the default sketch tool, the vibrato tool was not
@@ -111,6 +126,16 @@ the graphic. This made it slightly unintuitive and confusing for the user,
 perhaps contributing its low usage.
 
 *** Performance issues
+
+#+NAME: palette
+#+BEGIN_LATEX
+\begin{figure}[h]
+\centering
+\includegraphics[width=1.0\textwidth]{./assets/performance.png}
+\caption{Performance debugging in Google Chrome}
+\label{fig:performance}
+\end{figure}
+#+END_LATEX
 The application requires a reasonably fast and modern computer to run in a
 usable state. However, even with fast hardware, complex heavily populated
 sketches lead to audio and animation glitches. Some optimisations were made to

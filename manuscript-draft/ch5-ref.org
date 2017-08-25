@@ -30,6 +30,56 @@
 \end{figure}
 #+END_LATEX
 
+
+
+* Build out
+#+NAME: palette
+#+BEGIN_LATEX
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.2\textwidth]{./assets/sound-pallette.png}
+\caption{SonicSketch sound palete}
+\label{fig:sound-pallette}
+\end{figure}
+#+END_LATEX
+
+
+#+NAME: note
+#+BEGIN_LATEX
+\begin{figure}[h]
+\centering
+\includegraphics[width=1.0\textwidth]{./assets/note.png}
+\caption{A note in SonicSketch}
+\label{fig:note}
+\end{figure}
+#+END_LATEX
+
+
+#+NAME: vibrato
+#+BEGIN_LATEX
+\begin{figure}
+    \begin{subfigure}{0.475\textwidth}
+        \includegraphics[width=\textwidth]{./assets/finding-normals.png}
+        \caption{These lines show the normals of the curved line}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.475\textwidth}
+        \includegraphics[width=\textwidth]{./assets/finding-normals-tangents.png}
+        \centering
+        \caption{Lines showing the tangents of the curved line}
+    \end{subfigure}
+
+    \begin{subfigure}{1.0\textwidth}
+        \includegraphics[width=\textwidth]{./assets/vibrato.png}
+        \centering
+        \caption{Completed vibrato visualisation}
+    \end{subfigure}
+
+    \caption{Live coding the vibrato visualisation}
+    \label{fig:adding-notes-sketch}
+\end{figure}
+#+END_LATEX
+
 * Adding notes sketch
 #+NAME: adding-notes-sketch
 #+BEGIN_LATEX
@@ -49,6 +99,8 @@
     \label{fig:adding-notes-sketch}
 \end{figure}
 #+END_LATEX
+
+
 
 
 * Adding notes fsm

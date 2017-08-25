@@ -1,19 +1,8 @@
 * Conclusion and further work
-The dominant metaphors that underpin the modern DAW were discussed. Its
-potential restrictiveness in some situations was illustrated with an example
-composition. An alternative realisation was discussed using the Csound audio
-programming language. The alternative metaphor of sketching was then explored
-from a historic perspective to the more recent example of SonicPainter by
-William Coleman. A more detailed critique of SonicPainter followed that
-identified the key areas that SonicSketch would address. The core pieces of
-technology being used in the application were then broken down along with
-reasons for their choice. SonicSketch, an application that brings graphic
-synthesis to the modern web browser, was then described both in its
-functionality and underlying implementation. Finally, the resulting project was
-evaluated both from a self-assessment and a user perspective.
+This thesis presented some of the approaches that are open to modern musicians from the analog studio metaphors of the DAW to more open audio programming environments, to the diverse range of approaches to graphic synthesis. It presented SonicSketch, a prototype audio tool that runs in the modern web browser and allows musicians to sketch sonic ideas in on a time-pitch canvas. 
 
 ** Future work
-As such, there is an endless scope for improvements and features that could be
+There is an endless scope for improvements and features that could be
 made and the following represents some of these:
 
 - Performance improvements :: As is mentioned in the previous chapter, the
@@ -46,10 +35,4 @@ made and the following represents some of these:
            an interesting alternative or a grid based on Setharthes' dissonance
            curves.
 
-The presented application represents a very small step in exploring the metaphor
-of sonic sketching. A virtually bottomless source of inspiration can be found in
-the many systems that have gone before it, some of which exist, and some of
-which can only be enjoyed through textual description, images and if, we're
-lucky videos. The modern web browser represents a unique opportunity to
-experiment with and develop these alternative approaches to music interface
-design in an environment that offers unprecedented ease of access for its users.
+The presented application represents a very small step in exploring the metaphor of sonic sketching. A virtually bottomless source of inspiration can be found in the many systems that have gone before it, some of which exist, and some of which can only be enjoyed through textual description, images and if, we're lucky videos. The modern web browser represents a unique opportunity to experiment with and develop these alternative approaches to music interface design in an environment that offers unprecedented ease of access for its users.

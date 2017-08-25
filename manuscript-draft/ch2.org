@@ -12,6 +12,7 @@
 # #+LaTeX_HEADER: \linespread{1.3}
 # #+BIBLIOGRAPHY: ../bibliography/mmt-thesis-tidyup.bib
 # #+PANDOC_OPTIONS: csl:./harvard.csl
+# #+PANDOC_OPTIONS: filter:pandoc-crossref
 
 * Background: Sonic Sketching
 ** Introduction
@@ -23,7 +24,7 @@ that take a graphical approach to their interface and can be conceptually framed
 with the metaphor of sketching.
 
 ** Dominant DAW metaphors
-As has been asserted, analog studio metaphors of tape machines and hardware
+As has been introduced, analog studio metaphors of tape machines and hardware
 mixing desks dominate the UI approach to DAW interface design. Other prevalent
 metaphors often found in these interfaces are that of the /outboard effects
 units/, and the /piano roll/
@@ -32,16 +33,16 @@ A description of these now follows.
 
 *** Multi-track tape recorder
 Multi track tape recording was introduced into the recording studios in the
-1960s and is typified by the systems produced by Ampex and Studer. These
-allowed producers to record multiple tracks of audio information which could be
-edited and using dubbing techniques mixed to taste. This unlocked significant
-creative possibilities and made albums like "Sgt Peppers Lonely Heart Club Band"
+1960s and is typified by the systems produced by Ampex and Studer. These allowed
+producers to record multiple tracks of audio information which could be edited
+and using dubbing techniques mixed to taste. This unlocked significant creative
+possibilities and made albums like "Sgt Peppers Lonely Heart Club Band"
 possible. The underlying model of tracks typically manifests itself in DAWs as
 rectangular blocks stacked from top to bottom and running from left to right.
 Similar to editing tape, these can be spliced, cut, and pasted. Terms and
-techniques prevelant in DAWS like bouncing, overdubbing and markers (which were
-originally created using a physical pen), all have their roots in their analog
-precedents.
+techniques prevelant in DAWS like /bouncing/, /overdubbing/ and /markers/ (which
+were originally created using a physical pen), all have their roots in their
+analog precedents.
 
 *** Multi channel mixing desk
 #+INCLUDE: "./ch2-ref.org::hardware-mixer"
@@ -74,10 +75,10 @@ to a whole new height. This allowed third party developers to create virtual
 effects and instruments, and let producers expand their virtual studio beyond
 the built in effects. The visual interfaces increasingly paid homage to their
 hardware influences, emulating not only functionality but also the visual look
-(see figure \ref{fig:fx}). \citet{levin_painterly_2000} describes this as
-skeuomorphism, a design pattern where visual objects not only mimic real world
-objects in functionality but also incorporate unneeded visual features. The
-purpose of this is not only decorative but also educational, and gives
+(see figure \ref{fig:fx}). Bell et al. \citeyearpar{bell_journal_2015} describe
+this as skeuomorphism, a design pattern where visual objects not only mimic real
+world objects in functionality but also incorporate unneeded visual features.
+The purpose of this is not only decorative but also educational, and gives
 connotational cues as to how it should be used.
 
 *** The piano roll
@@ -113,10 +114,11 @@ a DAW. The idea is broken into the following compositional "recipe":
    complete this ten-second piece.
 
 While this may seem like a contrived example this, in fact, constitutes a
-compositional technique called Klangfarbenmelodie that involves splitting a
-melodic line between instruments or timbres to create a timbre melody. The
-glissandos and altering of vibrato intensity add further complexity to better
-illustrate some of the weaknesses inherent in DAW metaphors.
+compositional technique called Klangfarbenmelodie \cite{cramer_schoenbergs_2002}
+that involves splitting a melodic line between instruments or timbres to create
+a timbre melody. The glissandos and altering of vibrato intensity add further
+complexity to better illustrate some of the weaknesses inherent in DAW
+metaphors.
  
 *** Realization in a DAW
 To achieve this in a DAW we have a few different options but a possible solution
@@ -134,6 +136,8 @@ would be as follows:
 3. Now edit the pitch bend automation lane by clicking into the relevant dialog
 4. Similarly, open the relevant dialog to edit the intensity of the vibrato effect
 5. Repeat this for each of the notes in the composition.
+
+#+INCLUDE: "./ch2-ref.org::comp-daw"
 
 At this point, we may have achieved what we set out to do. However, we now may
 want to tweak each of these elements to taste and perhaps add more material. An
@@ -163,43 +167,53 @@ programming language such as /Csound/. Central to /Csound/ is the concept of the
 processors. These can be patched together in a simple textual coding language to
 form instruments. A score is then specified, again in code, to define note
 onsets, durations in addition to other arbitrary parameters defined in the
-instruments. Each of the required timbres could have been represented as
-separate csound instruments, with each one configured with the desired timbre in
-addition to the vibrato effect. /Function tables/ could be used to control the
-movement of the pitch glissando and the varying vibrato intensity. A function
-table is a list of numbers in Csound that can be read from, at various speeds,
-to supply control data to parameters (amongst other uses). A number of routines
-are available in Csound to generate commonly used list types. In this case, a
-line segment generator would be most applicable and would be used to generate a
-shape such as shown in fig:gen05. The Csound score would refer to each of the
-defined instruments with each note amounting to a single line of code, making
-the entire score a total of five lines. Demonstration code is provided in the
-appendix.
+instruments. The required timbres and the vibrato effect could be made
+configurable on a per note basis by exposing these parameters. The Csound score
+could then trigger this instrument, with each note amounting to a single line of
+code, making the entire score a total of 10 lines. Full demonstration code is
+provided in the appendix. This compositional example will be revisited in a
+later chapter and discussed in the context of a further approach.
 
-Depending on the experience of the reader, this may or may not seem like a
-better approach than using the DAW owing to the following central issue. It is
-not beginner friendly and a reasonable amount of prior experience and/or
-training is required. Perhaps a bigger criticism that could be made, however, is
-that it can lead to an analytical rather than a creative way of thinking. In
-"Thinking Slow, Acting Fast", Daniel Daniel Kahneman contrasts these two ways of
-thinking which he terms /System 1/ and /System 2/. System 1 is instinctive,
-fast, emotional and is a mode of thinking that may not register consciously.
-System 2 is slow, logical, analytical and registers prominently in active
-consciousness. Routine tasks such as walking, opening doors etc only use system
-1 thinking. These can be completed while exerting minimal cognitive effort (all
-the while calculating the complex motor sensory actions that must take place).
-Complex analytical tasks such as programming require system 2 thinking.
-Approaching creative tasks such as music making in this way where instinct and
-emotion are often crucial can slow down or stop the process. Perhaps it is best
-summed by John Cage: "Don't try to create and analyse at the same time. They're
-different processes" \cite{popova_10_2012}.
+#+LATEX: \begin{small}
+#+INCLUDE: "./ch2-ref.org::csound-score"
+#+LATEX: \end{small}
+
+** Problems with flexible systems
+Depending on the experience of the reader, the realisation of the composition in
+code may or may not seem like a better approach than using a DAW. The reason for
+this is that this approach is not beginner friendly. An approach that is more
+forgiving in this regard is a pattern found in game design
+\cite{overholt_musical_2009}. Games should be easy enough to get started without
+any special training or lengthy instructions but challenging enough to keep
+players engaged. Extremely open environments, such as that of an audio
+programming language, are not supportive of this initial onboarding of new users.
+This is not to say that it should only work for novices however (by for instance
+limiting pitches to simple scales). If a system is too closed it risks being
+more toy like in nature and not supporting long term engagement
+\cite{wessel_2001:_2017}.
+
+Perhaps a bigger criticism that could be made about open and complex systems,
+however, is that they can lead to an analytical rather than a creative way of
+thinking. In "Thinking Slow, Acting Fast", \citet{kahneman_thinking_2012} contrasts
+these two ways of thinking which he terms /System 1/ and /System 2/. System 1 is
+instinctive, fast, emotional and is a mode of thinking that may not register
+consciously. System 2 is slow, logical, analytical and registers prominently in
+active consciousness. Routine tasks such as walking, opening doors etc only use
+system 1 thinking. These can be completed while exerting minimal cognitive
+effort (all the while calculating the complex motor sensory actions that must
+take place). Complex analytical tasks such as programming require system 2
+thinking. Approaching creative tasks such as music making in this way where
+instinct and emotion are often crucial can slow down or stop the process.
+Perhaps it is best summed by John Cage: "Don't try to create and analyse at the
+same time. They're different processes" \cite{popova_10_2012}.
+
 
 ** Sketching as an alternative metaphor
 While audio programming languages offer a model that is closer to the underlying
 computational processes taking place than the more abstracted DAW interfaces. As
 we have discussed, though what is gained in flexibility can be lost in
 intuitiveness and ease of interaction. Rather than discarding these higher level
-metaphors, perhaps a better approach would be to explore alternate metaphors.
+metaphors, perhaps a better approach would be to explore alternate ones.
 
 A rather promising but nonmainstream approach is that of sonic sketching. This
 has a long and illustrious historical precedent reaching back well before the,
@@ -213,6 +227,7 @@ McLaren and Daphne Oram. Oram's particular take on the technique will now be
 discussed.
 
 *** Oramics
+#+INCLUDE: "./ch2-ref.org::oramics"
 A primary motivating factor behind Daphne Oram's development of the Oramics
 machine was to bring more human-like qualities to the sounds generated by
 electronic means. The machine worked by playing back multiple lanes of film tape
@@ -280,6 +295,7 @@ the general public currently, it has inspired a number of other systems that are
 available today.  \cite{nunzio_upic_2014}
 
 *** A Golan Levin's AVES
+#+INCLUDE: "./ch2-ref.org::aves"
 Golan Levin created the interactive audio-visual system, AVES, a series of audio
 visual installations in the late nineties and represented a landmark in the
 field of visual music. It is an attempt to move away from the diagrammatic
@@ -292,8 +308,8 @@ all of them involving an algorithmic approach to a certain degree. For instance,
 in the piece "Aurora", he maps visuals of vast quantities of particles to a
 granulated sound synth sound source. He didn't take the approach of an exact
 mapping of visual particles to audio particles, however, and instead used a
-statistical control approach to approximate the correlation in between the
-visual and aural. \cite{levin_painterly_2000}
+statistical control approach to approximate the correlation between the visual
+and aural. \cite{levin_painterly_2000}
 
 For Levin, the digital pen input in combination with it's infinite variability
 represents an ideal instrument for creative expression in his digital temporal
