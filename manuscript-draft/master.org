@@ -29,7 +29,12 @@
 \includepdf[pages={1-},scale=1.0]{title-page.pdf}
 
 
-* Table of Contents                                                  :prelim:
+* Table of Contents [0/1]                                            :prelim:
+
+:TODO:
+ - [ ] viii FX highlighted
+:END:
+
 
 \tableofcontents
 \cleardoublepage

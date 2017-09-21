@@ -2,7 +2,11 @@
 * Introduction
 # Purpose: introduce the topics under discussion, summarise work completed give thesis structure
 
-** Introduction
+** Introduction [0/1]
+:TODO:
+ - [ ] Reference format with [ ]
+ - [ ] Can get in the way commas
+:END:
 The traditional route for both recorded and performed musical expression has
 been through playing a musical instrument. Through this simple but powerful
 interface, ideas can be explored by the skilled practitioner in a free flowing,
@@ -34,6 +38,10 @@ however, where the metaphor can get in the way and lead to another new, separate
 layer of complexity that must, in turn, be managed by its users.
 
 ** Motivation
+:TODO:
+ - [ ] Fulfills / filled
+:END:
+
 This leads to the central motivation behind the work on SonicSketch: that of
 exploring alternative metaphors that support the early stage of music production
 and fulfills the role traditionally filled by an instrument. In exploring these
@@ -53,7 +61,14 @@ environments more suited to the capturing of ideas and creative flow. The option
 is open to then move freely to the more powerful fully featured environments
 offered by the DAW.
 
-** Goals and Objectives
+** Goals and Objectives [0/3]
+
+:TODO:
+ - [ ] Commas
+ - [ ] Dive in inverted commas
+ - [ ] Assess repeat
+:END:
+
 The overarching and primary goal of this project is to create a software
 application called SonicSketch that is specifically targeted at the early
 ideation part of the music production process. Building on a strong theoretical
@@ -80,6 +95,12 @@ testers, the application will be developed as a web application that will run in
 a modern browser without requiring the installation of any special software.
 
 ** Approach
+
+:TODO:
+ - [ ] Builds / built repeat
+ - [ ] Equally comma
+:END:
+
 The project is based upon and builds on SonicPainter, an application built by
 William Coleman for his Master's thesis. Similarly motivated by the overwhelming
 complexity of modern DAWs, the interface aims to be minimal and free of
@@ -100,7 +121,13 @@ A summary of intended improvements are as follows:
  - Technical improvements to avoid crashes and unexpected application behaviour.
  - Improve correlation between the visuals and the audio.
 
-** Thesis structure
+** Thesis structure [0/2]
+
+:TODO:
+ - [ ] will follow this
+ - [ ] it's development
+:END:
+
 This thesis begins with a discussion of the current dominant tools and practices
 in use in music production today with a strong focus on the ideation phase. A
 historical perspective is then given on more idiosyncratic approaches to music

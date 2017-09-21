@@ -182,7 +182,14 @@ Conceptually the flow of change is:
 The design of this part of the application is influenced by /react music/, a
 system that uses /React.js/ with tuna.js, a web audio library similar to tone.js (???ref).
 
+<<<<<<< Updated upstream
 *** Reagent and react.js paper.js bindings
+=======
+**** Reagent and react.js paper.js bindings
+:Concepts:
+ - Hiccup
+:END:
+>>>>>>> Stashed changes
 The final piece of the jigsaw in the underlying technology stack is the
 integration of react with clojurescript via the /Reagent/ library. The core
 syntax of this system is simple clojurescript vectors similar to the following:
