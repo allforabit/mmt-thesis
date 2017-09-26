@@ -1,5 +1,6 @@
 * React - tone.js block diagram
 
+Unbroken line is output and dashed line is output.
 #+BEGIN_SRC dot :file dot_success.png :cmdline -Kdot -Tpng
   digraph {
   // graph from left to right
@@ -11,13 +12,15 @@
     node [style=filled,color=white];
     style=filled;
     color=lightgrey;
-    a0 -> a1 -> a2 -> a3;
-    label = "process #1";
+    mouse [label="Mouse / Graphics tablet"]
+    keyboard [label="Keyboard"]
+    label = "Input";
   }
   subgraph cluster1 {
     node [style=filled];
-    b0 -> b1 -> b2 -> b3;
-    label = "process #2";
+    "Visual"
+    "Audio"
+    label = "Output";
     color=blue
   }
 
@@ -29,22 +32,25 @@
   paperjs [label="Paper.js"]
   paperjsbindings [label="Paper.js bindings"]
   dom [label="DOM"]
-  mouse [label="Mouse / graphics tablet"]
 
   reframe -> reagent
   reagent -> reframe [style=dashed]
   reagent -> react
   react -> reagent [style=dashed]
   react -> tone
-  react -> paperjsbindings -> paperjs -> "HTML Canvas 2" -> "Visual output"
+  react -> paperjsbindings -> paperjs -> "HTML Canvas" -> "Visual"
   paperjs -> paperjsbindings -> react [style=dashed]
-  react -> dom -> a0
+  react -> dom -> "Visual"
   dom -> react [style=dashed]
   tone -> webaudio
-  webaudio -> "Audio output"
-  b3 -> dom
-  mouse -> "HTML Canvas"
+  webaudio -> "Audio"
+  mouse -> dom [style=dashed]
+  keyboard -> dom [style=dashed]
+  mouse -> paperjs [style=dashed]
+  keyboard -> paperjs [style=dashed]
   }
+
+
 #+END_SRC
 
 #+RESULTS:
