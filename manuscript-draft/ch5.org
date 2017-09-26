@@ -107,11 +107,15 @@ mentioned above. In addition, the basic visual look and conceptual functionality
 would form the basis of the workings of SonicSketch.
 
 ** Setting up the architecture
-*** Clojurescript and javascript npm modules
+*** Clojurescript and javascript npm modules [0/6]
 :TODO:
  - [ ] Capitalize JavaScript and NPM
  - [ ] Capitalize Clojurescript
  - [ ] Out a
+ - [ ] Thusly
+ - [ ] Comma space
+ - [ ] Webpack and browserify
+
 :END:
 :CONCEPTS:
  - NPM
@@ -142,11 +146,18 @@ While the project setup was not as elegant or succint as might be wished, it did
 provide a stable base to build on and a means to harness the rich resource that
 is the NPM ecosystem and use such tools as Paper.js and React.js.
 
-*** Paper.js and react.js (paper.js bindings)
+*** Paper.js and react.js (paper.js bindings) [0/3]
+:TODO:
+ - [ ] Thusly
+ - [ ] Approach
+ - [ ] Custom
+:END:
+
 :CONCEPTS:
   - Scenegraph
   - Binding
 :END:
+
 As has been outlined in the previous chapter, a declarative coding style would
 be employed to enable a live coding workflow and to avoid a building a codebase
 that is increasingly difficult to understand. In other words the code should as
@@ -170,7 +181,13 @@ has the distinct advantage of not requiring the creation of redundant DOM nodes.
 The library was far from comprehensive and thusly a custom version of the
 library was used that included some custom functionality required for SonicSketch.
 
-*** Tone.js and react.js
+*** Tone.js and react.js [0/2]
+:TODO:
+ - [ ] ways & way
+ - [ ] Thusly
+ - [ ] Function block diagram
+:END:
+
 In some ways audio output can be thought of in a similar way to the visual
 output of the app and thusly can be treated in similar way by /React.js/. It can
 use the declarative data oriented system of react to configure the particular
@@ -191,14 +208,14 @@ Conceptually the flow of change is:
 The design of this part of the application is influenced by /react music/, a
 system that uses /React.js/ with tuna.js, a web audio library similar to tone.js (???ref).
 
-<<<<<<< Updated upstream
 *** Reagent and react.js paper.js bindings
-=======
-**** Reagent and react.js paper.js bindings
 :Concepts:
  - Hiccup
 :END:
->>>>>>> Stashed changes
+:TODO:
+ - [ ] Hiccup
+:END:
+
 The final piece of the jigsaw in the underlying technology stack is the
 integration of react with clojurescript via the /Reagent/ library. The core
 syntax of this system is simple clojurescript vectors similar to the following:
@@ -273,6 +290,11 @@ described.
 6. Change sound (preset system)
 7. Probability
 :END:
+:TODO:
+ - [ ] Mouse like
+ - [ ] details - is
+ - [ ]
+:END:
 
 At the core of the application is the creation of timeline events which unfold
 in a looped fashion. These events are created based on the input of the user
@@ -292,6 +314,10 @@ the tools: draw, vibrato, delete, move, resize and probability.
 *** Adding notes
 :NOTES:
  - Clojure atom
+:END:
+:TODO:
+ - [ ] It's (child components)
+
 :END:
 
 #+INCLUDE: "./ch5-ref.org::adding-notes-sketch"
