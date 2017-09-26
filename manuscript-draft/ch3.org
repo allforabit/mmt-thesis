@@ -1,3 +1,4 @@
+* Methodology
 ** Introduction
 This chapter outlines the approach that will be taken in the realisation of the
 SonicSketch application. An assessment of SonicPainter will be given to identify

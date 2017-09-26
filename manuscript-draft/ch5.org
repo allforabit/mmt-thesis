@@ -28,10 +28,14 @@ is followed by a description of the technical architecture of the system as well
 as an outline of the sometimes tricky setup process of getting the live reload
 system working (as described in the previous chapter). A detailed discussion
 of the core functionality of the system is then given, followed by a
-description of functionality that is more secondary in nature. 
+description of functionality that is more secondary in nature.
 
 ** Early prototype work
 *** MelodyPainter
+:TODO:
+ - [ ] built *out* in max msp
+:END:
+
 
 MelodyPainter is an early protoype built out in Max MSP that allows users to
 draw freehand lines, which are converted into break point function data and used
@@ -48,7 +52,8 @@ information.
 
 *** SonicShaper
 :TODO:
- - [ ] Add a picture
+ - [ ] Footnote
+ - [ ] Didn't
 :END:
 
 A separate application was created in Processing which allowed users to draw
@@ -57,12 +62,15 @@ associated with each shape played back. As the sound of each shape plays back,
 it is lit up using animation, creating a strong connection between the shape and
 it's resulting sound. The application uses the "gesture variation follower"
 system cite:caramiaux_adaptive_2015, which while promising in principle, didn't
-have a high rate of accuracy in recognizing the shapes. 
+have a high rate of accuracy in recognizing the shapes.
 
 
 *** Web version of William Coleman's SonicPainter
 :TODO:
- - [ ] Reference processing.js
+ - [ ] William's
+ - [ ] It's
+ - [ ] OSC available
+
 :END:
 :CONCEPTS:
 - OSC
@@ -101,8 +109,9 @@ would form the basis of the workings of SonicSketch.
 ** Setting up the architecture
 *** Clojurescript and javascript npm modules
 :TODO:
- - [ ] Ref clojurescript age
- - [ ] Ref new innovations with clojurescript
+ - [ ] Capitalize JavaScript and NPM
+ - [ ] Capitalize Clojurescript
+ - [ ] Out a
 :END:
 :CONCEPTS:
  - NPM
@@ -196,7 +205,7 @@ syntax of this system is simple clojurescript vectors similar to the following:
 
 #+LATEX: \begin{footnotesize}
 #+BEGIN_SRC clojure
-[:div 
+[:div
  "Hello " [:span {:style {:font-weight bold}}
 world]]
 #+END_SRC
@@ -300,7 +309,7 @@ user left clicks the mouse triggering the following function:
 #+BEGIN_SRC clojure
 (defn pointer-down [{:keys [temp-obj active-preset]} evt]
   (let [pointer-point (.. evt -point)
-        group         (js/paper.Group. (clj->js {:position 
+        group         (js/paper.Group. (clj->js {:position
                         [(.. pointer-point -x) (.. pointer-point -y)]
                                                  :applyMatrix false
                                                  :pivot [0 0]}))
@@ -330,7 +339,7 @@ created in the =pointer-down= function. Some constraints however are placed on
 the creation of the path and only points that are past the last previous from
 left to right are added. If the users backtracks it lead to a deletion of
 points, providing an intuitive undo like behaviour and implementing a recipricol
-HCI interaction pattern recommended by NUI principles. 
+HCI interaction pattern recommended by NUI principles.
 #+LATEX: \begin{footnotesize}
 #+BEGIN_SRC clojure
 (defn pointer-move [{:keys [temp-obj active-preset]} evt]
@@ -416,7 +425,7 @@ use with the audio synthesis system. The ~path->note~ function can be seen below
                      :vibrato   (reduce (fn [a b]
                                           (assoc a b [b 0]))
                                         (sorted-map) (range 11))}}))
-#+END_SRC 
+#+END_SRC
 #+LATEX: \end{footnotesize}
 The domain of time-pitch is used to store the notes in memory and makes it
 possible to maintain a relative relationship between the screen size and the
@@ -495,7 +504,7 @@ When a note is added this render function will run which will call the
 display of the screen to show the new note. A similar process happens in the
 audio system except, in this case, new web audio nodes are created, timeline
 events are queued up at the correct time and audio envelopes are setup that
-traces the curve of the drawn lines. cite:adenot_web_2017     
+traces the curve of the drawn lines. cite:adenot_web_2017
 #+LATEX: \begin{footnotesize}
 #+INCLUDE: "./ch5-code.org::fm-synth"
 #+LATEX: \end{footnotesize}
@@ -595,7 +604,7 @@ triggers a ~:component-did-update~ function call. It is here that a dispatch is
 made to the ~:vibrato-envelope-point~ to create the envelope point. The reason
 for the back and forth between the view and the event handlers is to allow the
 event handlers to manage the state changes but deal with the specifics of the
-geometry of the vibrato overlay in the view. 
+geometry of the vibrato overlay in the view.
 
 # It is probably best illustrated in the provided figure (figure \ref{fig:vibrato-control-flow}).
 
@@ -658,7 +667,7 @@ to /ClojureScript/'s ~reader/read-string~.
 # As outlined in the previous chapter, /SonicSketch/ an influence of the design of
 # the user experience is the /Music Animation Machine/ which visualises music so
 # that even nonmusicians can relate the visuals to the music unlike following a
-# CMN score. 
+# CMN score.
 
 To achieve this, the ~:note~ subscription is itself subscribed to
 =:playback-beat= a reactive value that is kept up to date via the use of events

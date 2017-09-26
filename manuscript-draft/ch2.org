@@ -116,7 +116,7 @@ represents. Similar to a player piano, no audible results are possible without
 an attached piano, and in the case of MIDI, an attached sound generating
 synthesizer device. \cite{bell_journal_2015,levin_painterly_2000}
 
-** A compositional example [0/1]
+** TODO A compositional example [0/1]
 :TODO:
  - [ ] Glissandos
 :END:
@@ -226,7 +226,7 @@ emotion are often crucial can slow down or stop the process. Perhaps it is best
 summed by John Cage: "Don't try to create and analyse at the same time. They're
 different processes" \cite{popova_10_2012}.
 
-** Sketching as an alternative metaphor [0/2]
+** TODO Sketching as an alternative metaphor [0/2]
 :TODO:
  - [ ] Dodgy first sentence
  - [ ] nonmainstream
@@ -390,7 +390,7 @@ notes. Coleman recommends that the system could be improved by adding
 multi-touch input, allowing for other synthesis techniques, time/pitch grid
 quantization, and further visual timbre feedback representations.
 
-** Conclusion [0/4]
+** TODO Conclusion [0/4]
 :TODO:
  - [ ] Dodgy first line
  - [ ] Simpler
