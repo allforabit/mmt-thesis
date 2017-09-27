@@ -1,0 +1,38 @@
+* Conclusion and further work
+This thesis presented some of the approaches that are open to modern musicians from the analog studio metaphors of the DAW to more open audio programming environments, to the diverse range of approaches to graphic synthesis. It presented SonicSketch, a prototype audio tool that runs in the modern web browser and allows musicians to sketch sonic ideas in on a time-pitch canvas. 
+
+** Future work
+There is an endless scope for improvements and features that could be
+made and the following represents some of these:
+
+- Performance improvements :: As is mentioned in the previous chapter, the
+     application requires some performance improvements to make it a viable
+     musician's tool. Ideally, the app should be able to run on mobile devices,
+     as the uncluttered interface would be a good match for the limited screen
+     size.
+- Larger structures :: The app doesn't offer any facility for larger structures.
+     It would be interesting to explore how the sketching metaphor could
+     translate to working at the arrangement level by perhaps introducing a
+     level of recursion and allowing the user to sketch sketches.
+- Micro structures :: The preset timbres are a serious limitation to the current
+     version. Taking inspiration from the UPIC, sonic flexibility could be
+     greatly increased by allowing users to define timbres by sketching
+     waveforms and envelopes.
+- Zooming and panning :: This would allow users to focus on particular parts of
+     their sonic sketches and navigate through the sketch similarly to graphic
+     editors like Photoshop.
+- More input devices :: Work was carried out to integrate graphics tablets into
+     the application using the W3C Pointer API, a relatively new API that
+     provides comprehensive support for multiple input devices including
+     multitouch and graphics tablets (with pressure support and angle data).
+     Unfortunately, it wasn't included in this version and is left for future
+     work.
+- Grids :: While the freeform gridless canvas of the current version is fun to
+           play with, an optional grid would allow for more precise control.
+           Rather than only offering the chromatic grid, only suited to western
+           music, however, a number of different grids could be made available.
+           Perhaps a psychoacoustic grid based on the Bark scale could provide
+           an interesting alternative or a grid based on Setharthes' dissonance
+           curves.
+
+The presented application represents a very small step in exploring the metaphor of sonic sketching. A virtually bottomless source of inspiration can be found in the many systems that have gone before it, some of which exist, and some of which can only be enjoyed through textual description, images and if, we're lucky videos. The modern web browser represents a unique opportunity to experiment with and develop these alternative approaches to music interface design in an environment that offers unprecedented ease of access for its users.

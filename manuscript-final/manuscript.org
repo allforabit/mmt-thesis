@@ -1,0 +1,469 @@
+# Deprecated!!!
+#+SETUPFILE: ../meta/setup.org
+
+
+* Title page
+
+
+#+BEGIN_LATEX
+
+
+\begin{enumerate}
+\item
+  {[}TYPE TITLE OF THESIS HERE{]}
+
+  \begin{enumerate}
+  \item
+    Student Name
+  \end{enumerate}
+\end{enumerate}
+
+Music \& Media Technologies
+
+School of Engineering
+
+\&
+
+School of Drama, Film and Music
+
+\begin{enumerate}
+\item
+  Trinity College Dublin
+\end{enumerate}
+
+\begin{quote}
+% \includegraphics[width=1.83889in,height=1.79931in]{media/image1.png}
+\end{quote}
+
+Submitted as part fulfilment for the degree of M.Phil.
+
+\begin{enumerate}
+\item
+  2017
+
+  \begin{enumerate}
+  \item
+    Declaration
+  \end{enumerate}
+\end{enumerate}
+
+I hereby declare that this thesis has not been submitted as an exercise
+for a degree at this or any other University and that it is entirely my
+own work.
+
+I agree that the Library may lend or copy this thesis upon request.
+
+Signed: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ Date:
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+#+END_LATEX
+
+
+* Statement of Originality                                           :prelim:
+
+#+BEGIN_LATEX
+% hello.tex - Our first LaTeX example!
+
+\cleardoublepage
+Hello World!
+
+\noindent
+This thesis has been performed independently with the support of my supervisor/s.
+To the best of the author's knowledge, this thesis contains no material previously
+published or written by another person except where due reference is made in the text.
+
+\par
+  \bigskip\noindent Braunschweig, \today \par
+  \vspace*{10mm}
+  \hfill\hrulefill
+
+\cleardoublepage
+#+END_LATEX
+
+* Introduction
+:STRUCTURE:
+
+:END:
+
+** Motivations
+Some primary motivations for the creation of the app are as follows (in no
+particular order):
+ - Draw attention to concept of more graphically oriented interfaces for
+   synthesis (UPIC) to a wider audience by presenting the app in a very
+   accessible format (PWA)
+ - Explore the advantages and limitations of prototyping an experimental
+   interface using web technologies
+ - Frustration with the creative flow of commercial DAW applications
+ - Over representation of analog type metaphors in both DAW applications and in
+   the web apps being developed (missed opportunity)
+ - Use functional programming techniques such as immutable data structures to
+   ease the complexity of managing fundamental concerns such as undo.
+ 
+** Project goals
+** Structure of thesis
+
+* Background
+:PURPOSE:
+ - Give background to field of music/audio production software
+:END:
+
+:TOPICS:
+ - The DAW usability survey cite:duignan_computer_2008 
+ - Skeumorphic interfaces discussion cite:bell_journal_2015 
+ - More open ended systems (Max msp, supercollider, live coding)
+   - Puckette's essay on imposing limitations
+   - Related to Tim Berners Lee on making software languages less powerful. E.g.
+     HTML
+:END:
+
+:STRUCTURE:
+ 1. Introduction
+    - What will be discussed in this section
+    - A brief historical perspective
+ 2. The idea generation stage of music production
+    - Introduction :: Give an overview of different stages of music production
+                       as outlined in cite:duignan_computer_2008 and end with
+                       focus on the initial idea generation
+    - Using an instrument
+    - Scoring software
+    - Quirky music tools such as "Loopy"
+    - Most commonly DAWS
+ 3. Discussion of DAW Metaphors
+    1. Introduction
+    2. Piano roll
+    3. Mixing console
+    4. Plugins
+ 4. Discussion of more open systems
+    1. Introduction
+    2. Textual programming systems
+       1. Supercollider
+       2. Csound
+       3. Commonmusic
+       4. Nyquist
+       5. Chuck
+    3. Graphical programming systems
+       1. Music-n related
+          - Max MSP
+          - Pure data
+       2. Ircam Open music
+       3. Plogue Bidule
+       4. Jeskola Buzz
+ 5. Music in the browser: a new frontier :: discuss drum machines, etc available
+      on the web. Note the accessibility that they provide.
+ 6. Conclusion :: While the dominant metaphors used in DAWs have their uses they
+                  can lead to limitations in the creative process particularly
+                  at the early stage of ideas creation. More open system give
+                  too much power and impede the creative process.
+:END:
+
+
+** DAW analog metaphors
+One of the primary tools used by electronic musicians today for the production
+of music is DAW and it's inherent metaphors based on analog system still reign
+supreme in the field cite:bell_journal_2015. The familiar concepts of analog
+tape machines and mixers benefit the novice user by offering a network of
+familiar and tangible real world metaphors in which to carry out their creative
+work. However, as well as the benefits that these types of metaphors bring, they
+also impose some limitations and bring about certain biases. Musical ideas that
+are difficult to realise can be left unexplored.
+
+A particular criticism of the DAW is the difficulty in maintaining and managing
+the editing of complex automation information. Automation is the term given to
+the continuous altering of aspects of the sound and is usually represented in
+lanes separate to the primary note pitch information. It may be recorded in or
+drawn in by the producer. Difficulties can arise, when multiple subtly
+interacting lines of automation, such as pitch bends and filter changes are
+being manipulated. William Coleman gives a particularly clear example of this
+and outlines the difficulty of representing "portamento time", the time it takes
+a note to slide from one to the next. The visual results can be jarring,
+unintuitive and not reflective of the audio results.
+
+#+begin_caution
+Duignan (2008) describes a similar problem in his study that monitored
+professional producers working in DAW environments
+[[cite:duignan_computer_2008][p. 156]]. The particular problem identified by
+Duignan was that of processing one off effects for single musical events. A
+number of convoluted processes were observed, including bouncing the affected
+portion to audio, duplicating the track, setting up a particular auxiliary for
+the effect and controlling the effect with automation. In these cases, the
+hierarchy imposed by the DAW gets in the way, where it could be modeled quite
+elegantly in a more open program such as Max Msp. This, unfortunately, raises
+the issue of drifting into the area of analytic thinking and away from creative
+thinking, a combination that John Cage advises against: "Don't try to create and
+analyse at the same time. They're different processes." cite:popova_10_2012 The
+need to explore alternative metaphors is clear. A description of a promising
+alternative metaphor, that of drawing/sketching will now be discussed.
+#+end_caution
+
+** Legacy systems
+:NOTES:
+ * Oramics
+ * UPIC
+:END:
+
+** Golan Levin etc
+
+
+* Similar work
+:NEW_TOPICS:
+ - ANS synth
+ - UPIC
+ - Oramics
+ - Oskar Fischinger
+:END:
+
+:STRUCTURE:
+
+ 1. Introduction
+ 2. Sonic sketching from a historical perspective
+    1. Visual music
+       1. Oskar Fischinger
+       2. Fantasia
+    2. Legacy synth systems
+       1. Oramics
+       2. UPIC
+       3. ANS synth
+ 3. Sonic sketching in the twenty first century
+    1. Golan Levin cite:levin_painterly_2000 
+    2. Music animation machine cite:malinowski_music_2017
+    3. SonicPainter by William Coleman cite:coleman_sonicpainter:_2015 
+    4. Fischinger google doodle
+ 4. Alternative music systems on the web :: Aphex Twin link
+ 5. Summary of currently available music creation systems :: Note that they are
+      not available online
+ 6. Conclusion :: Both the twentieth and twenty first century have seen a great
+                  deal of experimentation with ideas of visualizing music and
+                  sketching. The audio processing capabilities available in modern
+                  browsers offers an opportunity to explore and refine less
+                  mainstream music creation metaphors.
+:END:
+
+
+
+#+INCLUDE: "./comparisons.org"
+
+* TODO My approach [0/1]
+:TODO:
+ - [ ] Come up with a title
+:END:
+
+:NEW_TOPICS:
+ - NUI
+ - Clojure/clojurescript
+ - React.js
+ - Paper.js
+ - Tone.js
+ - Pointer api
+:END:
+
+:STRUCTURE:
+
+ 1. Introduction
+ 2. Appraisal of current options
+    - Availability
+    - Usage style - instrument like (Levin)
+ 3. Approach - theory
+    1. NUI cite:wigdor_brave_2011 
+    2. The Musical Interface Technology Design Space cite:overholt_musical_2009 
+    3. Avoid inference (e.g. machine learning)
+ 4. Approach - practice
+    1. Introduction
+    2. Delivery on Web Browser
+       1. Modern Web Browser as a delivery platform :: discuss pros and cons and situations
+           where it is likely to be a good option. I.e. prototyping where feedback
+           is important. Disadvantages performance, can't be used with pro audio
+           software such as ASIO. cite:adenot_web_2017 
+       2. Benefits of using Tone.js cite:mann_interactive_2015
+       3. Paper.js for the graphics system
+          - Scenegraph
+          - Line smoothing
+          - Vector system
+    3. Live coding workflow
+       1. Introduction
+          - The morphic interface
+          - Mention precedents such as smalltalk squeek
+            - Alan Kay Steve Jobs story??? - cite:kay_what_2017 
+       3. React.js framework to allow for a declaritive programming model as well
+         as a live code reloading workflow
+       4. Clojurescript
+          1. Relationship to clojure
+          2. Benefits of using clojurescript
+             1. Immutable data structures (Binary tree)
+             2. Functional programming paradigm
+             3. Live code reloading (particularly when used in conjunction with
+               react.js)
+       5. Managing state with Re-frame
+          - Describe programming model
+          - It's relationship to FRP  
+:END:
+
+
+** Adding allowances for stylus
+** Relationship between control data and synths
+Discuss Roger Dannenberg conceptualization of the two main paradigms of music
+software systems. Resource based vs instance cite:dannenberg_resource-instance_1991 
+** Key specifications
+** Paper.js
+** NUI
+Introduce the NUI
+** Tone.js
+cite:mann_interactive_2015
+
+* Execution
+:NOTES_BCK:
+Potential structure:
+ 1. Introduction
+ 2. Early prototypes
+    1. Melodypainter
+    2. Sonicksetch
+ 3. Actual implementation using web technologies
+    1. Dependencies 
+       1. JS 
+          1. Tone.js
+          2. Paper.js
+          3. React.js 16
+             - Overview
+             - FibreReconciler
+          4. React bindings for paper.js
+          5. Other: react-icons, rebass, screenfull
+       2. CLJS
+          1. Overview of clojurescript
+          2. Libraries
+             - Reagent
+             - Re-frame
+             - Thi.ng libraries (mostly utilitites)
+    2. Domain/entities
+       1. Note
+       2. Playback
+       3. Tool
+       4. Preset palette
+       5. Mode
+    3. Use cases / business logic
+       1. Add note
+       2. Remove note
+       3. Move note
+       4. Add vibrato to note
+       5. Change sound
+       6. Transport controls
+       7. Display current position
+       8. Current note animation
+       9. Undo and redo
+       10. Various utility - fullscreen
+    4. Adapters (views, events, subscriptions, etc)
+       1. Note view
+       2. Vibrato 
+       3. Audio using tone.js with react
+          - FM synthesis
+       4. Chrome (buttons and transport around the outside)
+    5. Services (interfacing with external tools)
+       1. Rebass
+       2. React icons
+       3. Color system
+    6. Core.js - bringing it all together
+       1. Mounting the renderer
+       2. Setting up the default database
+:END:
+
+:STRUCTURE:
+
+ 1. Introduction
+ 2. Early prototype work
+    1. Melodypainter
+    2. SonicSketch shape version
+    3. Porting William Coleman's SonicPainter
+ 3. Actual implementation
+    1. Core functionality - timeline events
+       1. Add note
+
+:END:
+
+
+** Early prototypes
+*** Melodypainter
+Thus far, some early test prototypes to establish possible directions for the
+application have been built. A Max Msp patch was created which allows the user
+to draw freehand lines, which are converted into break point function data and
+used as to generate a melodic profile in Bach. This is further processed into a
+pentatonic scale. Once input the system plays the resulting melody back. A
+notable flaw of the system was that it required users to draw shapes in a
+generally horizontal fashion for the data to be of use and to create a strong
+relationship between the visuals and the generated music.
+
+*** Sonicsketch - shape recognition
+A separate application was created in Processing which allowed users to draw
+shapes, using either mouse or ideally, pen input and have a sound that is
+associated with each shape played back. As the sound of each shape plays back,
+it is lit up using animation, creating a strong connection between the shape and
+it's resulting sound. The application used the "gesture variation follower"
+system cite:caramiaux_adaptive_2015, which while promising in principle, didn't
+have a high rate of accuracy in recognizing the shapes. It is for this reason
+that Microsoft's ink api is now being used for further prototyping.
+
+** The build out
+*** Building the framework
+**** Advantages of the react.js model of UI programming
+*** Stroke functionality
+Describe how the stroke functionality works and was implemented.
+# #+INCLUDE: "./charts.org"
+*** Enabling undo and redo
+*** Catering for additional input types
+Describe issues encountered including a lack of support in paper.js and the
+small patch required to enable it.
+
+* Evaluation [0/1]
+:NOTES:
+ - [ ] Come up with a better title.
+:END:
+
+A reasonably functional application was built which allowed for some basic
+interactions. While very much a prototype the app does offer the following
+innovations:
+
+ - Using the web as a testing ground for new interaction paradigms
+ - Using react js and clojurescript to allow for realtime (or close to realtime)
+   development
+ - Delivering a graphical synthesis oriented system in a very accessible format,
+   a PWA
+ - Incorporation of alternative device inputs using the W3C pointer api to allow
+   for more suitable and accurate input
+ - Trial of next generation react framework that extends it's reach beyond html
+   markup which is the general limit of the original system
+ - The result of combining react, clojurescript and tone.js is a declaritive data
+   DSL to describe audio processing. Potentially very useful as a beginner tool
+   and as a prototyping tool.
+ - Makes the assertion that different tools can be used for different stages of
+   the creative process and by providing integration into other platforms can be
+   easily incorporated into the flow.
+ - Works as an idea generator. The resulting audio could be sampled and used in
+   another app
+ 
+Some of the shortcomings of the work:
+ - It's very easy to create a mess of frequencies and pitch bends and difficult
+  or impossible to create standard musical material
+ - Suffers from performance issues and can get choked up when too much elements
+   are added to the screen
+ - While some basic and standard useability features have been added such as
+   undo and redo
+ - The sound quality isn't always perfect and some aliasing and other digital
+   artifacts are in evidence
+
+
+* Conclusions and further work
+** Future work
+ While SonicSketch in it's current format is useable for further ease of use it
+ would need work done on performance related issues, including but not limited
+ to: 
+  - Move more processing into web workers
+  - Look at compile to wasm based systems instead of Tone.js, including Csound
+  - Move graphics to use the GPU more heavily which would mean re-implementing a
+    good deal of the functionality provided by paper.js
+
+ Incorporate more dimensions into the visualisation, such as distortion, delay
+ effects, harmonic structure. Investigate how the visualisations could scale up
+ to incorporate more information.
+
+ Allow for larger structures, perhaps by scrolling.
+
+ Allow for meta-strokes where a stroke would draw the contents of another scene.
+
+* References

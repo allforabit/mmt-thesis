@@ -1,0 +1,84 @@
+* Overall app
+
+#+BEGIN_SRC plantuml :file tryout.png
+  scale 900 width
+  [*] --> Default
+
+  state Default {
+    [*] --> Idle
+    Idle --> AddingNote : EvPointerDown
+    AddingNote --> Idle : EvPointerUp
+  }
+
+  state AddingNote {
+    [*] --> StartNote
+    StartNote --> DefineFrequencyEnvelope : EvDragRight
+    StartNote --> DefineAmplitudeEnvelope : EvDragUp
+
+    state DefineFrequencyEnvelope {
+      [*] --> EditFreqEnvelope
+      EditFreqEnvelope -left-> UndoFreqEnv : EvDragLeft
+      UndoFreqEnv -> EditFreqEnvelope : EvDragRight
+      UndoFreqEnv -down-> PullFreqEnvelope : EvDragLeftVertAwayFromOrigPath
+      note left of PullFreqEnvelope : Users veers away from originally drawn path
+    }
+  }
+
+  state EditNote {
+    [*] --> StartEditingNote
+  }
+
+#+END_SRC
+
+#+RESULTS:
+# [[file:tryout.png]]
+
+** The relevant code
+#+BEGIN_SRC clojurescript
+(defn pointer-move [{:keys [temp-obj active-preset]} evt]
+  (when-let [{:keys [path group] :as temp-obj} @temp-obj]
+    (let [pointer-point (.. evt -point)
+          rel-pos       (.. group (globalToLocal pointer-point))]
+      (log (.. group -position) "pointer point rel")
+      ;; Only add positive points relative to first
+      ;; Remove points greater than pointer-points
+      (when-let [last-seg (.. path getLastSegment)]
+        (log last-seg)
+        (let [last-point (-> last-seg .-point)
+              pointer-x  (.-x rel-pos)]
+          (if (>= pointer-x (.-x last-point))
+              (-> path (.add rel-pos))
+              (let [greater-segs (filter
+                                  #(> (-> % .-point .-x) pointer-x)
+                                  (.-segments path))]
+                ;; Remove greater points
+                (doseq [seg greater-segs]
+                  (.removeSegment path (.-index seg))))))))))
+#+END_SRC
+
+* Sketch walkthrough
+
+#+BEGIN_center
+#+ATTR_LaTeX: :height 0.2\textwidth :center
+#+CAPTION: This is the caption for the next table (or link)
+#+NAME: attractor-01
+[[./charts/images/attractor-01 (Small).png]]
+
+
+#+ATTR_LaTeX: :height 0.2\textwidth :center
+[[./charts/images/attractor-02 (Small).png]]
+
+# #+ATTR_LaTeX: :height 0.2\textwidth :center
+#+ATTR_LaTeX: :height 5cm :placement [!htpb]
+[[./charts/images/attractor-03 (Small).png]]
+#+ATTR_LaTeX: :height 0.2\textwidth :center
+[[./charts/images/attractor-04 (Small).png]]
+#+END_center
+
+Please see [ref:attractor-01] 
+
+
+
+# Local Variables:
+# eval: (save-excursion (org-babel-goto-named-src-block "startup") (org-babel-execute-src-block))
+# End:

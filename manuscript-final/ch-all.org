@@ -1,0 +1,7 @@
+#+INCLUDE: "./ch1.org" :minlevel 1
+#+INCLUDE: "./ch2.org" :minlevel 1
+#+INCLUDE: "./ch3.org" :minlevel 1
+#+INCLUDE: "./ch4.org" :minlevel 1
+#+INCLUDE: "./ch5.org" :minlevel 1
+#+INCLUDE: "./ch6.org" :minlevel 1
+#+INCLUDE: "./ch7.org" :minlevel 1
