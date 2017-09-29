@@ -14,8 +14,8 @@
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=1.0\textwidth]{./assets/sketches/maura.png}
-\caption{Some exhibit participants managed to draw figurative artwork!}
+\includegraphics[width=1.0\textwidth]{./assets/sketches/cat.png}
+\caption{Some exhibit participants managed to draw figurative artwork}
 \label{fig:exhibit-cat}
 \end{figure}
 
@@ -24,7 +24,7 @@
 \centering
 \includegraphics[width=1.0\textwidth]{./assets/sketches/becky.png}
 \caption{Some users explored visual rhythms}
-\label{fig:exhibit-cat}
+\label{fig:exhibit-becky}
 \end{figure}
 
 
@@ -32,7 +32,7 @@
 \centering
 \includegraphics[width=1.0\textwidth]{./assets/sketches/untitled.png}
 \caption{Vibrato added to a sketch}
-\label{fig:exhibit-cat}
+\label{fig:exhibit-unititled}
 \end{figure}
 
 
@@ -40,7 +40,7 @@
 \centering
 \includegraphics[width=1.0\textwidth]{./assets/sketches/maura.png}
 \caption{Exploring a clustered approach to sonic composition}
-\label{fig:exhibit-cat}
+\label{fig:exhibit-maura}
 \end{figure}
 
 #+END_LATEX
@@ -66,4 +66,3 @@
 | Learnability                | 92     |
 | Usability                   | 83     |
 | Overall system satisfaction | 85     |
-

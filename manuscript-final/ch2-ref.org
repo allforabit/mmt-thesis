@@ -1,13 +1,13 @@
 
-# #+LATEX_HEADER: \usepackage{graphicx}
-# #+LATEX_HEADER: \usepackage[utf8]{inputenc}
-# #+LATEX_HEADER: \usepackage[english]{babel}
-# #+LATEX_HEADER: \usepackage[a4paper, total={150mm,237mm}, left=30mm, top=30mm,]{geometry}
-# #+LATEX_HEADER: \usepackage{pdfpages}
-# #+LATEX_HEADER: \usepackage[toc,page]{appendix}
-# #+LATEX_HEADER: \usepackage{color}
-# #+LATEX_HEADER: \usepackage{caption}
-# #+LATEX_HEADER: \usepackage{subcaption}
+#+LATEX_HEADER: \usepackage{graphicx}
+#+LATEX_HEADER: \usepackage[utf8]{inputenc}
+#+LATEX_HEADER: \usepackage[english]{babel}
+#+LATEX_HEADER: \usepackage[a4paper, total={150mm,237mm}, left=30mm, top=30mm,]{geometry}
+#+LATEX_HEADER: \usepackage{pdfpages}
+#+LATEX_HEADER: \usepackage[toc,page]{appendix}
+#+LATEX_HEADER: \usepackage{color}
+#+LATEX_HEADER: \usepackage{caption}
+#+LATEX_HEADER: \usepackage{subcaption}
 * Hardware mixer
 #+NAME: hardware-mixer
 #+BEGIN_LATEX
@@ -26,7 +26,7 @@
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.6\textwidth]{./assets/fx.jpg}
-\caption{Skeuomorphic software FX}
+\caption{Skeuomorphic software effects}
 \label{fig:fx}
 \end{figure}
 #+END_LATEX
@@ -48,14 +48,14 @@
 \begin{figure}[h]
 \centering
 \includegraphics[width=1.0\textwidth]{./assets/Iannis-Xenakis-Mycenae-Alpha-score.jpg}
-\caption{Iannis Xenakis - Mycenae Alpha score}
+\caption{Iannis Xenakis - Mycenae Alpha [Nunzio, 2014]}
 \label{fig:xenakis-alpha}
 \end{figure}
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.5\textwidth]{./assets/xenakis-and-the-upic-system.jpg}
-\caption{Iannis Xenakis showing UPIC to a younger audience}
+\caption{Iannis Xenakis showing UPIC to a younger audience [Nunzio, 2014]}
 \label{fig:xenakis-children}
 \end{figure}
 #+END_LATEX

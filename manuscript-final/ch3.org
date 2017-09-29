@@ -1,3 +1,19 @@
+# #+OPTIONS: d:nil
+# #+LATEX_CLASS: report
+# #+LaTeX_CLASS_OPTIONS: [12pt]
+# #+LATEX_HEADER: \usepackage[utf8]{inputenc}
+# #+LATEX_HEADER: \usepackage[english]{babel}
+# #+LATEX_HEADER: \usepackage[a4paper, total={150mm,237mm}, left=30mm, top=30mm,]{geometry}
+# #+LATEX_HEADER: \usepackage{fancyhdr}
+# #+LATEX_HEADER: \pagestyle{fancyplain}
+# #+LATEX_HEADER: \usepackage{pdfpages}
+# #+LATEX_HEADER: \usepackage{color}
+# #+LATEX_HEADER: \usepackage{graphicx}
+# #+LATEX_HEADER: \usepackage{caption}
+# #+LATEX_HEADER: \usepackage{subcaption}
+# #+LaTeX_HEADER: \linespread{1.3}
+# #+BIBLIOGRAPHY: ../bibliography/mmt-thesis-tidyup.bib
+# #+PANDOC_OPTIONS: csl:./harvard.csl
 * Methodology
 ** Introduction
 This chapter outlines the approach that will be taken in the realisation of the
@@ -9,7 +25,7 @@ justifications for their usage. These include the /Web Audio API/, /Tone.js/,
 
 ** Assessment of SonicPainter
 As has been mentioned previously, the SonicPainter application developed by
-William Coleman will form the basis of the work on SonicSketch. While the basic
+William Coleman will form the basis of the work on SonicSketch. The basic
 design of SonicPainter works very well and is aligned with the goals of
 SonicSketch in the following ways:
  - Provides a simple immersive score space that represents time on the x-axis and frequency on the y-axis.
@@ -17,17 +33,17 @@ SonicSketch in the following ways:
    notes can be seen at a glance without having to click into separate tracks.
 - Visualisation of vibrato effect using overlaid sine wave is suitable in theory
   but perhaps could be implemented better.
-- Uses FM synthesis as the synthesis engine. This versatile and efficient is a
-   good fit particularly for use in the web browser where performance can be an
-   issue.
+- Uses FM synthesis as the synthesis engine. This versatile and efficient
+  technique is a good fit particularly for use in the web browser where
+  performance can be an issue.
 Some issues that have been identified with SonicPainter will now be addressed.
-It should be noted that as the software is only at a prototype stage some of the
-shortcomings outlined here may not be design decisions and instead may be
+It should be noted that as the software is only at a prototype stage, some of
+the shortcomings outlined here may not be design decisions and instead may be
 implementation issues.
 
 *** Usability issues
-While the application is conceptually straightforward and beginner friendly
-there are some stumbling blocks that would make it difficult for a new user to
+While the application is conceptually straightforward and beginner friendly,
+there are some issues that would make it difficult for a new user to
 begin using it. Starting a note is obvious and involves simply clicking on the
 screen to anchor the start point. A line now becomes attached to from this point
 to the mouse pointer location, indicating that another press will finish the
@@ -81,31 +97,43 @@ built by Microsoft that enters an invalid state in a number of different
 situations. To counter these issues a disciplined approach will be taken to
 managing state in SonicSketch by performing /validation/ operations and the use
 of /finite-state Machines/ (FSM). Validation is a technique used to ensure that
-data is in the correct format and that any required information is present and
-in an allowable format. A finite-state machine is a computational model that can
-be in only one of a finite number of states. These states may change due to
-external input which triggers transitions from one state to the next. They can
-prove useful in avoiding invalid states and to reduce the amount of conditional
-logic in the program.
+data is in the correct format and that any required information is present. A
+finite-state machine is a computational model that can be in only one of a
+finite number of states. These states may change due to external input which
+triggers transitions from one state to the next. They can prove useful in
+avoiding invalid states and to reduce the amount of conditional logic in the
+program.
 
 *** Linear representation of frequency
-SonicPainter represents a frequency range of 20-500 Hertz (Hz) on its
-Y-axis. This is mapped linearly from the on-screen coordinates to frequency
-values. It is not made clear why this range and mapping was chosen and may have
-been for aesthetic reasons. Psychoacoustically it may be suitable to map this
-linearly as this corresponds to the linear perception of frequency at the lower
-frequencies. This phenomenon is represented in the Bark Scale, which is a
-psychoacoustic frequency scale on which equal distances correspond to
-perceptually equal distances. However, the range of 20-500 Hz frequency is quite
-limiting given that the highest note of a piano can reach to 4186 Hz. In
-addition, there is a strong cultural expectation of logarithmic mapping of
-frequency owing to the semitone being a logarithmic scale.
+SonicPainter represents a frequency range of 20-500 Hertz (Hz) on its Y-axis.
+This is mapped linearly from the on-screen coordinates to frequency values. It
+is not made clear why this range and mapping was chosen and may have been for
+aesthetic reasons. Psychoacoustically it may be suitable to map this linearly as
+this corresponds to the linear perception of frequency at the lower frequencies.
+This phenomenon is represented in the Bark Scale, which is a psychoacoustic
+frequency scale on which equal distances correspond to perceptually equal
+distances. However, the range of 20-500 Hz frequency is quite limiting given
+that the highest note of a piano can reach to 4186 Hz. In addition, there is a
+strong cultural expectation of logarithmic mapping due to the fact that the
+semitone is based on a logarithmic scale.
 
 ** Technical approach
+# A more general short intro to contemporary platforms would lead the reader
+# into this discussion. Why were the below chosen out of all options?
+The technical approach taken in the realisation of SonicSketch will now be
+given. A number of specialist environments exist to realise a project such as
+this, including that offered by Processing[fn:2] used by
+SonicPainter. However, it was decided, after some early experimentation (to be
+discussed), that the web browser would offer the key advantage of being easily
+accessible and, therefore, was the chosen platform. The technology that makes
+this viable is the Web Audio API. This will now be discussed alongside the
+libraries used in the project. Where applicable, the reasons for choosing the
+particular libraries will also be given.
+
 *** Audio in the modern Web Browser
 The W3C Web Audio API specification allows audio processing to take place in the
 web browser. Audio generation and processing is defined using an ~AudioContext~
-graph of connected ~AudioNode~ objects. While javascript processing is supported
+graph of connected ~AudioNode~ objects. While JavaScript processing is supported
 (by using a ~ScriptProcessorNode~ object), most processing takes place in
 optimized lower level languages such as C or C++. Advanced synthesis techniques
 are possible by connecting audio generating nodes to processing nodes. Audio
@@ -130,27 +158,26 @@ they reflect the latest tempo value.
 The primary reason that Tone.js was chosen was for the signal system that it
 uses to make working with parameter modulation easier and more efficient than
 working directly with Web Audio API. This uses a constant signal generator
-running at audio rate connected to a GainNode. In addition, this value can be
-multiplied and summed using GainNodes native capabilities enabling performant
+running at audio rate connected to a ~GainNode~. In addition, this value can be
+multiplied and summed using ~GainNodes~ native capabilities enabling performant
 signal processing operations on all parameters. For instance, /FM synthesis/
 generally requires that a relative relationship is maintained between the two
 oscillators, the carrier, and the modulator. When directly using the Web Audio
-API Param, a ~ScriptProcessorNode~ would need to be setup to calculate this
+API Param, a ~ScriptProcessorNode~ would need to be setup to calculate this,
 which is not as efficient or as straightforward as carrying out the calculations
 using Tone.js signals.
-
 *** Paper.js
 Paper.js is a descendant of Scriptographer, a scripting tool for Adobe
-Illustrator a vector graphics program. It runs in the web browser canvas
-element, running in its 2d mode. Paper.js adds a number of features to the
-browsers native canvas element including a /scene graph/, geometry and vector
-abstractions as well as tools to draw and animate shapes on-screen. The central
-abstraction in Paper.js and any vector system is the /path/. This allows for the
-specification of any shape by describing start points and endpoints for a series
-of paths. Curves can be added to these paths by adjusting an additional set of
-points associated with a path, the ~handleIn~ and ~handleOut~ points. These
-define control handles that alter the curvature of the line using Bezier
-mathematics.
+Illustrator (www.adobe.com), a vector graphics program. It runs in the web
+browser canvas element, running in its 2d mode. Paper.js adds a number of
+features to the browser's native canvas element including a /scene graph/,
+geometry and vector abstractions, as well as tools to draw and animate shapes
+on-screen. The central abstraction in Paper.js and any vector system is the
+/path/. This allows for the specification of any shape by describing start
+points and endpoints for a series of paths. Curves can be added to these paths
+by adjusting an additional set of points associated with a path, the ~handleIn~
+and ~handleOut~ points. These define control handles that alter the curvature of
+the line using Bezier mathematics.
 
 A primary reason that Paper.js was chosen for SonicSketch is the path
 simplification algorithm that allows the data captured with freehand input to be
@@ -167,8 +194,8 @@ the application changes. This was a role traditionally carried out by the web
 server and delivered to users as a static page. This saw a significant change
 however with the rise of single page applications (SPA) around 2010. The
 advantage of the SPA is increased interactivity and responsiveness to user
-input, allowing the look and contents of the page to update dynamically as the
-user interacts with the webpage. To aid in the construction of these SPA's a
+input, allowing the look and contents of the page to update dynamically, as the
+user interacts with the webpage. To aid in the construction of these SPAs, a
 number of frameworks to help the process were introduced by the open-source
 community. Some popular early examples include Backbone.js and Angular.js. A
 technique that saw some popularity was a system called two-way binding which
@@ -178,9 +205,9 @@ serious performance issues, in addition to some conceptual problems
 \cite{whelpley_is_2014}.
 
 React offers a simpler one-way binding system using what is termed the /virtual
-DOM/. This works by maintaining a virtual version of the dom in a javascript.
+DOM/. This works by maintaining a virtual version of the DOM in a JavaScript.
 When the virtual DOM changes, the parts of the real DOM that require changing
-can thusly be pinpointed and efficiently updated. This system has proven to be
+can be pinpointed and efficiently updated. This system has proven to be
 particularly beneficial when paired with /functional programming/ techniques, a
 style of programming that encourages the use of pure functions as the primary
 building block of programs. In the case of working with the DOM, it can lead to
@@ -192,14 +219,14 @@ realm of the DOM. This includes writing command-line programs
 \cite{formidablelabs_react-music:_2017} and even for embedded electronics
 \cite{kasten_react-hardware:_2017}.
 
-*** Clojurescript
-Clojurescript is a compile to javascript programming language that is based on
-Clojure, a modern /Lisp/ that runs on the Java virtual machine. Lisp is a
-programming language that was invented by John McCartney in the 1960's and is
+*** ClojureScript
+ClojureScript is a compile-to-javascript programming language that is based on
+Clojure, a modern Lisp that runs on the Java Virtual Machine (JVM). Lisp is a
+programming language that was invented by John McCartney in the 1960s and is
 known for its minimal syntax consisting primarily of parens. The word Lisp is
-derived from the term "List Processor" as Lisps source code and data structures
+derived from the term "List Processor" as Lisp source code and data structures
 are built around lists. Clojure and ClojureScript promote a functional
-programming style. Clojurescript and other functional programming languages such
+programming style. ClojureScript and other functional programming languages such
 as Elm have seen an increase in usage in the past number of years as this
 paradigm has proved useful in managing complex stateful UIs. Some annotated
 examples of ClojureScript follow that show the basic building blocks of the
@@ -211,24 +238,25 @@ chapter.
 #+LATEX: \end{footnotesize}
 
 This covers some basics that will be particularly helpful for readers that are
-familiar with C style languages. A more in depth is beyond the scope of this
-document and interested readers should consult the many resources available
-online. The most commonly used build tool that is used with ClojureScript (and
-Clojure) is /Leiningen/, which takes care of managing the code dependencies and
-converting the code from ClojureScript to javascript. These dependencies are
-defined in the "project.clj" file. The primary dependencies used by SonicSketch,
-/Reagent/ and /re-frame/ will now be discussed.
+familiar with C style languages. A more in depth discussion is beyond the scope
+of this document and interested readers should consult the many resources
+available online. The most commonly used build tool that is used with
+ClojureScript (and Clojure) is /Leiningen/, which takes care of managing the
+code dependencies and converting the code from ClojureScript to javascript.
+These dependencies are defined in the "project.clj" file. The primary
+dependencies used by SonicSketch, /Reagent/ and /re-frame/ will now be
+discussed.
 
 *** Reagent & Re-frame
 Reagent is a library that provides an idiomatic ClojureScript interface to
 React, allowing ClojureScript to harness the DOM manipulation facilities
 provided by React. This delegates the /side-effects/ of rendering and
 manipulating DOM to React's reconciler algorithm. Side-effects is a functional
-programming term to denote anything that isn't related to the supplied arguments
+programming term to denote anything that is not related to the supplied arguments
 or return value of a function. This is normally object mutation (to change the
 state of the program) or input/output (I/O) operations, e.g. writing a file to
-disk, displaying graphics or playing a sound. \cite{sylwester_meaning_2015} In
-addition to the interface to React, it provides a special reactive atom that
+disk, displaying graphics or playing a sound \cite{sylwester_meaning_2015}. In
+addition to the interface to React, it provides a special reactive atom[fn:1] that
 efficiently re-renders React components when the state changes.
 
 Re-frame is a framework that uses Reagent's interface to React to manage views
@@ -257,3 +285,9 @@ were described in detail including some brief justification behind these
 technical choices. This covered the Web Audio API technology that underlies the
 audio aspect of the project, as well as the libraries and frameworks being used
 to manage the views and state of the app.
+
+* Footnotes
+[fn:1] An atom is the construct used in ClojureScript to contain data that needs to
+change over time
+[fn:2] Processing is a creative coding environment that runs in the Java Virtual
+Machine (www.proccessing.org)

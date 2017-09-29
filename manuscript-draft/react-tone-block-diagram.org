@@ -1,0 +1,57 @@
+* React - tone.js block diagram
+
+Unbroken line is output and dashed line is output.
+#+BEGIN_SRC dot :file dot_success.png :cmdline -Kdot -Tpng
+  digraph {
+  // graph from left to right
+  rankdir=TB;
+  splines=true;
+  node [shape=box];
+
+  subgraph cluster0 {
+    node [style=filled,color=white];
+    style=filled;
+    color=lightgrey;
+    mouse [label="Mouse / Graphics tablet"]
+    keyboard [label="Keyboard"]
+    label = "Input";
+  }
+  subgraph cluster1 {
+    node [style=filled];
+    "Visual"
+    "Audio"
+    label = "Output";
+    color=blue
+  }
+
+  reframe [label="Re-frame framework"]
+  reagent [label="Reagent"]
+  react [label="React.js"]
+  tone [label="Tone.js"]
+  webaudio [label="Web audio API"]
+  paperjs [label="Paper.js"]
+  paperjsbindings [label="Paper.js bindings"]
+  dom [label="DOM"]
+
+  reframe -> reagent
+  reagent -> reframe [style=dashed]
+  reagent -> react
+  react -> reagent [style=dashed]
+  react -> tone
+  react -> paperjsbindings -> paperjs -> "HTML Canvas" -> "Visual"
+  paperjs -> paperjsbindings -> react [style=dashed]
+  react -> dom -> "Visual"
+  dom -> react [style=dashed]
+  tone -> webaudio
+  webaudio -> "Audio"
+  mouse -> dom [style=dashed]
+  keyboard -> dom [style=dashed]
+  mouse -> paperjs [style=dashed]
+  keyboard -> paperjs [style=dashed]
+  }
+
+
+#+END_SRC
+
+#+RESULTS:
+[[file:dot_success.png]]

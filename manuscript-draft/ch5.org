@@ -25,6 +25,7 @@ The following chapter gives an outline of the process that was undertaken to
 build out the final application. A description of early prototype work is given
 to give context to the construction of the final working prototype version. This
 is followed by a description of the technical architecture of the system as well
+<<<<<<< HEAD
 as an outline of the sometimes difficult setup process of getting the various
 architectural elements working together. A detailed discussion of the core
 functionality of the system is then given, followed by a description of
@@ -33,6 +34,20 @@ functionality that is more secondary in nature.
 ** Early prototype work
 *** MelodyPainter
 #+INCLUDE: "./ch5-ref.org::melodysketch"
+=======
+as an outline of the sometimes tricky setup process of getting the live reload
+system working (as described in the previous chapter). A detailed discussion
+of the core functionality of the system is then given, followed by a
+description of functionality that is more secondary in nature.
+
+** Early prototype work
+*** MelodyPainter
+:TODO:
+ - [ ] built *out* in max msp
+:END:
+
+
+>>>>>>> origin/master
 MelodyPainter is an early protoype built out in Max MSP that allows users to
 draw freehand lines, which are converted into break point function data and used
 to generate a melodic profiles using Bach for Max MSP \cite{agostini_max_2015}.
@@ -48,8 +63,10 @@ information.
 
 *** SonicShaper
 :TODO:
- - [ ] Add a picture
+ - [ ] Footnote
+ - [ ] Didn't
 :END:
+<<<<<<< HEAD
 #+INCLUDE: "./ch5-ref.org::sonicshaper"
 A separate application was created in [fn:1]Processing which allowed users to draw
 shapes, using either mouse or ideally, pen input. A sound that is associated
@@ -59,10 +76,24 @@ and it's resulting sound. The application uses the "gesture variation follower",
 a system that allows realtime recognition of gesture shapes
 \cite{caramiaux_adaptive_2015}. While promising in principle, it didn't have a
 high rate of accuracy, making it difficult to predictably control.
+=======
+
+A separate application was created in Processing which allowed users to draw
+shapes, using either mouse or ideally, pen input and have a sound that is
+associated with each shape played back. As the sound of each shape plays back,
+it is lit up using animation, creating a strong connection between the shape and
+it's resulting sound. The application uses the "gesture variation follower"
+system cite:caramiaux_adaptive_2015, which while promising in principle, didn't
+have a high rate of accuracy in recognizing the shapes.
+
+>>>>>>> origin/master
 
 *** Web version of William Coleman's SonicPainter
 :TODO:
- - [ ] Reference processing.js
+ - [ ] William's
+ - [ ] It's
+ - [ ] OSC available
+
 :END:
 :CONCEPTS:
 - OSC
@@ -92,13 +123,27 @@ The process of porting the code did however give a more in depth incite into
 Coleman's implementation. 
 
 ** Setting up the architecture
+<<<<<<< HEAD
 *** Clojurescript and javascript npm modules
+=======
+*** Clojurescript and javascript npm modules [0/6]
+:TODO:
+ - [ ] Capitalize JavaScript and NPM
+ - [ ] Capitalize Clojurescript
+ - [ ] Out a
+ - [ ] Thusly
+ - [ ] Comma space
+ - [ ] Webpack and browserify
+
+:END:
+>>>>>>> origin/master
 :CONCEPTS:
  - NPM
  - Node.js
  - Project.clj
  - Clojurescript
 :END:
+<<<<<<< HEAD
 Despite the fact that clojurescript has existed for six years
 \cite{sierra_clojure_2011}, some areas of the development process are still
 difficult, particularly when building out a more complex real world
@@ -130,10 +175,43 @@ that is the NPM ecosystem could now be harnessed, to use such tools as Paper.js
 and React.js.
 
 *** Paper.js and React (Paper.js bindings)
+=======
+Despite the fact that clojurescript has existed for six years(???), some areas
+of the development process are still difficult, particularly when building out a
+more complex real world application. It should be noted that a good deal of work
+is being carried out to make this a smoother experience and thusly these pains
+are likely to become less of an issue in the near future (???ref). It should
+also be noted that building applicatons using plain javascript is not a trivial
+process and in all likelyhood will include a build process using a system like
+webpack or browserify. A primary issue that had to be resolved to allow the
+application to be built out was the incorporation of javascript npm modules. NPM
+is the module system used by node.js originally for more server oriented
+technologies but increasingly for rich clientside applications. For a purely
+javascript application, it would be a matter of simply adding the desired
+libraries as dependencies. However, with the use of clojurescript some extra
+steps needed to be carried out. In addition to adding the dependencies, a
+javascript file was created that imported these into a "deps" object. This deps
+object could then be referred to in clojurescript using the standard interop
+syntax ~js/deps.myDependency~. At the time of development an alpha feature that
+allowed npm dependencies to be declared as part of the project.clj file was
+experimented with but was not used in due to difficulties getting it to work.
+While the project setup was not as elegant or succint as might be wished, it did
+provide a stable base to build on and a means to harness the rich resource that
+is the NPM ecosystem and use such tools as Paper.js and React.js.
+
+*** Paper.js and react.js (paper.js bindings) [0/3]
+:TODO:
+ - [ ] Thusly
+ - [ ] Approach
+ - [ ] Custom
+:END:
+
+>>>>>>> origin/master
 :CONCEPTS:
   - Scenegraph
   - Binding
 :END:
+<<<<<<< HEAD
 Paper.js runs in the context of a canvas element and thusly it is not possible
 to directly use React with it. This shortcoming has been addressed in projects
 such as /three.js react bindings/ and /pixi.js react bindings/ which allow the
@@ -154,6 +232,39 @@ thusly, a custom version of the library was used that included some custom
 functionality required for SonicSketch.
 
 *** Tone.js and React
+=======
+
+As has been outlined in the previous chapter, a declarative coding style would
+be employed to enable a live coding workflow and to avoid a building a codebase
+that is increasingly difficult to understand. In other words the code should as
+much as possible describe the "what" of the functionality rather than the "how".
+These qualities emerge quite naturally when using the /React.js/ architecture.
+Paper.js however runs in the context of a canvas element and thusly it is not
+possible to directly use /React.js/ with it. This shortcoming has been addressed
+in projects such as /three.js react bindings/ and /pixi.js react bindings/ which
+allow the use of react's declaritive programming style for 3d and 2d scenegraph
+oriented systems that run in the html canvas element. These solutions both work
+by creating dummy empty dom elements and hook into the /React.js/ lifecycle
+events to the real work of updating the scenegraph. In many ways the scene graph
+structure of projects like these and indeed Paper.js exhibit a high resemblance
+to DOM structures and APIs making React a good fit for them. A similar approach
+to the above mentioned libraries approach was taken to integrate paper.js for
+use in SonicSketch and worked reasonably well but required quite a bit of setup.
+During the development of the project, a more suitable solution emerged from the
+open source community at an opportune time. This used the next version of
+/React.js/ which has better support for render targets that are not the DOM and
+has the distinct advantage of not requiring the creation of redundant DOM nodes.
+The library was far from comprehensive and thusly a custom version of the
+library was used that included some custom functionality required for SonicSketch.
+
+*** Tone.js and react.js [0/2]
+:TODO:
+ - [ ] ways & way
+ - [ ] Thusly
+ - [ ] Function block diagram
+:END:
+
+>>>>>>> origin/master
 In some ways audio output can be thought of in a similar way to the visual
 output of the app, merely as another type of I/O. Thusly, it can be treated in
 similar way by React and can use its declarative data oriented system to
@@ -175,14 +286,25 @@ The design of this part of the application is influenced by /React Music/, a
 system that uses React with /tuna.js/, a web audio library similar to tone.js
 \cite{formidablelabs_react-music:_2017}.
 
+<<<<<<< HEAD
 *** Reagent and React paper.js bindings
+=======
+*** Reagent and react.js paper.js bindings
+:Concepts:
+ - Hiccup
+:END:
+:TODO:
+ - [ ] Hiccup
+:END:
+
+>>>>>>> origin/master
 The final piece of the jigsaw in the underlying technology stack is the
 integration of React with ClojureScript via the /Reagent/ library. The core
 syntax of this system uses simple ClojureScript vectors similar to the following:
 
 #+LATEX: \begin{footnotesize}
 #+BEGIN_SRC clojure
-[:div 
+[:div
  "Hello " [:span {:style {:font-weight bold}}
  "world"]]
 #+END_SRC
@@ -245,6 +367,11 @@ places at the top of the screen.
 6. Change sound (preset system)
 7. Probability
 :END:
+:TODO:
+ - [ ] Mouse like
+ - [ ] details - is
+ - [ ]
+:END:
 
 At the core of the application is the creation of timeline events which unfold
 in a looped fashion. These events are created based on the input of the user
@@ -266,10 +393,17 @@ probability.
 :NOTES:
  - Clojure atom
 :END:
+<<<<<<< HEAD
 :CONCEPTS:
  - Javascript interop
 :END:
 
+=======
+:TODO:
+ - [ ] It's (child components)
+
+:END:
+>>>>>>> origin/master
 
 #+INCLUDE: "./ch5-ref.org::adding-notes-sketch"
 # #+INCLUDE: "./ch5-ref.org::adding-notes-uml"
@@ -284,8 +418,12 @@ user left clicks the mouse to trigger the following function:
 #+BEGIN_SRC clojure
 (defn pointer-down [{:keys [temp-obj active-preset]} evt]
   (let [pointer-point (.. evt -point)
+<<<<<<< HEAD
         ;; Group circle and path are temporary shapes
         group         (js/paper.Group. (clj->js {:position 
+=======
+        group         (js/paper.Group. (clj->js {:position
+>>>>>>> origin/master
                         [(.. pointer-point -x) (.. pointer-point -y)]
                                                  :pivot [0 0]}))
         circle        (js/paper.Shape.Circle. (clj->js {:fillColor "#ffffff"
@@ -311,7 +449,12 @@ As the user continues to move the cursor further points are added to the path
 created in the =pointer-down= function. Some constraints however are placed on
 the creation of the path and only points that are past the last previous from
 left to right are added. If the users backtracks it lead to a deletion of
+<<<<<<< HEAD
 points, providing an on-the-fly undo like behaviour. 
+=======
+points, providing an intuitive undo like behaviour and implementing a recipricol
+HCI interaction pattern recommended by NUI principles.
+>>>>>>> origin/master
 #+LATEX: \begin{footnotesize}
 #+BEGIN_SRC clojure
 (defn pointer-move [{:keys [temp-obj active-preset]} evt]
@@ -397,7 +540,7 @@ use with the audio synthesis system. The ~path->note~ function can be seen below
                      :vibrato   (reduce (fn [a b]
                                           (assoc a b [b 0]))
                                         (sorted-map) (range 11))}}))
-#+END_SRC 
+#+END_SRC
 #+LATEX: \end{footnotesize}
 The domain of time-pitch is used to store the notes in memory and makes it
 possible to maintain a relative relationship between the screen size and the
@@ -473,7 +616,11 @@ When a note is added this render function will run which will call the
 display of the screen to show the new note. A similar process happens in the
 audio system except, in this case, new web audio nodes are created, timeline
 events are queued up at the correct time and audio envelopes are setup that
+<<<<<<< HEAD
 trace the curve of the drawn lines.     
+=======
+traces the curve of the drawn lines. cite:adenot_web_2017
+>>>>>>> origin/master
 #+LATEX: \begin{footnotesize}
 #+INCLUDE: "./ch5-code.org::fm-synth"
 #+LATEX: \end{footnotesize}
@@ -574,7 +721,7 @@ triggers a ~:component-did-update~ function call. It is here that a dispatch is
 made to the ~:vibrato-envelope-point~ to create the envelope point. The reason
 for the back and forth between the view and the event handlers is to allow the
 event handlers to manage the state changes but deal with the specifics of the
-geometry of the vibrato overlay in the view. 
+geometry of the vibrato overlay in the view.
 
 # It is probably best illustrated in the provided figure (figure \ref{fig:vibrato-control-flow}).
 
@@ -633,7 +780,7 @@ this data as a string and restoring with a single function call to
 # As outlined in the previous chapter, /SonicSketch/ an influence of the design of
 # the user experience is the /Music Animation Machine/ which visualises music so
 # that even nonmusicians can relate the visuals to the music unlike following a
-# CMN score. 
+# CMN score.
 
 Some simple animation was added to playback to increase heighten the connection
 between visuals and audio. To achieve this, the ~:note~ subscription is itself

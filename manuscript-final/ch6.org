@@ -33,21 +33,26 @@ self-assessment, user feedback and a usability questionnaire that polled a small
 number of participants. User feedback was garnered at an exhibition that
 showcased the application. More informal ongoing feedback also identified some
 issues that were fixed in the final version of the application, in addition to
-some that weren't. Before delving into this discussion, let us briefly return to
+some that were not. Before delving into this discussion, let us briefly return to
 the composition mentioned earlier to see how it is realised in SonicSketch.
 
 ** Returning to the composition
+:TODO:
+ - [X] Explain organic thing
+:END:
+
 #+INCLUDE: "ch6-ref.org::composition-sketch"
 As can be seen from the figure (figure \ref{fig:composition-sketch}), a more
-organic looking version of the Klangfarbenmelodie is in evidence. Depending, on
-the type of music being created this may be /too/ organic and not accurate
-enough. Aside from these issues though, the visuals give a good visual
-representation of the underlying compositional idea. It is, in fact, very easy
-to imagine an idea of this kind originating in an environment like SonicSketch,
-whereas it is more difficult to imagine it originating in a DAW or an audio
-programming environment. Of course, equally there are other ideas that would be
-easy to execute in a DAW but impossible or very difficult in a graphic synthesis
-system such as this.
+organic looking version of the Klangfarbenmelodie is in evidence. Depending on
+the type of music being created, this may be /too/ organic and not accurate
+enough. For instance, the composer may wish to specify very precise timing
+and pitch information. Aside from these issues though, the visuals give a
+good visual representation of the underlying compositional idea. It is, in fact,
+very easy to imagine an idea of this kind originating in an environment like
+SonicSketch, whereas it is more difficult to imagine it originating in a DAW or
+an audio programming environment. Of course, equally there are other ideas that
+would be easy to execute in a DAW but impossible or very difficult in a graphic
+synthesis system such as this.
 
 ** Assessment
 *** System architecture
@@ -61,9 +66,13 @@ debugging and made it straightforward to add advanced features such as undo/redo
 and save/load.
 
 *** Core functionality - sketching notes
+:TODO:
+ - [X] Implementation - woodblock tone
+:END:
+
 Adding notes was quite an easy concept for users to grasp and were observed to
 quickly start making marks on the screen. Some users experienced confusion or
-weren't aware of how to play these back initially. Once they managed to play the
+were not aware of how to play these back initially. Once they managed to play the
 audio back and understood the general nature of the sounds being created, a
 common request was to clear the screen to start over. After this, they would
 start experimenting with layering up different sounds on top of each other.
@@ -72,10 +81,11 @@ played as much, if not more, of a role than the audio, in what was drawn on the
 screen. Perhaps some real-time audio feedback might balance this out more. The
 version that was tested required that notes are drawn from left to right,
 causing some initial confusion for users. A future version will remedy this and
-allow for both directions. The woodblock timbre only allows short lines to be
-drawn as the sound isn't sustained and quickly decays after its initial attack.
-This proved to be another source of confusion for users and indicates that it
-may be inconsistent with other parts of the UI.
+allow for both directions.
+# The woodblock timbre only allows short lines to be
+# drawn as the sound is not sustained and quickly decays after its initial attack.
+# This proved to be another source of confusion for users and indicates that it
+# may be inconsistent with other parts of the UI.
 
 *** Timbre selection
 #+INCLUDE: "./ch5-ref.org::palette"
@@ -99,11 +109,11 @@ Similar to tools other than the default sketch tool, the vibrato tool was not
 heavily used by users and it was rarely discovered without some instruction.
 Once discovered though, most users were able to operate it after one or two
 attempts. The overlaid envelope graphic, while visually appealing in itself,
-doesn't fit the sketching metaphor very well and doesn't depart very far from
+veers away from the sketching metaphor and does not depart very far from
 what would be found in a traditional DAW. The resulting visualisation on the
 notes helps to tie it back in with the sketching theme. Ideally, the user should
 not see an overlay and instead directly adjust the visualisations on the note.
-Unfortunately, these visualisations weren't executed perfectly either and are
+Unfortunately, these visualisations were not executed perfectly either and are
 applied slightly unevenly along the path of the note. It is a definite
 improvement on those present in SonicPainter though.
 
@@ -111,21 +121,25 @@ improvement on those present in SonicPainter though.
 Of the other available tools, delete and move were the most used. An initial
 usability issue was the accurate click required to target the particular note to
 be adjusted. Adding a glow effect to the notes remedied this to some degree and
-gave a slightly larger area to click on. Apart from this, there weren't any
-notable usability issues with either the delete or the move tools. The resize
-and probability tools were the least seldom used and when they were used, posed
-some difficulties for the user. They both worked on the principle of clicking on
-the note in question and then dragging in or out to alter the value. The drag
-motion didn't factor in the current value but was, rather, an absolute value
-defined by the point that the user clicked and the distance to the user's mouse
-pointer. Depending on the previous value, this caused a visual jump. In the case
-of the probability tool, the change in saturation is quite subtle and the
-changing colours may be difficult for the user to notice. The resize tool, which
-adjusted the velocity, only changed the node size and not the overall size of
-the graphic. This made it slightly unintuitive and confusing for the user,
-perhaps contributing its low usage.
+gave a slightly larger area to click on. Apart from this, few other usability
+issues were found with either the delete or the move tools. The resize and
+probability tools were the least seldom used and when they were used, posed some
+difficulties for the user. They both worked on the principle of clicking on the
+note in question and then dragging in or out to alter the value. The drag motion
+did not factor in the current value but was, rather, an absolute value defined by
+the point that the user clicked and the distance to the user's mouse pointer.
+Depending on the previous value, this caused a visual jump. In the case of the
+probability tool, the change in saturation is quite subtle and the changing
+colours may be difficult for the user to notice. The resize tool, which adjusted
+the velocity, only changed the node size and not the overall size of the
+graphic. This made it slightly unintuitive and confusing for the user, perhaps
+contributing its low usage.
 
 *** Performance issues
+:TODO:
+ - [X] Future work issue
+:END:
+
 
 #+NAME: palette
 #+BEGIN_LATEX
@@ -144,26 +158,10 @@ the ~graphic-note~ component. This gets called by the React system to check if
 the component should re-render and is normally not needed for Reagent apps as it
 supplies a default version. However based on performance testing with Google
 Chrome Developer tools it could be seen that a large amount of scripting was
-occurring on every frame (see figure fig:performance). This was the particularly
+occurring on every frame (see figure \ref{fig:performance}). This was the particularly
 the case when the note count went beyond a dozen or so. Introducing the custom
 ~should-component-update~ method reduced these renderings to an absolute minimum
 bringing a significant performance boost.
-
-Even with this improvement performance is still an issue. This is largely due to
-the architectural decision to instantiate a new instrument for each note.
-Potential improvements to this could be to:
-- Render content as audio at certain points by using an ~AudioWebWorker~, a Web
-  Audio API tool that allows rendering audio concurrently to a buffer. This
-  would alleviate some of the burden on the CPU by decreasing the amount of
-  audio generation it has to do.
-- Use Web Assembly, a relatively recent Web technology that allows optimized C
-  and C++ code to be compiled and run efficiently in the browser
-  \cite{adenot_web_2017}. Current versions of both Csound and Faust (a
-  functional audio programming language) can be compiled to run in the browser.
-  The author was able to run a Csound version of John Chowning's "Stria"
-  smoothly on a smartphone's web browser.
-- Use hardware accelerated graphics to further ease the burden of the CPU and
-  improve visual display and animation.
 
 ** User testing and feedback
 *** Usability questionnaire
@@ -204,8 +202,11 @@ the application was straightforward and easy to start using, and provides a good
 basis for future work.
 
 *** General feedback
+:TODO:
+ - [X] Sort figure out (figurative missing)
+:END:
+
 #+INCLUDE: "./ch6-ref.org::note-onset-hm"
-#+INCLUDE: "./ch6-ref.org::user-sonic-sketches"
 Overall the feedback from both the questionnaire and at the exhibition was
 positive with users reporting that it was a "fun and enjoyable experience" and
 that they "... could play with [it] for ages." A number of testers suggested
@@ -213,23 +214,27 @@ that it would work well for sound design and cartoon sound effects in
 particular: "Really really fun! Can really see the benefit for sound design type
 scenarios, animation films and the like." Another recurring comment was that it
 would be interesting if you could sign your name and see what hear your sonic
-signature. Unfortunately, the app isn't able to give interesting results in this
-regard but it did show that users were engaging well with the concept of sonic
-sketching. Another user commented: "I enjoyed exploring how the different tools
-affected the audio and I liked trying to layer more and more sounds on top of
-one another." Again, this shows good engagement while at the same time pushing
-the prototype software slightly beyond its limits as it struggled to play back
-the ever increasing amount of audio material. A number of Sonic Sketches are
-presented that showcase the diverse approaches taken, with some users achieving
-figurative representations and another managing to (almost) sign her name
-(fig:user-sonic-sketches).
+signature. Unfortunately, the app is not able to give interesting results in
+this regard but it did show that users were engaging well with the concept of
+sonic sketching. Another user commented: "I enjoyed exploring how the different
+tools affected the audio and I liked trying to layer more and more sounds on top
+of one another." Again, this shows good engagement while at the same time
+pushing the prototype software slightly beyond its limits as it struggled to
+play back the ever increasing amount of audio material. A number of Sonic
+Sketches are presented that showcase the diverse approaches taken, with some
+users even managing to achieve figurative representations (figure
+\ref{fig:exhibit-cat}).
+
+\enlargethispage{2cm}
 
 ** Conclusion
 This chapter presented a critical assessment of the final application that
 factored in user testing and feedback. Each of the major features of the app
 were assessed in terms of their success in contributing to the overall
-application experience. As was discussed, some features worked well and didn't
+application experience. As was discussed, some features worked well and did not
 incur any major friction in usage whereas others leave room for improvement.
 Performance issues were discussed along with some potential remedies for these.
 Finally, the SUS usability survey was discussed along with general feedback
 received from users.
+
+#+INCLUDE: "./ch6-ref.org::user-sonic-sketches"

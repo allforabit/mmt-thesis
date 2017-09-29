@@ -1,16 +1,30 @@
 * Conclusion and further work
-This thesis presented some of the approaches that are open to modern musicians from the analog studio metaphors of the DAW to more open audio programming environments, to the diverse range of approaches to graphic synthesis. It presented SonicSketch, a prototype audio tool that runs in the modern web browser and allows musicians to sketch sonic ideas in on a time-pitch canvas. 
+This thesis presented some of the approaches that are open to modern musicians
+from the analog studio metaphors of the DAW to more open audio programming
+environments, to the diverse range of approaches to graphic synthesis. It
+presented SonicSketch, a prototype audio tool that runs in the modern web
+browser and allows musicians to sketch sonic ideas in on a time-pitch canvas.
 
 ** Future work
 There is an endless scope for improvements and features that could be
 made and the following represents some of these:
 
-- Performance improvements :: As is mentioned in the previous chapter, the
-     application requires some performance improvements to make it a viable
-     musician's tool. Ideally, the app should be able to run on mobile devices,
-     as the uncluttered interface would be a good match for the limited screen
-     size.
-- Larger structures :: The app doesn't offer any facility for larger structures.
+- Performance improvements :: The application requires some performance
+     improvements to make it a viable musician's tool. Ideally, the app should
+     be able to run on mobile devices, as the uncluttered interface would be a
+     good match for the limited screen size. Some particular improvements
+     include the following:
+  - Render content as audio at certain points by using an ~AudioWebWorker~, a Web
+    Audio API tool that allows rendering audio concurrently to a buffer. This
+    would alleviate some of the burden on the CPU by decreasing the amount of
+    audio generation it has to do.
+  - Use Web Assembly, a relatively recent Web technology that allows optimized C
+    and C++ code to be compiled and run efficiently in the browser
+    \cite{adenot_web_2017}. Current versions of both Csound and Faust (a
+    functional audio programming language) can be compiled to run in the browser.
+  - Use hardware accelerated graphics to further ease the burden of the CPU and
+    improve visual display and animation.
+- Larger structures :: The app does not offer any facility for larger structures.
      It would be interesting to explore how the sketching metaphor could
      translate to working at the arrangement level by perhaps introducing a
      level of recursion and allowing the user to sketch sketches.
@@ -25,7 +39,7 @@ made and the following represents some of these:
      the application using the W3C Pointer API, a relatively new API that
      provides comprehensive support for multiple input devices including
      multitouch and graphics tablets (with pressure support and angle data).
-     Unfortunately, it wasn't included in this version and is left for future
+     Unfortunately, it was not included in this version and is left for future
      work.
 - Grids :: While the freeform gridless canvas of the current version is fun to
            play with, an optional grid would allow for more precise control.
@@ -35,4 +49,10 @@ made and the following represents some of these:
            an interesting alternative or a grid based on Setharthes' dissonance
            curves.
 
-The presented application represents a very small step in exploring the metaphor of sonic sketching. A virtually bottomless source of inspiration can be found in the many systems that have gone before it, some of which exist, and some of which can only be enjoyed through textual description, images and if, we're lucky videos. The modern web browser represents a unique opportunity to experiment with and develop these alternative approaches to music interface design in an environment that offers unprecedented ease of access for its users.
+The presented application represents a very small step in exploring the metaphor
+of sonic sketching. A virtually bottomless source of inspiration can be found in
+the many systems that have gone before it, some of which still exist, and some
+of which can only be enjoyed through textual and photographic depiction. The
+modern web browser represents a unique opportunity to experiment with and
+develop these alternative approaches to music interface design in an environment
+that offers unprecedented ease of access for its users.

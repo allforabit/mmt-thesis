@@ -22,8 +22,8 @@
 #+LATEX_HEADER: \usepackage{subcaption}
 #+LaTeX_HEADER: \linespread{1.3}
 
-#+LaTeX_HEADER: \widowpenalty10000
-#+LaTeX_HEADER: \clubpenalty10000
+#+LaTeX_HEADER: \widowpenalty500
+#+LaTeX_HEADER: \clubpenalty500
 
 # #+LaTeX_HEADER: \newminted{common-lisp}{fontsize=\footnotesize}
 
@@ -79,16 +79,14 @@ year!
 # * Table of Contents                                                  :prelim:
 
 \tableofcontents
-# \cleardoublepage
 
 \listoffigures
-# \cleardoublepage
-
-# \pagenumbering{arabic}
 
 \mainmatter
 
-# * Chapters :prelim:
-
 #+INCLUDE: "./ch-all.org" :minlevel 1
+
+
+# #+LaTeX: \widowpenalty0
+# #+LaTeX: \clubpenalty0
 * Bibliography

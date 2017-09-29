@@ -257,3 +257,4 @@ were described in detail including some brief justification behind these
 technical choices. This covered the Web Audio API technology that underlies the
 audio aspect of the project, as well as the libraries and frameworks being used
 to manage the views and state of the app.
+=======

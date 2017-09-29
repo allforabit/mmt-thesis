@@ -18,7 +18,7 @@
   <macro name="editor">
     <names variable="editor" delimiter=", ">
       <name and="text" delimiter=", "/>
-      <label form="short" prefix=" (" suffix=")"/>
+      <label form="short" prefix=" [" suffix="]"/>
     </names>
   </macro>
   <macro name="anon">
@@ -143,7 +143,7 @@
     </choose>
   </macro>
   <citation et-al-min="4" et-al-use-first="3" disambiguate-add-year-suffix="true" collapse="year">
-    <layout prefix="(" suffix=")" delimiter="; ">
+    <layout prefix="[" suffix="]" delimiter="; ">
       <group delimiter=" ">
         <text macro="author-short"/>
         <text macro="year-date"/>
@@ -161,7 +161,7 @@
     </sort>
     <layout>
       <text macro="author"/>
-      <text macro="year-date" prefix=" (" suffix=")"/>
+      <text macro="year-date" prefix=" [" suffix="]"/>
       <choose>
         <if type="thesis">
           <group prefix=" " delimiter=". " suffix=".">

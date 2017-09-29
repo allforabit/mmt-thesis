@@ -28,6 +28,16 @@
 # #+PANDOC_OPTIONS: latex-engine-opt:-shell-escape
 * Evaluation
 ** Introduction
+
+:TODO:
+ - [ ] Weren't
+ - [ ] Organic explain
+ - [ ] Weren't
+ - [ ] Design detail
+ - [ ] isn't
+
+:END:
+
 An evaluation of the application will now be given. This is based on
 self-assessment, user feedback and a usability questionnaire that polled a small
 number of participants. User feedback was garnered at an exhibition that
